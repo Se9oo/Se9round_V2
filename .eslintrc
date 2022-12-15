@@ -10,7 +10,7 @@
 		"plugin:prettier/recommended"
 	],
 	"parserOptions": {
-		"project": "./tsconfig.json"
+		"project": ["./tsconfig.json", "./postcss.config.js", "./tailwind.config.js"]
 	},
 	"rules": {
 		"indent": "off",
