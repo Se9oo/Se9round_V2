@@ -25,6 +25,6 @@
 			"~/*": ["./*"]
 		}
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "tailwind.config.js", "postcss.config.js"],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "tailwind.config.js", "postcss.config.js", "src/global.d.ts"],
 	"exclude": ["node_modules"]
 }
