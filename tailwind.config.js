@@ -5,10 +5,17 @@ module.exports = {
 	theme: {
 		colors: {
 			main: '#439A97',
+			dark: '#1B1D25',
+			darkText: '#D8DBE7',
 			red: '#EB455F',
 			yellow: '#FFE15D',
+			white: '#FFFFFF',
 		},
-		extend: {},
+		extend: {
+			zIndex: {
+				header: 10,
+			},
+		},
 	},
 	plugins: [],
 };

@@ -3,9 +3,9 @@ import Header from '../header/Header';
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
 	return (
-		<main className="relative w-screen max-w-[1024px] mx-auto my-0 bg-white blackbg-slate-900 mt-14 sm:mt-[72px] p-3 sm:p-6">
+		<main className="relative w-screen max-w-[768px] mx-auto my-0 bg-white dark:bg-dark dark:text-darkText leading-6 traking-[-0.5px]">
 			<Header />
-			{children}
+			<section className="mt-14 sm:mt-[72px] p-6 sm:p-0">{children}</section>
 		</main>
 	);
 };
