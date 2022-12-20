@@ -1,7 +1,8 @@
 import * as React from 'react';
+import MainLayout from '~/components/layout/MainLayout';
 
 const Selog = () => {
-	return <div>dd</div>;
+	return <MainLayout>dd</MainLayout>;
 };
 
 export default Selog;
