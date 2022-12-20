@@ -5,8 +5,8 @@ const DarkModeIcon = ({ className }: { className: string }) => {
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			className={`icon icon-tabler icon-tabler-moon ${className}`}
-			width={24}
-			height={24}
+			width={32}
+			height={32}
 			viewBox="0 0 24 24"
 			strokeWidth="2"
 			stroke="currentColor"
