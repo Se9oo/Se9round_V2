@@ -1,31 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import router from 'next/router';
 import { useTheme } from 'next-themes';
 import DarkModeIcon from '../icons/DarkModeIcon';
 import LightModeIcon from '../icons/LightModeIcon';
 import MobileMenuIcon from '../icons/MobileMenuIcon';
+import useIsMouted from '~/hooks/useIsMouted';
+import { PAGE_URLS } from '~/constants/url';
 
 const menus = ['POSTS', 'TAGS'];
 
 const Header = () => {
-	const [mounted, setMounted] = useState(false);
+	useIsMouted();
 	const { theme, setTheme } = useTheme();
 
 	const handleTheme = () => {
 		setTheme(theme === 'dark' ? 'light' : 'dark');
 	};
 
-	useEffect(() => {
-		setMounted(true);
-	}, []);
-
-	if (!mounted) {
-		return null;
-	}
+	const handleMoveHome = () => {
+		router.push(PAGE_URLS.HOME);
+	};
 
 	return (
 		<header className="fixed top-0 left-0 w-screen h-14 sm:h-[72px] shadow-sm z-header bg-white dark:bg-dark">
 			<div className="w-full max-w-[768px] h-full mx-auto my-0 flex justify-between items-center px-6 sm:px-0 py-3 sm:py-6">
-				<h1>selog</h1>
+				<h1>
+					<button type="button" onClick={handleMoveHome}>
+						selog
+					</button>
+				</h1>
 				<ul className="flex justify-start items-center">
 					<li className="flex justify-center items-center mx-4">
 						<button type="button" onClick={handleTheme}>
