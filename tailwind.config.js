@@ -13,6 +13,8 @@ module.exports = {
 		},
 		extend: {
 			zIndex: {
+				content: 1,
+				tag: 2,
 				header: 10,
 			},
 		},
