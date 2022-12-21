@@ -1,0 +1,10 @@
+/* eslint-disable import/prefer-default-export */
+
+/**
+ *
+ * @param {string} text
+ * @returns 공백을 -로 치환 (ex 이건 타이틀 이다 -> 이건-타이틀-이다)
+ */
+export const convertSpaceToDash = (text: string) => {
+	return text.replace(/ /g, '-');
+};
