@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 // eslint-disable-next-line consistent-return
-const useMount = () => {
+const useIsMouted = () => {
 	const [mounted, setMounted] = useState(false);
 
 	useEffect(() => {
@@ -13,4 +13,4 @@ const useMount = () => {
 	}
 };
 
-export default useMount;
+export default useIsMouted;
