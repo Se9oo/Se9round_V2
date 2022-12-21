@@ -1,15 +1,17 @@
 import React from 'react';
 import PostCard from './PostCard';
+import { PostFileType } from '~/types/post';
 
-const test = [1, 2, 3, 4, 5, 6];
-
-const PostList = () => {
+const PostList = ({ posts }: { posts: PostFileType[] }) => {
 	return (
 		<ul className="pt-16">
-			{test.map((post) => {
+			{posts.map((post) => {
+				const { data } = post;
+				const { title, date } = data;
+
 				return (
-					<li key={post} className="my-8 sm:my-11">
-						<PostCard />
+					<li key={`${title}-${date}`} className="mb-12 sm:mb-20">
+						<PostCard metaData={data} />
 					</li>
 				);
 			})}
