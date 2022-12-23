@@ -6,13 +6,54 @@
 	box-sizing: border-box;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	font-family: 'Noto Sans KR', sans-serif;
 }
 
 html {
-	font-family: 'Noto Sans KR', sans-serif;
+	font-family: 'Noto Sans KR', 'Monaco', sans-serif;
 }
 
 body {
-	font-family: 'Noto Sans KR', sans-serif;
+	font-family: 'Noto Sans KR', 'Monaco', sans-serif;
+}
+
+code {
+	font-family: 'Monaco', 'Noto Sans KR', sans-serif !important;
+	word-wrap: break-word;
+	border-radius: 4;
+	font-size: 16px;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	line-height: 28px;
+}
+
+@media screen and (max-width: 767px) {
+	code {
+		font-size: 14px;
+		line-height: 20px;
+	}
+}
+
+#markdown-wrapper > h2 {
+	font-size: 30px;
+	line-height: 36px;
+	font-weight: 500;
+	margin: 1rem 0 1.5rem;
+}
+
+#markdown-wrapper > h3 {
+	font-size: 24px;
+	line-height: 32px;
+	margin: 0.5rem 0 1rem;
+}
+
+#markdown-wrapper > p {
+	margin-bottom: 2rem;
+}
+
+#markdown-wrapper > blockquote {
+	margin-bottom: 2rem;
+}
+
+#markdown-wrapper > blockquote > p {
+	margin-bottom: 0;
 }

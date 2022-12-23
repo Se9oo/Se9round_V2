@@ -4,13 +4,13 @@ import { useTheme } from 'next-themes';
 import DarkModeIcon from '../icons/DarkModeIcon';
 import LightModeIcon from '../icons/LightModeIcon';
 import MobileMenuIcon from '../icons/MobileMenuIcon';
-import useIsMouted from '~/hooks/useIsMouted';
+import useIsMounted from '~/hooks/useIsMounted';
 import { PAGE_URLS } from '~/constants/url';
 
 const menus = ['POSTS', 'TAGS'];
 
 const Header = () => {
-	useIsMouted();
+	const mounted = useIsMounted();
 	const { theme, setTheme } = useTheme();
 
 	const handleTheme = () => {
@@ -20,6 +20,10 @@ const Header = () => {
 	const handleMoveHome = () => {
 		router.push(PAGE_URLS.HOME);
 	};
+
+	if (!mounted) {
+		return null;
+	}
 
 	return (
 		<header className="fixed top-0 left-0 w-full h-14 sm:h-[72px] shadow-sm z-header bg-white dark:bg-dark">
