@@ -8,3 +8,13 @@
 export const convertSpaceToDash = (text: string) => {
 	return text.replace(/ /g, '-');
 };
+
+export const generateSlug = (str: string) => {
+	const text = str
+		?.replace(/^\s+|\s+$/g, '')
+		.toLowerCase()
+		.replace(/\s+/g, '-')
+		.replace(/-+/g, '-');
+
+	return str;
+};
