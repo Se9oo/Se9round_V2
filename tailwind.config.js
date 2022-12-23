@@ -11,6 +11,9 @@ module.exports = {
 			yellow: '#FFE15D',
 			white: '#FFFFFF',
 		},
+		screens: {
+			sm: '768px',
+		},
 		extend: {
 			zIndex: {
 				content: 1,
