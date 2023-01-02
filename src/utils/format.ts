@@ -9,6 +9,11 @@ export const convertSpaceToDash = (text: string) => {
 	return text.replace(/ /g, '-');
 };
 
+/**
+ *
+ * @param {string} str
+ * @returns heading tag의 id 생성
+ */
 export const generateSlug = (str: string) => {
 	const text = str
 		?.replace(/^\s+|\s+$/g, '')
@@ -16,5 +21,5 @@ export const generateSlug = (str: string) => {
 		.replace(/\s+/g, '-')
 		.replace(/-+/g, '-');
 
-	return str;
+	return text;
 };
