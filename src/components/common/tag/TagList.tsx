@@ -1,4 +1,5 @@
 import React from 'react';
+import TagItem from './TagItem';
 
 const TagList = ({ tags, customStyle }: { tags: string[]; customStyle?: string }) => {
 	return (
@@ -6,11 +7,7 @@ const TagList = ({ tags, customStyle }: { tags: string[]; customStyle?: string }
 			{tags.map((tag) => {
 				return (
 					<li key={tag} className="mr-2 z-tag">
-						<button type="button">
-							<span className="rounded bg-main px-2 py-1 text-xs sm:text-sm font-medium text-white dark:text-darkText">
-								{tag}
-							</span>
-						</button>
+						<TagItem tag={tag} />
 					</li>
 				);
 			})}
