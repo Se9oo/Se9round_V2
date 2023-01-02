@@ -7,7 +7,7 @@ const TagList = ({ tags, customStyle }: { tags: string[]; customStyle?: string }
 				return (
 					<li key={tag} className="mr-2 z-tag">
 						<button type="button">
-							<span className="rounded bg-main p-1 text-xs sm:text-sm font-medium text-white dark:text-darkText">
+							<span className="rounded bg-main px-2 py-1 text-xs sm:text-sm font-medium text-white dark:text-darkText">
 								{tag}
 							</span>
 						</button>
