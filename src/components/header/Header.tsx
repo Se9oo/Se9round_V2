@@ -18,7 +18,7 @@ const Header = () => {
 		setTheme(theme === 'dark' ? 'light' : 'dark');
 	};
 
-	const handleMoveMenu = (menu: 'HOME' | 'POSTS' | 'TAGS') => {
+	const handleMoveMenu = (menu: Partial<MenusData>) => {
 		router.push(PAGE_URLS[menu]);
 	};
 
