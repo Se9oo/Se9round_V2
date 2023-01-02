@@ -14,10 +14,10 @@ const PostDetail = ({ postData }: { postData: PostDataType }) => {
 		<>
 			{isMouted ? (
 				<div className="sm:mt-20 sm:text-start">
-					<h1 className="font-bold text-[40px] leading-10 mb-4 sm:mb-12">{title}</h1>
-					{tags && tags.length > 0 ? <TagList tags={tags} customStyle="justify-center sm:justify-start mb-4" /> : null}
+					<h1 className="font-bold text-[40px] leading-[48px] mb-4 sm:mb-12">{title}</h1>
+					{tags && tags.length > 0 ? <TagList tags={tags} customStyle="justify-start mb-4" /> : null}
 					<span>{date}</span>
-					<div id="markdown-wrapper" className="text-lg ">
+					<div id="markdown-wrapper" className="text-lg">
 						<PostMarkdown content={content} />
 					</div>
 				</div>
