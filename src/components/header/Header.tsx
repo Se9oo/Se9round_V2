@@ -6,8 +6,9 @@ import LightModeIcon from '../icons/LightModeIcon';
 import MobileMenuIcon from '../icons/MobileMenuIcon';
 import useIsMounted from '~/hooks/useIsMounted';
 import { PAGE_URLS } from '~/constants/url';
+import { MenusData } from '~/types/common';
 
-const menus = ['POSTS', 'TAGS'];
+const menus: MenusData[] = ['POSTS', 'TAGS'];
 
 const Header = () => {
 	const mounted = useIsMounted();
@@ -17,8 +18,8 @@ const Header = () => {
 		setTheme(theme === 'dark' ? 'light' : 'dark');
 	};
 
-	const handleMoveHome = () => {
-		router.push(PAGE_URLS.HOME);
+	const handleMoveMenu = (menu: 'HOME' | 'POSTS' | 'TAGS') => {
+		router.push(PAGE_URLS[menu]);
 	};
 
 	if (!mounted) {
@@ -29,7 +30,7 @@ const Header = () => {
 		<header className="fixed top-0 left-0 w-full h-14 sm:h-[72px] shadow-sm z-header bg-white dark:bg-dark">
 			<div className="w-full max-w-[768px] h-full mx-auto my-0 flex justify-between items-center px-6 sm:px-2 py-3 sm:py-6">
 				<h1>
-					<button type="button" onClick={handleMoveHome}>
+					<button type="button" onClick={() => handleMoveMenu('HOME')}>
 						selog
 					</button>
 				</h1>
@@ -53,6 +54,8 @@ const Header = () => {
 							<li
 								key={`${menu}`}
 								className="hidden sm:block text-sm ml-4 hover:text-main dark:text-main dark:hover:text-darkText cursor-pointer font-bold transition-all"
+								onClick={() => handleMoveMenu(menu)}
+								onKeyDown={() => {}}
 							>
 								{menu}
 							</li>
