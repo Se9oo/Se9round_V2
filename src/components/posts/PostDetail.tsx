@@ -13,7 +13,7 @@ const PostDetail = ({ postData }: { postData: PostDataType }) => {
 	return (
 		<>
 			{isMouted ? (
-				<div className="sm:mt-40 sm:text-start">
+				<div className="sm:mt-20 sm:text-start">
 					<h1 className="font-bold text-[40px] leading-10 mb-4 sm:mb-12">{title}</h1>
 					{tags && tags.length > 0 ? <TagList tags={tags} customStyle="justify-center sm:justify-start mb-4" /> : null}
 					<span>{date}</span>
