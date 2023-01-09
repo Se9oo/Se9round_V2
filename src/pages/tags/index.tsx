@@ -2,27 +2,28 @@
 import React from 'react';
 import fs from 'fs';
 import matter from 'gray-matter';
-import { MARKDOWN_FILE_PATH } from '~/constants/url';
 import MainLayout from '~/components/layout/MainLayout';
-import TagList from '~/components/common/tag/TagList';
+import Tags from '~/components/tags/Tags';
+import { PostFileType } from '~/types/post';
+import { MARKDOWN_FILE_PATH } from '~/constants/url';
 
-const Tags = (props: { tags: string[] }) => {
-	const { tags } = props;
+const TagsPage = (props: { tags: string[]; posts: PostFileType[] }) => {
+	const { tags, posts } = props;
 
 	return (
 		<MainLayout>
-			<h1 className="text-4xl mb-20">TAGS</h1>
-			<TagList tags={tags} />
+			<h1 className="text-4xl mb-10 sm:mb-20">TAGS</h1>
+			<Tags tags={tags} posts={posts} />
 		</MainLayout>
 	);
 };
 
-export default Tags;
+export default TagsPage;
 
 export const getStaticProps = async () => {
 	const files = fs.readdirSync(MARKDOWN_FILE_PATH);
 
-	const tags = files.map((file) => {
+	const posts = files.map((file) => {
 		const fileName = file.replace('.md', '');
 
 		const content = fs.readFileSync(`${MARKDOWN_FILE_PATH}/${file}`, 'utf-8');
@@ -31,13 +32,15 @@ export const getStaticProps = async () => {
 		const { data } = parsedContent;
 
 		return {
-			tags: data.tags,
+			fileName,
+			data,
 		};
 	});
+
 	const tagSet = new Set();
 
-	tags.map((tagRow) => {
-		tagRow.tags.map((tag: string) => {
+	posts.map((post) => {
+		post.data.tags.map((tag: string) => {
 			tagSet.add(tag);
 		});
 	});
@@ -45,6 +48,7 @@ export const getStaticProps = async () => {
 	return {
 		props: {
 			tags: [...tagSet],
+			posts,
 		},
 	};
 };

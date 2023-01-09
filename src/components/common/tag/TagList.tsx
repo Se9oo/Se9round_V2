@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { memo } from 'react';
+import _ from 'lodash';
 import TagItem from './TagItem';
 
-const TagList = ({ tags, customStyle }: { tags: string[]; customStyle?: string }) => {
+const equalCheck = (
+	prevTags: { tags: string[]; customStyle?: string },
+	nextTags: { tags: string[]; customStyle?: string },
+) => {
+	return _.isEqual(prevTags.tags, nextTags.tags);
+};
+
+const TagList = memo(({ tags, customStyle }: { tags: string[]; customStyle?: string }) => {
 	return (
 		<ul className={`flex ${customStyle}`}>
 			{tags.map((tag) => {
@@ -13,6 +21,6 @@ const TagList = ({ tags, customStyle }: { tags: string[]; customStyle?: string }
 			})}
 		</ul>
 	);
-};
+}, equalCheck);
 
 export default TagList;
