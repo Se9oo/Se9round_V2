@@ -1,1 +1,1 @@
-export type MenusData = 'HOME' | 'POST' | 'POSTS' | 'TAGS';
+export type MenusData = 'HOME' | 'POST' | 'TAGS';

@@ -8,7 +8,7 @@ import useIsMounted from '~/hooks/useIsMounted';
 import { PAGE_URLS } from '~/constants/url';
 import { MenusData } from '~/types/common';
 
-const menus: MenusData[] = ['POSTS', 'TAGS'];
+const menus: MenusData[] = ['TAGS'];
 
 const Header = () => {
 	const mounted = useIsMounted();
