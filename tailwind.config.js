@@ -10,6 +10,7 @@ module.exports = {
 			red: '#EB455F',
 			yellow: '#FFE15D',
 			white: '#FFFFFF',
+			grey: 'rgba(41, 69, 105, 0.1)',
 		},
 		screens: {
 			sm: '768px',
