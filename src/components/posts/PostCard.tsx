@@ -1,6 +1,6 @@
 import React from 'react';
 import router from 'next/router';
-import TagList from '../common/tag/TagList';
+import TagList from '../tags/TagList';
 import { PAGE_URLS } from '~/constants/url';
 import { convertSpaceToDash } from '~/utils/format';
 import { PostMetaDataType } from '~/types/post';

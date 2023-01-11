@@ -1,7 +1,7 @@
 import React from 'react';
-import TagList from '../common/tag/TagList';
-import { PostDataType } from '~/types/post';
+import TagList from '../tags/TagList';
 import PostMarkdown from './PostMarkdown';
+import { PostDataType } from '~/types/post';
 import useIsMounted from '~/hooks/useIsMounted';
 
 const PostDetail = ({ postData }: { postData: PostDataType }) => {
