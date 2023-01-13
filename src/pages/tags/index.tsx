@@ -24,30 +24,23 @@ export const getStaticProps = async () => {
 	const files = fs.readdirSync(MARKDOWN_FILE_PATH);
 
 	const posts = files.map((file) => {
-		const fileName = file.replace('.md', '');
-
-		const content = fs.readFileSync(`${MARKDOWN_FILE_PATH}/${file}`, 'utf-8');
-		const parsedContent = matter(content);
-
-		const { data } = parsedContent;
+		const { data } = matter(fs.readFileSync(`${MARKDOWN_FILE_PATH}/${file}`, 'utf-8'));
 
 		return {
-			fileName,
+			fileName: file.replace('.md', ''),
 			data,
 		};
 	});
 
-	const tagSet = new Set();
-
-	posts.map((post) => {
-		post.data.tags.map((tag: string) => {
-			tagSet.add(tag);
-		});
-	});
+	const [...tags] = new Set<string>([
+		...posts
+			.map((post) => post.data.tags.reduce((acc: string, cur: string) => acc.concat(cur), []))
+			.reduce((acc: string[], cur: string[]) => acc.concat(cur), []),
+	]);
 
 	return {
 		props: {
-			tags: [...tagSet],
+			tags,
 			posts,
 		},
 	};
