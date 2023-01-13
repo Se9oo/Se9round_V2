@@ -4,7 +4,7 @@ import { PostFileType } from '~/types/post';
 
 const PostList = ({ posts }: { posts: PostFileType[] }) => {
 	return (
-		<ul className="pt-16">
+		<ul className="pt-8 sm:pt-16">
 			{posts.map((post) => {
 				const { data } = post;
 				const { title, date } = data;

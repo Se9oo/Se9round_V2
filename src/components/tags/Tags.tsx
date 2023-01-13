@@ -1,9 +1,7 @@
-import React, { ChangeEvent, MouseEvent, useCallback, useEffect, useState } from 'react';
-import _ from 'lodash';
+import React, { MouseEvent, useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import TagList from './TagList';
 import PostList from '../posts/PostList';
-import SearchInput from '../common/search/SearchInput';
 import { PostFileType } from '~/types/post';
 
 const Tags = ({ tags, posts }: { tags: string[]; posts: PostFileType[] }) => {
@@ -11,10 +9,6 @@ const Tags = ({ tags, posts }: { tags: string[]; posts: PostFileType[] }) => {
 
 	const [searchPosts, setSearchPosts] = useState<PostFileType[]>([]);
 	const [searchTag, setSearchTag] = useState('');
-
-	const handleSearchTag = _.debounce((e: ChangeEvent<HTMLInputElement>) => {
-		setSearchTag(e.target.value);
-	}, 300);
 
 	const handleTagClick = useCallback((e: MouseEvent, tagName: string) => {
 		setSearchTag(tagName);
@@ -34,9 +28,13 @@ const Tags = ({ tags, posts }: { tags: string[]; posts: PostFileType[] }) => {
 
 	return (
 		<>
-			<SearchInput value={searchTag} handleChangeValue={handleSearchTag} placeholder="태그를 입력하세요" />
 			{tags && tags.length > 0 ? <TagList tags={tags} handleTagClick={handleTagClick} /> : null}
-			{searchPosts && searchPosts.length > 0 ? <PostList posts={searchPosts} /> : null}
+			{searchTag && <h2 className="block mt-8 sm:mt-16 text-[24px] underline">{`#${searchTag}`}</h2>}
+			{searchPosts && searchPosts.length > 0 ? (
+				<PostList posts={searchPosts} />
+			) : (
+				<span className="block w-full text-center mt-24">태그를 선택해 주세요</span>
+			)}
 		</>
 	);
 };
