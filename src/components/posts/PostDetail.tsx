@@ -3,6 +3,7 @@ import TagList from '../tags/TagList';
 import PostMarkdown from './PostMarkdown';
 import { PostDataType } from '~/types/post';
 import useIsMounted from '~/hooks/useIsMounted';
+import Utterances from '../utterances/Utterances';
 
 const PostDetail = ({ postData }: { postData: PostDataType }) => {
 	const isMouted = useIsMounted();
@@ -19,6 +20,9 @@ const PostDetail = ({ postData }: { postData: PostDataType }) => {
 					<span>{date}</span>
 					<div id="markdown-wrapper" className="text-lg">
 						<PostMarkdown content={content} />
+					</div>
+					<div className="mt-[60px] sm:mt-[120px]">
+						<Utterances />
 					</div>
 				</div>
 			) : null}
