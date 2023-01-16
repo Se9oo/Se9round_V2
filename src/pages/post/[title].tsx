@@ -20,10 +20,7 @@ export default Post;
 export const getStaticPaths = async () => {
 	const files = fs.readdirSync(MARKDOWN_FILE_PATH);
 	const paths = files.map((file) => {
-		const content = fs.readFileSync(`${MARKDOWN_FILE_PATH}/${file}`, 'utf-8');
-		const parsedContent = matter(content);
-
-		const { data } = parsedContent;
+		const { data } = matter(fs.readFileSync(`${MARKDOWN_FILE_PATH}/${file}`, 'utf-8'));
 		const { title } = data as PostMetaDataType;
 
 		return {
@@ -41,9 +38,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: { params: { title: string } }) => {
 	const { title } = params;
-
-	const fileName = fs.readFileSync(`${MARKDOWN_FILE_PATH}/${title}.md`, 'utf-8');
-	const { data: metaData, content } = matter(fileName);
+	const { data: metaData, content } = matter(fs.readFileSync(`${MARKDOWN_FILE_PATH}/${title}.md`, 'utf-8'));
 
 	return {
 		props: {

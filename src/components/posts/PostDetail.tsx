@@ -8,8 +8,10 @@ import Utterances from '../utterances/Utterances';
 const PostDetail = ({ postData }: { postData: PostDataType }) => {
 	const isMouted = useIsMounted();
 
-	const { metaData, content } = postData;
-	const { title, date, tags } = metaData;
+	const {
+		metaData: { title, date, tags },
+		content,
+	} = postData;
 
 	return (
 		<>

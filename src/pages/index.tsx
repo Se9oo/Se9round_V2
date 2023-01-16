@@ -24,8 +24,7 @@ export const getStaticProps = async () => {
 	const posts = files.map((file) => {
 		const fileName = file.replace('.md', '');
 
-		const content = fs.readFileSync(`${MARKDOWN_FILE_PATH}/${file}`, 'utf-8');
-		const parsedContent = matter(content);
+		const parsedContent = matter(fs.readFileSync(`${MARKDOWN_FILE_PATH}/${file}`, 'utf-8'));
 
 		const { data } = parsedContent;
 
