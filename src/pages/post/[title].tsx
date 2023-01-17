@@ -6,12 +6,20 @@ import PostDetail from '~/components/posts/PostDetail';
 import { PostDataType, PostMetaDataType } from '~/types/post';
 import { convertSpaceToDash } from '~/utils/format';
 import { MARKDOWN_FILE_PATH } from '~/constants/url';
+import PageHead from '~/components/common/Head/PageHead';
 
 const Post = (props: PostDataType) => {
+	const {
+		metaData: { title, description, tags },
+	} = props;
+
 	return (
-		<MainLayout>
-			<PostDetail postData={props} />
-		</MainLayout>
+		<>
+			<PageHead title={title} description={description} keywords={tags} thumbnail="" />
+			<MainLayout>
+				<PostDetail postData={props} />
+			</MainLayout>
+		</>
 	);
 };
 
