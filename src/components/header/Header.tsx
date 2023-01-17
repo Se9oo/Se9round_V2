@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import router from 'next/router';
 import { useTheme } from 'next-themes';
 import DarkModeIcon from '../icons/DarkModeIcon';
@@ -7,12 +7,15 @@ import MobileMenuIcon from '../icons/MobileMenuIcon';
 import useIsMounted from '~/hooks/useIsMounted';
 import { PAGE_URLS } from '~/constants/url';
 import { MenusData } from '~/types/common';
+import SlideMenu from '../menu/SlideMenu';
 
 const menus: MenusData[] = ['TAGS'];
 
 const Header = () => {
 	const mounted = useIsMounted();
 	const { theme, setTheme } = useTheme();
+
+	const [isOpen, setIsOpen] = useState(false);
 
 	const handleTheme = () => {
 		setTheme(theme === 'dark' ? 'light' : 'dark');
@@ -45,7 +48,7 @@ const Header = () => {
 						</button>
 					</li>
 					<li>
-						<button type="button" className="block sm:hidden ml-2">
+						<button type="button" className="block sm:hidden ml-2" onClick={() => setIsOpen(true)}>
 							<MobileMenuIcon />
 						</button>
 					</li>
@@ -63,6 +66,7 @@ const Header = () => {
 					})}
 				</ul>
 			</div>
+			<SlideMenu isOpen={isOpen} setIsOpen={setIsOpen} />
 		</header>
 	);
 };
