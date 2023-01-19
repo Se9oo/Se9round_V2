@@ -11,6 +11,7 @@ module.exports = {
 			yellow: '#FFE15D',
 			white: '#FFFFFF',
 			grey: 'rgba(41, 69, 105, 0.1)',
+			greyCopy: '#6B728E',
 		},
 		screens: {
 			sm: '768px',
