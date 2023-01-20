@@ -59,6 +59,13 @@ const MarkdownDarkComponent: object = {
 
 		return <h3 id={slug} {...props}></h3>;
 	},
+	h4: (props: any) => {
+		const heading = props?.children.reduce((a: string, b: string) => a + b);
+
+		const slug = generateSlug(heading ?? '');
+
+		return <h4 id={slug} {...props}></h4>;
+	},
 };
 
 const MarkdownLightComponent: object = {
