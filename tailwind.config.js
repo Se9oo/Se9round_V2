@@ -15,6 +15,7 @@ module.exports = {
 		},
 		screens: {
 			sm: '768px',
+			md: '1370px',
 		},
 		extend: {
 			zIndex: {
