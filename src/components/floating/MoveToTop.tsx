@@ -3,7 +3,6 @@ import MoveToTopIcon from '../icons/MoveToTopIcon';
 
 const MoveToTop = () => {
 	const handleMoveToTop = () => {
-		console.log('dd');
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	};
 
