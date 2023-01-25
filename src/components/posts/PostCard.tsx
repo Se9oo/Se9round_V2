@@ -1,5 +1,6 @@
 import React from 'react';
 import router from 'next/router';
+import Image from 'next/image';
 import TagList from '../tags/TagList';
 import { PAGE_URLS } from '~/constants/url';
 import { convertSpaceToDash } from '~/utils/format';
@@ -18,11 +19,9 @@ const PostCard = ({ metaData }: { metaData: PostMetaDataType }) => {
 			onClick={handleMovePostDetailPage}
 			onKeyDown={handleMovePostDetailPage}
 		>
-			<img
-				src="./images/dongdong.jpeg"
-				alt="dongdong"
-				className="w-full h-[132px] sm:h-auto sm:w-[36%] rounded-md mb-4 sm:mb-0 mr-2 sm:mr-12 object-cover"
-			/>
+			<div className="relative w-full h-[132px] sm:h-auto sm:w-[36%] mb-4 sm:mb-0 mr-2 sm:mr-12">
+				<Image src="/images/dongdong.jpeg" alt="post-thumbnail" fill className="rounded-md object-cover" />
+			</div>
 			<div className="relative sm:w-[65%] flex flex-col">
 				<h3 className="font-bold text-[22px] mb-4 break-all sm:break-normal">{title}</h3>
 				<p className="block text-md sm:text-lg mb-4 sm:mb-0 break-all sm:break-normal">{description}</p>
