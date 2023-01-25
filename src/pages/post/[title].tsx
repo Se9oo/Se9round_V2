@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import fs from 'fs';
 import matter from 'gray-matter';
 import MainLayout from '~/components/layout/MainLayout';
@@ -9,13 +10,20 @@ import { MARKDOWN_FILE_PATH } from '~/constants/url';
 import PageHead from '~/components/common/Head/PageHead';
 
 const Post = (props: PostDataType) => {
+	const router = useRouter();
 	const {
-		metaData: { title, description, tags },
+		metaData: { title, description, tags, socialImage },
 	} = props;
 
 	return (
 		<>
-			<PageHead title={title} description={description} keywords={tags} thumbnail="" />
+			<PageHead
+				title={title}
+				description={description}
+				keywords={tags}
+				thumbnail={socialImage}
+				url={router.query?.title ? `${process.env.NEXT_PUBLIC_HOME_URL}/post/${router.query.title}` : ''}
+			/>
 			<MainLayout>
 				<PostDetail postData={props} />
 			</MainLayout>
