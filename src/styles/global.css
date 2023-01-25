@@ -56,3 +56,7 @@ code {
 #markdown-wrapper > blockquote > p {
 	margin-bottom: 0;
 }
+
+:root {
+	--toastify-color-success: #439a97;
+}

@@ -3,6 +3,8 @@ import Head from 'next/head';
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';
 import { AnimatePresence } from 'framer-motion';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '~/styles/global.css';
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -25,6 +27,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 				<script src="https://developers.kakao.com/sdk/js/kakao.js" />
 			</Head>
 			<AnimatePresence initial={false} mode="wait">
+				<ToastContainer />
 				<Component {...pageProps} />
 			</AnimatePresence>
 		</ThemeProvider>
