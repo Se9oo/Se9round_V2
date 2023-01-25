@@ -26,8 +26,8 @@ const App = ({ Component, pageProps }: AppProps) => {
 				<meta name="description" content="se9oo 개발 블로그" />
 				<script src="https://developers.kakao.com/sdk/js/kakao.js" />
 			</Head>
+			<ToastContainer />
 			<AnimatePresence initial={false} mode="wait">
-				<ToastContainer />
 				<Component {...pageProps} />
 			</AnimatePresence>
 		</ThemeProvider>
