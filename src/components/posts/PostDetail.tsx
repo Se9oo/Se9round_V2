@@ -5,6 +5,7 @@ import { PostDataType } from '~/types/post';
 import useIsMounted from '~/hooks/useIsMounted';
 import Utterances from '../utterances/Utterances';
 import Toc from '../toc/Toc';
+import FloatingActions from '../floating/FloatingActions';
 
 const PostDetail = ({ postData }: { postData: PostDataType }) => {
 	const isMouted = useIsMounted();
@@ -20,6 +21,7 @@ const PostDetail = ({ postData }: { postData: PostDataType }) => {
 				<>
 					<div className="relative">
 						<Toc />
+						<FloatingActions post={postData} />
 					</div>
 					<div className="sm:mt-20 sm:text-start">
 						<h1 className="font-bold text-[40px] leading-[48px] mb-4 sm:mb-12">{title}</h1>

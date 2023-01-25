@@ -11,6 +11,7 @@ module.exports = {
 			yellow: '#FFE15D',
 			white: '#FFFFFF',
 			grey: 'rgba(41, 69, 105, 0.1)',
+			greyLight: '#EAEAEA',
 			greyCopy: '#6B728E',
 		},
 		screens: {
@@ -21,6 +22,7 @@ module.exports = {
 			zIndex: {
 				content: 1,
 				tag: 2,
+				floating: 9,
 				header: 10,
 			},
 		},
