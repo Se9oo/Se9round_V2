@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { PostDataType } from '~/types/post';
+import KakaoIcon from '../icons/KakaoIcon';
 
 const KakaoShare = ({ post }: { post: PostDataType }) => {
 	const router = useRouter();
@@ -43,11 +44,12 @@ const KakaoShare = ({ post }: { post: PostDataType }) => {
 	}, [title, description, socialImage, router.query.title]);
 
 	return (
-		<button id="kakao-link-btn" type="button" className="w-9 h-9">
-			<img
-				src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
-				alt="카카오링크 보내기 버튼"
-			/>
+		<button
+			id="kakao-link-btn"
+			type="button"
+			className="w-9 h-9 flex justify-center items-center bg-yellowKakao hover:bg-yellowKakaoHover rounded-md transition-all"
+		>
+			<KakaoIcon />
 		</button>
 	);
 };

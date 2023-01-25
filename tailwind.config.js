@@ -9,6 +9,8 @@ module.exports = {
 			darkText: '#D8DBE7',
 			red: '#EB455F',
 			yellow: '#FFE15D',
+			yellowKakao: '#FFDE00',
+			yellowKakaoHover: '#D8C543',
 			white: '#FFFFFF',
 			grey: 'rgba(41, 69, 105, 0.1)',
 			greyLight: '#EAEAEA',
