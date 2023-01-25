@@ -3,6 +3,7 @@ export interface PostMetaDataType {
 	description: string;
 	date: string;
 	tags: string[];
+	socialImage: string;
 }
 
 export interface PostFileType {
