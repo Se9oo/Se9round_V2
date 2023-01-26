@@ -2,7 +2,6 @@ import React, { Dispatch, SetStateAction } from 'react';
 import { useTheme } from 'next-themes';
 import useScrollLock from '~/hooks/useScrollLock';
 import SlideMenuList from './SlideMenuList';
-import { Z_INDEX } from '~/constants/zindex';
 import CloseIcon from '../icons/CloseIcon';
 
 const SlideMenu = ({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: Dispatch<SetStateAction<boolean>> }) => {
@@ -10,7 +9,7 @@ const SlideMenu = ({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: Dispatch
 	useScrollLock(isOpen);
 
 	return (
-		<div className={`block sm:hidden ${Z_INDEX.slideMenu}`}>
+		<div className="block sm:hidden z-header">
 			<div
 				className={`fixed sm:hidden top-0 right-0  h-screen ${
 					isOpen ? 'w-full opacity-[0.5]' : 'w-0 opacity-0'
