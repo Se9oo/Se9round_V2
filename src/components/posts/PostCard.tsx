@@ -20,7 +20,14 @@ const PostCard = ({ metaData }: { metaData: PostMetaDataType }) => {
 			onKeyDown={handleMovePostDetailPage}
 		>
 			<div className="relative w-full h-[132px] sm:h-auto sm:w-[36%] mb-4 sm:mb-0 mr-2 sm:mr-12">
-				<Image src="/images/dongdong.jpeg" alt="post-thumbnail" fill className="rounded-md object-cover" />
+				<Image
+					src="/images/dongdong.jpeg"
+					alt="post-thumbnail"
+					fill
+					priority
+					className="rounded-md object-cover"
+					sizes="w-full"
+				/>
 			</div>
 			<div className="relative sm:w-[65%] flex flex-col">
 				<h3 className="font-bold text-[22px] mb-4 break-all sm:break-normal">{title}</h3>
