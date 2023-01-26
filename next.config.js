@@ -11,6 +11,9 @@ const nextConfig = {
 
 		return config;
 	},
+	images: {
+		deviceSizes: [768, 1370],
+	},
 };
 
 module.exports = nextConfig;
