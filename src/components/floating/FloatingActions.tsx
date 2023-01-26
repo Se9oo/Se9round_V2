@@ -1,22 +1,42 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import MoveToTop from './MoveToTop';
+import CopyLink from './CopyLink';
 import KakaoShare from './KakaoShare';
 import { PostDataType } from '~/types/post';
-import CopyLink from './CopyLink';
+
+type FloatingAction = {
+	id: string;
+	element: ReactElement;
+};
 
 const FloatingActions = ({ post }: { post: PostDataType }) => {
+	const actions: FloatingAction[] = [
+		{
+			id: 'moveToTop',
+			element: <MoveToTop />,
+		},
+		{
+			id: 'copyLink',
+			element: <CopyLink />,
+		},
+		{
+			id: 'kakaoShare',
+			element: <KakaoShare post={post} />,
+		},
+	];
+
 	return (
 		<div className="md:absolute md:left-full">
 			<ul className="fixed bottom-[40px] right-5 sm:right-[5%] md:right-auto md:ml-[5rem] flex flex-col items-center z-floating">
-				<li className="mb-2">
-					<MoveToTop />
-				</li>
-				<li className="mb-2">
-					<CopyLink />
-				</li>
-				<li className="mb-2">
-					<KakaoShare post={post} />
-				</li>
+				{actions.map((action) => {
+					const { id, element } = action;
+
+					return (
+						<li key={id} className="mb-2">
+							{element}
+						</li>
+					);
+				})}
 			</ul>
 		</div>
 	);
