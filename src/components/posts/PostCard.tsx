@@ -26,7 +26,7 @@ const PostCard = ({ metaData }: { metaData: PostMetaDataType }) => {
 					fill
 					priority
 					className="rounded-md object-cover"
-					sizes="w-full"
+					sizes="100vw"
 				/>
 			</div>
 			<div className="relative sm:w-[65%] flex flex-col">
