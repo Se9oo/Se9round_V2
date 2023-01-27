@@ -52,7 +52,7 @@ const Toc = () => {
 
 	return (
 		<aside className="hidden md:block absolute left-full">
-			<ul className="fixed top-[240px] ml-[5rem]">
+			<ul className="fixed top-[240px] ml-[5rem] border-l-2 border-main pl-[1rem]">
 				{tocHeadings.map((heading) => {
 					const { id, text, level } = heading;
 					return (
@@ -60,11 +60,9 @@ const Toc = () => {
 							key={`${id}`}
 							className={`
               transition-all mb-1
-              ${
-								currentTargetId === id
-									? 'border-l-2 border-l-main text-base font-bold dark:text-main'
-									: 'border-none text-sm font-normal text-greyCopy dark:text-darkText'
-							}
+							text-sm
+							font-medium
+              ${currentTargetId === id ? 'dark:text-main' : 'text-greyCopy dark:text-darkText'}
               ${levelToPadding(level)}`}
 						>
 							<a href={`#${id}`} onClick={(e) => handleTocItem(e, id)}>
