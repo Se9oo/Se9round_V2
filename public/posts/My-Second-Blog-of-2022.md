@@ -4,6 +4,7 @@ metaTitle: 'My First blog of 2022'
 description: 'How to make a blogging website using Next.js, Markdown and style it using TailwindCSS.'
 socialImage: images/pic1.jpg
 date: '2022-02-03'
+timestamp: 202202030100
 tags:
   - nextjs
   - personal

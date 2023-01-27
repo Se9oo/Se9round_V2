@@ -4,6 +4,7 @@ export interface PostMetaDataType {
 	date: string;
 	tags: string[];
 	socialImage: string;
+	timestamp: number;
 }
 
 export interface PostFileType {

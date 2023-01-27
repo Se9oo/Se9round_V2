@@ -21,18 +21,20 @@ export default Selog;
 export const getStaticProps = async () => {
 	const files = fs.readdirSync(MARKDOWN_FILE_PATH);
 
-	const posts = files.map((file) => {
-		const fileName = file.replace('.md', '');
+	const posts = files
+		.map((file) => {
+			const fileName = file.replace('.md', '');
 
-		const parsedContent = matter(fs.readFileSync(`${MARKDOWN_FILE_PATH}/${file}`, 'utf-8'));
+			const parsedContent = matter(fs.readFileSync(`${MARKDOWN_FILE_PATH}/${file}`, 'utf-8'));
 
-		const { data } = parsedContent;
+			const { data } = parsedContent;
 
-		return {
-			fileName,
-			data,
-		};
-	});
+			return {
+				fileName,
+				data,
+			};
+		})
+		.sort((a, b) => b.data.timestamp - a.data.timestamp);
 
 	return {
 		props: {
