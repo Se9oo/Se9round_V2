@@ -16,6 +16,10 @@ body {
 	font-family: 'Noto Sans KR', 'Monaco', sans-serif;
 }
 
+#__next {
+	height: 100vh;
+}
+
 code {
 	font-family: 'Monaco', 'Noto Sans KR', sans-serif !important;
 	word-wrap: break-word;
