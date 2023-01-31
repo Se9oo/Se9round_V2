@@ -92,7 +92,6 @@ const PostMarkdown = ({ content }: { content: string }) => {
 
 	return (
 		<ReactMarkdown
-			// children={content.replace(/\n\s/gi, '\n&nbsp;\n\n')}
 			remarkPlugins={[remarkBreaks]}
 			children={content}
 			components={theme === 'light' ? MarkdownLightComponent : MarkdownDarkComponent}
