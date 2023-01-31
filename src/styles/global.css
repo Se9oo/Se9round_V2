@@ -1,12 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url(fonts.css);
 
-@font-face {
-	font-family: 'Monaco';
-	font-style: normal;
-	font-weight: normal;
-	src: local('Monaco'), url('/fonts/Monaco.woff') format('woff');
+:root {
+	--toastify-color-success: #439a97;
 }
 
 * {
@@ -16,11 +14,13 @@
 }
 
 html {
-	font-family: 'Noto Sans KR', 'Monaco', sans-serif;
+	font-family: 'Spoqa Han Sans Neo', 'Noto Sans KR', 'Monaco', sans-serif;
+	letter-spacing: -0.5px;
 }
 
 body {
-	font-family: 'Noto Sans KR', 'Monaco', sans-serif;
+	font-family: 'Spoqa Han Sans Neo', 'Noto Sans KR', 'Monaco', sans-serif;
+	letter-spacing: -0.5px;
 }
 
 #__next {
@@ -28,12 +28,11 @@ body {
 }
 
 code {
-	font-family: 'Monaco', 'Noto Sans KR', sans-serif !important;
+	font-family: 'Monaco', 'Spoqa Han Sans Neo', 'Noto Sans KR', sans-serif !important;
 	word-wrap: break-word;
 	border-radius: 4;
 	font-size: 16px;
-	font-weight: 700;
-	letter-spacing: -0.5px;
+	font-weight: 600;
 }
 
 @media screen and (max-width: 767px) {
@@ -66,8 +65,4 @@ code {
 
 #markdown-wrapper > blockquote > p {
 	margin-bottom: 0;
-}
-
-:root {
-	--toastify-color-success: #439a97;
 }
