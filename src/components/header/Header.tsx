@@ -34,7 +34,7 @@ const Header = () => {
 			<div className="w-full max-w-[768px] h-full mx-auto my-0 flex justify-between items-center px-6 sm:px-4 py-3 sm:py-6">
 				<h1>
 					<button type="button" onClick={() => handleMoveMenu('HOME')}>
-						<strong className="text-[24px] tracking-[-0.5px] font-bold italic text-dark dark:text-main">
+						<strong className="text-[24px] tracking-[-0.5px] font-bold italic underline text-dark dark:text-main mr-2">
 							se9round
 						</strong>
 					</button>
