@@ -17,7 +17,7 @@ const PostCard = ({ metaData }: { metaData: PostMetaDataType }) => {
 		<article
 			className="w-full sm:h-[172px] flex sm:justify-between flex-col sm:flex-row cursor-pointer z-content"
 			onClick={handleMovePostDetailPage}
-			onKeyDown={handleMovePostDetailPage}
+			onKeyDown={undefined}
 		>
 			<div className="relative w-full h-[132px] sm:h-auto sm:w-[36%] mb-4 sm:mb-0 mr-2 sm:mr-12">
 				<Image
@@ -30,8 +30,10 @@ const PostCard = ({ metaData }: { metaData: PostMetaDataType }) => {
 				/>
 			</div>
 			<div className="relative sm:w-[65%] flex flex-col">
-				<h3 className="font-bold text-[22px] mb-4 break-all sm:break-normal">{title}</h3>
-				<p className="block text-md sm:text-lg mb-4 sm:mb-0 break-all sm:break-normal">{description}</p>
+				<h3 className="font-bold text-[22px] mb-4 break-all sm:break-normal tracking-[-0.5px]">{title}</h3>
+				<p className="block text-md sm:text-lg mb-4 sm:mb-0 break-all sm:break-normal tracking-[-0.5px]">
+					{description}
+				</p>
 				{tags && tags.length > 0 ? (
 					<TagList tags={tags} customStyle="mb-4 sm:mb-0 sm:absolute sm:bottom-0 sm:left-0" />
 				) : null}
