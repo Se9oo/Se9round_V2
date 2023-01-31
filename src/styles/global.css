@@ -6,7 +6,7 @@
 	font-family: 'Monaco';
 	font-style: normal;
 	font-weight: normal;
-	src: local('Monaco'), url('/public/fonts/Monaco.woff') format('woff');
+	src: local('Monaco'), url('/fonts/Monaco.woff') format('woff');
 }
 
 * {
