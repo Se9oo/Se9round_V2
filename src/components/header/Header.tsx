@@ -56,7 +56,7 @@ const Header = () => {
 						return (
 							<li
 								key={`${menu}`}
-								className="hidden sm:block text-sm ml-4 hover:text-main dark:text-main dark:hover:text-darkText cursor-pointer font-bold transition-all"
+								className="hidden sm:block text-sm ml-4 hover:text-main cursor-pointer font-bold transition-all"
 								onClick={() => handleMoveMenu(menu)}
 								onKeyDown={() => {}}
 							>
