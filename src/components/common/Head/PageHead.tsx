@@ -8,11 +8,11 @@ const PageHead = ({
 	thumbnail = '',
 	url = 'https://se9round.dev',
 }: {
-	title: string;
-	description: string;
-	keywords: string[];
-	thumbnail: string;
-	url: string;
+	title?: string;
+	description?: string;
+	keywords?: string[];
+	thumbnail?: string;
+	url?: string;
 }) => {
 	return (
 		<Head>
