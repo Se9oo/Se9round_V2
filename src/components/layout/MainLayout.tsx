@@ -5,9 +5,9 @@ import PageTransition from '../common/transition/PageTransition';
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
 	return (
-		<div className="relative h-full flex flex-col">
+		<div className="relative h-full flex flex-col dark:text-darkText">
 			<Header />
-			<PageTransition className="relative w-full max-w-[768px] mx-auto my-0 bg-white dark:bg-dark dark:text-darkText leading-6 traking-[-0.5px] flex-1">
+			<PageTransition className="relative w-full max-w-[768px] mx-auto my-0 bg-white dark:bg-dark leading-6 traking-[-0.5px] flex-1">
 				<section className="mt-14 sm:mt-[72px] p-6 sm:p-4">{children}</section>
 			</PageTransition>
 			<Footer />
