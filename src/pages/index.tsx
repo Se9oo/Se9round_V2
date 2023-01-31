@@ -1,6 +1,7 @@
 import * as React from 'react';
 import fs from 'fs';
 import matter from 'gray-matter';
+import PageHead from '~/components/common/Head/PageHead';
 import MainLayout from '~/components/layout/MainLayout';
 import PostList from '~/components/posts/PostList';
 import { PostFileType } from '~/types/post';
@@ -10,9 +11,12 @@ const Selog = (props: { posts: PostFileType[] }) => {
 	const { posts } = props;
 
 	return (
-		<MainLayout>
-			<PostList posts={posts} />
-		</MainLayout>
+		<>
+			<PageHead />
+			<MainLayout>
+				<PostList posts={posts} />
+			</MainLayout>
+		</>
 	);
 };
 

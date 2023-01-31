@@ -3,6 +3,7 @@ import React from 'react';
 import fs from 'fs';
 import matter from 'gray-matter';
 import MainLayout from '~/components/layout/MainLayout';
+import PageHead from '~/components/common/Head/PageHead';
 import Tags from '~/components/tags/Tags';
 import { PostFileType } from '~/types/post';
 import { MARKDOWN_FILE_PATH } from '~/constants/url';
@@ -11,10 +12,13 @@ const TagsPage = (props: { tags: string[]; posts: PostFileType[] }) => {
 	const { tags, posts } = props;
 
 	return (
-		<MainLayout>
-			<h1 className="text-4xl mb-10 sm:mb-20">TAGS</h1>
-			<Tags tags={tags} posts={posts} />
-		</MainLayout>
+		<>
+			<PageHead title="se9round.dev | tags" url="https://se9round.dev/tags" />
+			<MainLayout>
+				<h1 className="text-4xl mb-10 sm:mb-20">TAGS</h1>
+				<Tags tags={tags} posts={posts} />
+			</MainLayout>
+		</>
 	);
 };
 
