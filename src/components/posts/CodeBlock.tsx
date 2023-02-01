@@ -57,7 +57,8 @@ const CodeBlock = ({ children, match }: { children: ReactNode; match: RegExpExec
 				language={match[1]}
 				PreTag="div"
 				customStyle={{
-					padding: '48px 24px',
+					margin: '1rem 0 2rem',
+					padding: '2.5rem 1.5rem',
 					borderRadius: 4,
 				}}
 			/>

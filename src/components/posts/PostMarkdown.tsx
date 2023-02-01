@@ -45,6 +45,19 @@ const MarkdownDarkComponent: object = {
 		}
 		return <a href={anchor.href}>{anchor.children}</a>;
 	},
+	ol: ({ children, ...props }: { children: ReactNode }) => {
+		return (
+			<ol
+				style={{
+					listStyle: 'decimal',
+					marginLeft: '1rem',
+				}}
+				{...{ ...props, ordered: 'true' }}
+			>
+				{children}
+			</ol>
+		);
+	},
 	h2: (props: any) => {
 		const heading = props?.children.reduce((a: string, b: string) => a + b);
 
