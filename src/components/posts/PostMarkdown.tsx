@@ -1,11 +1,9 @@
-/* eslint-disable array-callback-return */
 /* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable react/self-closing-comp */
 
 import React, { ReactNode } from 'react';
 import { useTheme } from 'next-themes';
 import ReactMarkdown from 'react-markdown';
-import remarkBreaks from 'remark-breaks';
 
 import { generateSlug } from '~/utils/format';
 import CodeBlock from './CodeBlock';
@@ -105,8 +103,7 @@ const PostMarkdown = ({ content }: { content: string }) => {
 
 	return (
 		<ReactMarkdown
-			remarkPlugins={[remarkBreaks]}
-			children={content}
+			children={content.replace(/\n\s/gi, '\n\n&nbsp;\n\n')}
 			components={theme === 'light' ? MarkdownLightComponent : MarkdownDarkComponent}
 		/>
 	);
