@@ -55,10 +55,6 @@ code {
 	margin: 0.5rem 0 1rem;
 }
 
-#markdown-wrapper > p {
-	margin-bottom: 2rem;
-}
-
 #markdown-wrapper > blockquote {
 	margin-bottom: 2rem;
 }
