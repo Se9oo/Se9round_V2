@@ -26,7 +26,7 @@ const PostCard = ({ metaData }: { metaData: PostMetaDataType }) => {
 				<h3 className="font-bold text-[22px] mb-4 break-all sm:break-normal tracking-[-0.5px]">{title}</h3>
 				<p className="block mb-4 sm:mb-0 break-all sm:break-normal tracking-[-0.5px]">{description}</p>
 				{tags && tags.length > 0 ? (
-					<TagList tags={tags} customStyle="mb-4 sm:mb-0 sm:absolute sm:bottom-1 sm:left-0" />
+					<TagList tags={tags} customStyle="mb-4 sm:mb-0 sm:absolute sm:bottom-0 sm:left-0" />
 				) : null}
 				<span className="text-[15px] font-medium sm:absolute bottom-0 right-0 dark:text-darkText">{date}</span>
 			</div>
