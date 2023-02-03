@@ -3,7 +3,7 @@ import { Html, Head, Main, NextScript } from 'next/document';
 
 const Document = () => {
 	return (
-		<Html>
+		<Html className="dark:bg-dark">
 			<Head>
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
 				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="annonymous" />
