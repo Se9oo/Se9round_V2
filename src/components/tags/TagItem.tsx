@@ -9,7 +9,7 @@ const TagItem = ({
 }) => {
 	return (
 		<button type="button" onClick={handleTagClick ? (e) => handleTagClick(e, tag) : undefined}>
-			<span className="rounded-[4px] bg-main px-2 py-1 text-xs sm:text-sm font-medium text-white dark:text-darkText">
+			<span className="rounded-[4px] bg-main px-2 py-[6px] text-xs sm:text-sm font-bold text-white dark:text-darkText">
 				{tag}
 			</span>
 		</button>
