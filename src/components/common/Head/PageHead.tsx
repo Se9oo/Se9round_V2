@@ -5,7 +5,7 @@ const PageHead = ({
 	title = 'se9round.dev',
 	description = 'se9oo 개발 블로그',
 	keywords,
-	thumbnail = '',
+	thumbnail = 'https://se9round.dev/images/default.png',
 	url = 'https://se9round.dev',
 }: {
 	title?: string;
