@@ -21,7 +21,7 @@ const KakaoShare = ({ post }: { post: PostDataType }) => {
 					content: {
 						title,
 						description,
-						imageUrl: socialImage || '',
+						imageUrl: `https://se9round.dev${socialImage}` || '',
 						link: {
 							mobileWebUrl: url,
 							webUrl: url,
