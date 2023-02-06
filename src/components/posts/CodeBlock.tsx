@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { useState } from 'react';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import tsx from 'react-syntax-highlighter/dist/cjs/languages/prism/tsx';
@@ -18,7 +18,7 @@ SyntaxHighlighter.registerLanguage('bash', bash);
 SyntaxHighlighter.registerLanguage('markdown', markdown);
 SyntaxHighlighter.registerLanguage('json', json);
 
-const CodeBlock = ({ children, match }: { children: ReactNode; match: RegExpExecArray }) => {
+const CodeBlock = ({ children, match }: { children: string | string[]; match: RegExpExecArray }) => {
 	const [showCopy, setShowCopy] = useState(false);
 	const [isCopy, setIsCopy] = useState(false);
 
