@@ -9,10 +9,17 @@ import { generateSlug } from '~/utils/format';
 import CodeBlock from './CodeBlock';
 
 const MarkdownDarkComponent: object = {
-	code({ inline, className, children, ...props }: { inline: boolean; className: string; children: ReactNode }) {
+	code({ inline, className, children, ...props }: { inline: boolean; className: string; children: string | string[] }) {
 		const match = /language-(\w+)/.exec(className || '');
+
+		const formattedChildren = Array.isArray(children)
+			? children.map((item) => {
+					return item.replace(/\n\n&nbsp;\n\n/g, '\n');
+			  })
+			: children.replace(/\n\n&nbsp;\n\n/g, '\n');
+
 		return !inline && match ? (
-			<CodeBlock children={children} match={match} />
+			<CodeBlock children={formattedChildren} match={match} />
 		) : (
 			<code className={className} {...props}>
 				{children}
@@ -36,7 +43,7 @@ const MarkdownDarkComponent: object = {
 	a: (anchor: { href: string; children: Array<any> }) => {
 		if (anchor.href.match('http')) {
 			return (
-				<a href={anchor.href} target="_blank" rel="noopener noreferrer">
+				<a href={anchor.href} target="_blank" rel="noopener noreferrer" style={{ color: '#439A97', fontWeight: 700 }}>
 					{anchor.children}
 				</a>
 			);
@@ -55,6 +62,9 @@ const MarkdownDarkComponent: object = {
 				{children}
 			</ol>
 		);
+	},
+	hr: ({ ...props }) => {
+		return <hr style={{ color: '#EAEAEA' }} {...props} />;
 	},
 	h2: (props: any) => {
 		const heading = props?.children.reduce((a: string, b: string) => a + b);
@@ -95,6 +105,9 @@ const MarkdownLightComponent: object = {
 				{children}
 			</blockquote>
 		);
+	},
+	hr: ({ ...props }) => {
+		return <hr style={{ color: 'rgba(41, 69, 105, 0.1)' }} {...props} />;
 	},
 };
 
