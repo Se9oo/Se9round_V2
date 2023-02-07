@@ -13,12 +13,16 @@ const menus: MenusData[] = ['TAGS'];
 
 const Header = () => {
 	const mounted = useIsMounted();
-	const { theme, setTheme } = useTheme();
+	const { theme, setTheme, systemTheme } = useTheme();
 
 	const [isOpen, setIsOpen] = useState(false);
 
 	const handleTheme = () => {
-		setTheme(theme === 'dark' ? 'light' : 'dark');
+		if ((theme === 'system' && systemTheme && systemTheme === 'light') || theme === 'light') {
+			setTheme('dark');
+		} else {
+			setTheme('light');
+		}
 	};
 
 	const handleMoveMenu = (menu: Partial<MenusData>) => {
@@ -40,7 +44,7 @@ const Header = () => {
 				<ul className="flex justify-start items-center">
 					<li className="flex justify-center items-center">
 						<button type="button" onClick={handleTheme}>
-							{theme === 'light' ? (
+							{(theme === 'system' && systemTheme && systemTheme === 'light') || theme === 'light' ? (
 								<LightModeIcon className="stroke-red" />
 							) : (
 								<DarkModeIcon className="stroke-yellow" />
