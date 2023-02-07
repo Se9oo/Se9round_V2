@@ -5,8 +5,9 @@ const LIGHT_THEME = 'github-light';
 const DARK_THEME = 'github-dark';
 
 const Utterances = () => {
-	const { theme } = useTheme();
-	const themeMode = theme === 'light' ? LIGHT_THEME : DARK_THEME;
+	const { theme, systemTheme } = useTheme();
+	const themeMode =
+		(theme === 'system' && systemTheme && systemTheme === 'light') || theme === 'light' ? LIGHT_THEME : DARK_THEME;
 	const ref = useRef<HTMLDivElement | null>(null);
 
 	useEffect(() => {
