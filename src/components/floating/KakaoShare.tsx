@@ -6,7 +6,7 @@ import KakaoIcon from '../icons/KakaoIcon';
 const KakaoShare = ({ post }: { post: PostDataType }) => {
 	const router = useRouter();
 	const {
-		metaData: { title, description, socialImage },
+		metaData: { title, socialImage, tags },
 	} = post;
 
 	useEffect(() => {
@@ -14,13 +14,14 @@ const KakaoShare = ({ post }: { post: PostDataType }) => {
 			if (window.Kakao) {
 				const kakao = window.Kakao;
 				const url = `${process.env.NEXT_PUBLIC_HOME_URL}/post/${router.query.title}`;
+				const tagStr = tags.map((tag) => `#${tag}`).join(' ');
 
 				kakao.Link.createDefaultButton({
 					container: '#kakao-link-btn',
 					objectType: 'feed',
 					content: {
 						title,
-						description,
+						description: tagStr,
 						imageUrl: `https://se9round.dev${socialImage}` || '',
 						link: {
 							mobileWebUrl: url,
@@ -41,7 +42,7 @@ const KakaoShare = ({ post }: { post: PostDataType }) => {
 		};
 
 		createKakaoButton();
-	}, [title, description, socialImage, router.query.title]);
+	}, [title, socialImage, router.query.title, tags]);
 
 	return (
 		<button
