@@ -1,21 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PostCard from './PostCard';
 import Pagination from '../pagination/Pagination';
 import { PostFileType } from '~/types/post';
 import { PAGINATION_LIMIT_COUNT } from '~/constants/common';
+import usePagination from '~/hooks/usePagination';
 
 const PostList = ({ posts }: { posts: PostFileType[] }) => {
-	const [page, setPage] = useState(1);
-	const [totalCount, setTotalCount] = useState(0);
-
-	const handlePage = (pageNumber: number) => {
-		setPage(pageNumber);
-		window.scrollTo(0, 0);
-	};
-
-	useEffect(() => {
-		setTotalCount(posts.length);
-	}, [posts.length]);
+	const { page, totalCount, handlePage } = usePagination(posts.length);
 
 	return (
 		<>
