@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from 'react';
-import { useTheme } from 'next-themes';
+import useControlTheme from '~/hooks/useControlTheme';
 
 const LIGHT_THEME = 'github-light';
 const DARK_THEME = 'github-dark';
 
 const Utterances = () => {
-	const { theme, systemTheme } = useTheme();
+	const { theme, systemTheme } = useControlTheme();
 	const themeMode =
 		(theme === 'system' && systemTheme && systemTheme === 'light') || theme === 'light' ? LIGHT_THEME : DARK_THEME;
 	const ref = useRef<HTMLDivElement | null>(null);

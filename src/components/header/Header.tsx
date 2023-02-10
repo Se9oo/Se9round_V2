@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import router from 'next/router';
-import { useTheme } from 'next-themes';
 import DarkModeIcon from '../icons/DarkModeIcon';
 import LightModeIcon from '../icons/LightModeIcon';
 import MobileMenuIcon from '../icons/MobileMenuIcon';
@@ -8,22 +7,15 @@ import useIsMounted from '~/hooks/useIsMounted';
 import { PAGE_URLS } from '~/constants/url';
 import { MenusData } from '~/types/common';
 import SlideMenu from '../menu/SlideMenu';
+import useControlTheme from '~/hooks/useControlTheme';
 
 const menus: MenusData[] = ['TAGS'];
 
 const Header = () => {
 	const mounted = useIsMounted();
-	const { theme, setTheme, systemTheme } = useTheme();
+	const { theme, systemTheme, handleTheme } = useControlTheme();
 
 	const [isOpen, setIsOpen] = useState(false);
-
-	const handleTheme = () => {
-		if ((theme === 'system' && systemTheme && systemTheme === 'light') || theme === 'light') {
-			setTheme('dark');
-		} else {
-			setTheme('light');
-		}
-	};
 
 	const handleMoveMenu = (menu: Partial<MenusData>) => {
 		router.push(PAGE_URLS[menu]);
