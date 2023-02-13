@@ -9,6 +9,7 @@ const Footer = () => {
 				target="_blank"
 				rel="noreferrer"
 				className="mb-2 hover:bg-darkText dark:hover:bg-greyCopy rounded-full"
+				data-id="github-link"
 			>
 				<GithubIcon />
 			</a>
