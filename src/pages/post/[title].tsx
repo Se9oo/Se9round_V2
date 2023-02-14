@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import fs from 'fs';
 import matter from 'gray-matter';
@@ -14,6 +14,26 @@ const Post = (props: PostDataType) => {
 	const {
 		metaData: { title, description, tags, socialImage },
 	} = props;
+
+	useEffect(() => {
+		const kakao = document.querySelector('#kakao');
+
+		if (!kakao) {
+			const head = document.querySelector('head');
+			const script = document.createElement('script');
+			script.id = 'kakao';
+			script.src = 'https://developers.kakao.com/sdk/js/kakao.js';
+			script.defer = true;
+
+			head?.appendChild(script);
+
+			script.onload = () => {
+				if (!window.Kakao.isInitialized()) {
+					window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY);
+				}
+			};
+		}
+	}, []);
 
 	return (
 		<>
