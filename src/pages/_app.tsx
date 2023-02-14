@@ -8,6 +8,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import '~/styles/global.css';
 
 const App = ({ Component, pageProps }: AppProps) => {
+	useEffect(() => {
+		if (!window.Kakao.isInitialized()) {
+			window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY);
+		}
+	}, []);
+
 	return (
 		<ThemeProvider attribute="class">
 			<Head>
@@ -18,6 +24,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 				/>
 				<title>se9round.dev</title>
 				<meta name="description" content="se9oo 개발 블로그" />
+				<script src="https://developers.kakao.com/sdk/js/kakao.js" />
 			</Head>
 			<ToastContainer />
 			<AnimatePresence initial={false} mode="wait">
