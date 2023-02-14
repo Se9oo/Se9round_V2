@@ -21,6 +21,7 @@
 		"react/require-default-props": ["off"],
 		"react/jsx-no-useless-fragment": ["off"],
 		"react/no-children-prop": ["off"],
-		"import/extensions": ["off"]
+		"import/extensions": ["off"],
+		"import/prefer-default-export": "off"
 	}
 }

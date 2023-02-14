@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 /**
  *
  * @param {string} text
