@@ -13,6 +13,7 @@ const nextConfig = {
 	},
 	images: {
 		deviceSizes: [768, 1370],
+		domains: ['hfjaydlcifnsisqntesa.supabase.co'],
 	},
 };
 

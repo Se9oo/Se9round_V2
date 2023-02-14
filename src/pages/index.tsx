@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import fs from 'fs';
 import matter from 'gray-matter';
 import PageHead from '~/components/common/Head/PageHead';
@@ -6,6 +6,7 @@ import MainLayout from '~/components/layout/MainLayout';
 import PostList from '~/components/posts/PostList';
 import { PostFileType } from '~/types/post';
 import { MARKDOWN_FILE_PATH } from '~/constants/url';
+import supabase from '~/supabaseClient';
 
 const Selog = (props: { posts: PostFileType[] }) => {
 	const { posts } = props;
@@ -33,9 +34,15 @@ export const getStaticProps = async () => {
 
 			const { data } = parsedContent;
 
+			const {
+				data: { publicUrl },
+			} = supabase.storage.from('se9round-images').getPublicUrl(data.socialImage || 'default.png');
+
+			const newData = { ...data, socialImage: publicUrl, timestamp: data.timestamp };
+
 			return {
 				fileName,
-				data,
+				data: newData,
 			};
 		})
 		.sort((a, b) => b.data.timestamp - a.data.timestamp);

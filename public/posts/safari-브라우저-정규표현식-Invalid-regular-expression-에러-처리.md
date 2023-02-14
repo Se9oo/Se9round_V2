@@ -2,7 +2,7 @@
 title: 'safari 브라우저 정규표현식 Invalid regular expression 에러 처리'
 metaTitle: 'safari 브라우저 정규표현식 Invalid regular expression 에러 처리'
 description: 'safari 브라우저에서 발생한 Invalid regular expression 에러 기록'
-socialImage: /images/default.png
+socialImage: default.png
 date: '2023-02-06'
 timestamp: 202302060000
 tags:
