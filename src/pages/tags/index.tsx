@@ -7,6 +7,7 @@ import PageHead from '~/components/common/Head/PageHead';
 import Tags from '~/components/tags/Tags';
 import { PostFileType } from '~/types/post';
 import { MARKDOWN_FILE_PATH } from '~/constants/url';
+import supabase from '~/supabaseClient';
 
 const TagsPage = (props: { tags: string[]; posts: PostFileType[] }) => {
 	const { tags, posts } = props;
@@ -30,9 +31,15 @@ export const getStaticProps = async () => {
 	const posts = files.map((file) => {
 		const { data } = matter(fs.readFileSync(`${MARKDOWN_FILE_PATH}/${file}`, 'utf-8'));
 
+		const {
+			data: { publicUrl },
+		} = supabase.storage.from('se9round-images').getPublicUrl(data.socialImage || 'default.png');
+
+		const newData = { ...data, socialImage: publicUrl, tags: data.tags };
+
 		return {
 			fileName: file.replace('.md', ''),
-			data,
+			data: newData,
 		};
 	});
 
