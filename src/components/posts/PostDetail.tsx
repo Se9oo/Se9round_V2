@@ -25,7 +25,7 @@ const PostDetail = ({ postData }: { postData: PostDataType }) => {
 						<FloatingActions post={postData} />
 					</div>
 					<div className="sm:mt-20 sm:text-start">
-						<h1 className="font-bold text-[32px] sm:text-[40px] leading-[42px] sm:leading-[48px] tracking-[-0.5px] mb-10 sm:mb-12">
+						<h1 className="font-bold text-[36px] sm:text-[40px] leading-[44px] sm:leading-[48px] tracking-[-0.5px] mb-10 sm:mb-12">
 							{title}
 						</h1>
 						{tags && tags.length > 0 ? <TagList tags={tags} customStyle="justify-start mb-4" /> : null}
