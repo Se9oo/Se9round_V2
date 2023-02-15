@@ -24,7 +24,11 @@ const App = ({ Component, pageProps }: AppProps) => {
 				/>
 				<title>se9round.dev</title>
 				<meta name="description" content="se9oo 개발 블로그" />
-				<script src="https://developers.kakao.com/sdk/js/kakao.js" />
+				<script
+					src="https://t1.kakaocdn.net/kakao_js_sdk/2.1.0/kakao.min.js"
+					integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx"
+					crossOrigin="anonymous"
+				/>
 			</Head>
 			<ToastContainer />
 			<AnimatePresence initial={false} mode="wait">

@@ -16,13 +16,13 @@ const KakaoShare = ({ post }: { post: PostDataType }) => {
 				const url = `${process.env.NEXT_PUBLIC_HOME_URL}/post/${router.query.title}`;
 				const tagStr = tags.map((tag) => `#${tag}`).join(' ');
 
-				kakao.Link.createDefaultButton({
+				kakao.Share.createDefaultButton({
 					container: '#kakao-link-btn',
 					objectType: 'feed',
 					content: {
 						title,
 						description: tagStr,
-						imageUrl: `https://se9round.dev${socialImage}` || '',
+						imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_PATH}/${socialImage}`,
 						link: {
 							mobileWebUrl: url,
 							webUrl: url,
