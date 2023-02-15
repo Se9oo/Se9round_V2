@@ -3,7 +3,7 @@ import router from 'next/router';
 import Image from 'next/image';
 import TagList from '../tags/TagList';
 import { PAGE_URLS } from '~/constants/url';
-import { convertSpaceToDash } from '~/utils/format';
+import { convertSpaceToDash, getFormattedDate } from '~/utils/format';
 import { PostMetaDataType } from '~/types/post';
 
 const PostCard = ({ metaData }: { metaData: PostMetaDataType }) => {
@@ -28,7 +28,9 @@ const PostCard = ({ metaData }: { metaData: PostMetaDataType }) => {
 				</h3>
 				<p className="block mb-6 sm:mb-0 break-all sm:break-normal tracking-[-0.5px]">{description}</p>
 				{tags && tags.length > 0 ? <TagList tags={tags} customStyle="sm:absolute sm:bottom-0 sm:left-0" /> : null}
-				<span className="text-[15px] font-medium absolute bottom-0 right-0 dark:text-darkText">{date}</span>
+				<span className="text-[15px] font-medium absolute bottom-0 right-0 dark:text-darkText">
+					{getFormattedDate(date, 'hyphen')}
+				</span>
 			</div>
 		</article>
 	);
