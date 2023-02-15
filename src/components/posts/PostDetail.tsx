@@ -6,6 +6,7 @@ import useIsMounted from '~/hooks/useIsMounted';
 import Utterances from '../utterances/Utterances';
 import Toc from '../toc/Toc';
 import FloatingActions from '../floating/FloatingActions';
+import { getFormattedDate } from '~/utils/format';
 
 const PostDetail = ({ postData }: { postData: PostDataType }) => {
 	const isMouted = useIsMounted();
@@ -24,9 +25,11 @@ const PostDetail = ({ postData }: { postData: PostDataType }) => {
 						<FloatingActions post={postData} />
 					</div>
 					<div className="sm:mt-20 sm:text-start">
-						<h1 className="font-bold text-[40px] leading-[48px] tracking-[-0.5px] mb-10 sm:mb-12">{title}</h1>
-						{tags && tags.length > 0 ? <TagList tags={tags} customStyle="justify-start mb-2" /> : null}
-						<span className="block mb-10">{date}</span>
+						<h1 className="font-bold text-[32px] sm:text-[40px] leading-[42px] sm:leading-[48px] tracking-[-0.5px] mb-10 sm:mb-12">
+							{title}
+						</h1>
+						{tags && tags.length > 0 ? <TagList tags={tags} customStyle="justify-start mb-4" /> : null}
+						<span className="block mb-10 sm:mb-14 text-sm">{getFormattedDate(date, 'kor')}</span>
 						<div id="markdown-wrapper" className="text-lg">
 							<PostMarkdown content={content} />
 						</div>
