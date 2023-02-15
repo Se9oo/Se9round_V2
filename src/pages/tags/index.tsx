@@ -1,13 +1,10 @@
 /* eslint-disable array-callback-return */
 import React from 'react';
-import fs from 'fs';
-import matter from 'gray-matter';
 import MainLayout from '~/components/layout/MainLayout';
 import PageHead from '~/components/common/Head/PageHead';
 import Tags from '~/components/tags/Tags';
 import { PostFileType } from '~/types/post';
-import { MARKDOWN_FILE_PATH } from '~/constants/url';
-import supabase from '~/supabaseClient';
+import { getPostDataFromMarkdownFiles } from '~/utils/file';
 
 const TagsPage = (props: { tags: string[]; posts: PostFileType[] }) => {
 	const { tags, posts } = props;
@@ -26,22 +23,7 @@ const TagsPage = (props: { tags: string[]; posts: PostFileType[] }) => {
 export default TagsPage;
 
 export const getStaticProps = async () => {
-	const files = fs.readdirSync(MARKDOWN_FILE_PATH);
-
-	const posts = files.map((file) => {
-		const { data } = matter(fs.readFileSync(`${MARKDOWN_FILE_PATH}/${file}`, 'utf-8'));
-
-		const {
-			data: { publicUrl },
-		} = supabase.storage.from('se9round-images').getPublicUrl(data.socialImage || 'default.png');
-
-		const newData = { ...data, socialImage: publicUrl, tags: data.tags };
-
-		return {
-			fileName: file.replace('.md', ''),
-			data: newData,
-		};
-	});
+	const posts = getPostDataFromMarkdownFiles();
 
 	const [...tags] = new Set<string>([
 		...posts
