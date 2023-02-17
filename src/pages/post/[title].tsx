@@ -1,13 +1,11 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import fs from 'fs';
-import matter from 'gray-matter';
 import MainLayout from '~/components/layout/MainLayout';
 import PostDetail from '~/components/posts/PostDetail';
-import { PostDataType, PostMetaDataType } from '~/types/post';
-import { convertSpaceToDash } from '~/utils/format';
-import { MARKDOWN_FILE_PATH } from '~/constants/url';
 import PageHead from '~/components/common/Head/PageHead';
+import { PostDataType } from '~/types/post';
+import { convertSpaceToDash } from '~/utils/format';
+import { getPostDataAtFile, getPostDataFromMarkdownFiles } from '~/utils/file';
 
 const Post = (props: PostDataType) => {
 	const router = useRouter();
@@ -34,14 +32,10 @@ const Post = (props: PostDataType) => {
 export default Post;
 
 export const getStaticPaths = async () => {
-	const files = fs.readdirSync(MARKDOWN_FILE_PATH);
-	const paths = files.map((file) => {
-		const { data } = matter(fs.readFileSync(`${MARKDOWN_FILE_PATH}/${file}`, 'utf-8'));
-		const { title } = data as PostMetaDataType;
-
+	const paths = getPostDataFromMarkdownFiles().map((post) => {
 		return {
 			params: {
-				title: convertSpaceToDash(title),
+				title: convertSpaceToDash(post.data.title),
 			},
 		};
 	});
@@ -54,7 +48,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: { params: { title: string } }) => {
 	const { title } = params;
-	const { data: metaData, content } = matter(fs.readFileSync(`${MARKDOWN_FILE_PATH}/${title}.md`, 'utf-8'));
+	const { data: metaData, content } = getPostDataAtFile(`${title}.md`);
 
 	return {
 		props: {

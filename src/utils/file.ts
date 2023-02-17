@@ -8,10 +8,10 @@ const getMarkdownFileList = () => {
 	return fs.readdirSync(MARKDOWN_FILE_PATH);
 };
 
-const getPostDataAtFile = (fileName: string) => {
-	const { data } = matter(fs.readFileSync(`${MARKDOWN_FILE_PATH}/${fileName}`, 'utf-8'));
+export const getPostDataAtFile = (fileName: string) => {
+	const { data, content } = matter(fs.readFileSync(`${MARKDOWN_FILE_PATH}/${fileName}`, 'utf-8'));
 
-	return data;
+	return { data, content };
 };
 
 const getThumbNailPath = (socialImageName: string | null) => {
@@ -26,10 +26,16 @@ export const getPostDataFromMarkdownFiles = () => {
 	const files = getMarkdownFileList();
 
 	const posts = files.map((fileName) => {
-		const postData = getPostDataAtFile(fileName);
+		const { data: postData, content } = getPostDataAtFile(fileName);
 		const thumbnailPath = getThumbNailPath(postData.socialImage);
 
-		const newData = { ...postData, socialImage: thumbnailPath, tags: postData.tags, timestamp: postData.timestamp };
+		const newData = {
+			...postData,
+			socialImage: thumbnailPath,
+			tags: postData.tags,
+			timestamp: postData.timestamp,
+			title: postData.title,
+		};
 
 		return {
 			fileName: fileName.replace('.md', ''),
