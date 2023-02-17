@@ -11,7 +11,6 @@ const Page404 = () => {
 					<strong className="text-3xl mb-8">페이지를 찾을 수 없습니다</strong>
 					<Link
 						href={PAGE_URLS.HOME}
-						prefetch
 						className="flex justify-center items-center bg-main rounded h-12 font-bold text-white dark:text-darkText text-center"
 					>
 						홈으로

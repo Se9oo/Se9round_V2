@@ -8,7 +8,6 @@ const TagItem = ({ tag }: { tag: string }) => {
 			className="block rounded-[4px] bg-main px-2 py-[0.5px]"
 			href={{ pathname: PAGE_URLS.TAGS, query: { tagName: tag } }}
 			as={PAGE_URLS.TAGS}
-			prefetch
 		>
 			<span className="text-xs sm:text-sm font-bold text-white dark:text-darkText">{tag}</span>
 		</Link>

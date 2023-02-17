@@ -10,7 +10,7 @@ const PostCard = ({ metaData }: { metaData: PostMetaDataType }) => {
 	const { title, description, date, tags, socialImage } = metaData;
 
 	return (
-		<Link href={`${PAGE_URLS.POST}/${convertSpaceToDash(title)}`} prefetch>
+		<Link href={`${PAGE_URLS.POST}/${convertSpaceToDash(title)}`}>
 			<article className="w-full sm:h-[172px] flex sm:justify-between flex-col sm:flex-row cursor-pointer z-content">
 				<div className="relative w-full h-[132px] sm:h-auto sm:w-[36%] mb-6 sm:mb-0 mr-2 sm:mr-12">
 					<Image
