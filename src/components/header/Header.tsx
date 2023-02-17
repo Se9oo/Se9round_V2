@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import router from 'next/router';
+import Link from 'next/link';
 import DarkModeIcon from '../icons/DarkModeIcon';
 import LightModeIcon from '../icons/LightModeIcon';
 import MobileMenuIcon from '../icons/MobileMenuIcon';
@@ -17,10 +17,6 @@ const Header = () => {
 
 	const [isOpen, setIsOpen] = useState(false);
 
-	const handleMoveMenu = (menu: Partial<MenusData>) => {
-		router.push(PAGE_URLS[menu]);
-	};
-
 	if (!mounted) {
 		return null;
 	}
@@ -29,9 +25,9 @@ const Header = () => {
 		<header className="fixed top-0 left-0 w-full h-14 sm:h-[72px] shadow-sm z-header bg-white dark:bg-dark">
 			<div className="w-full max-w-[768px] h-full mx-auto my-0 flex justify-between items-center px-6 sm:px-4 py-3 sm:py-6">
 				<h1>
-					<button type="button" onClick={() => handleMoveMenu('HOME')}>
+					<Link href={PAGE_URLS.HOME} prefetch>
 						<strong className="text-[24px] tracking-[-0.5px] font-bold italic underline mr-2">se9round.dev</strong>
-					</button>
+					</Link>
 				</h1>
 				<ul className="flex justify-start items-center">
 					<li className="flex justify-center items-center">
@@ -53,10 +49,10 @@ const Header = () => {
 							<li
 								key={`${menu}`}
 								className="hidden sm:block text-sm ml-4 hover:text-main cursor-pointer font-bold transition-all"
-								onClick={() => handleMoveMenu(menu)}
-								onKeyDown={() => {}}
 							>
-								{menu}
+								<Link href={PAGE_URLS[menu]} prefetch>
+									{menu}
+								</Link>
 							</li>
 						);
 					})}

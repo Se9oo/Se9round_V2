@@ -1,20 +1,17 @@
-import React, { MouseEvent } from 'react';
+import React from 'react';
+import Link from 'next/link';
+import { PAGE_URLS } from '~/constants/url';
 
-const TagItem = ({
-	tag,
-	handleTagClick,
-}: {
-	tag: string;
-	handleTagClick?: (e: MouseEvent, tagName: string) => void;
-}) => {
+const TagItem = ({ tag }: { tag: string }) => {
 	return (
-		<button
-			type="button"
-			onClick={handleTagClick ? (e) => handleTagClick(e, tag) : undefined}
+		<Link
 			className="block rounded-[4px] bg-main px-2 py-[0.5px]"
+			href={{ pathname: PAGE_URLS.TAGS, query: { tagName: tag } }}
+			as={PAGE_URLS.TAGS}
+			prefetch
 		>
 			<span className="text-xs sm:text-sm font-bold text-white dark:text-darkText">{tag}</span>
-		</button>
+		</Link>
 	);
 };
 

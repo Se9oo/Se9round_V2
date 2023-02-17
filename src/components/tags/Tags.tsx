@@ -1,4 +1,4 @@
-import React, { MouseEvent, useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import TagList from './TagList';
 import PostList from '../posts/PostList';
@@ -9,10 +9,6 @@ const Tags = ({ tags, posts }: { tags: string[]; posts: PostFileType[] }) => {
 
 	const [searchPosts, setSearchPosts] = useState<PostFileType[]>([]);
 	const [searchTag, setSearchTag] = useState('');
-
-	const handleTagClick = useCallback((e: MouseEvent, tagName: string) => {
-		setSearchTag(tagName);
-	}, []);
 
 	useEffect(() => {
 		if (posts && searchTag) {
@@ -28,7 +24,7 @@ const Tags = ({ tags, posts }: { tags: string[]; posts: PostFileType[] }) => {
 
 	return (
 		<>
-			{tags && tags.length > 0 ? <TagList tags={tags} handleTagClick={handleTagClick} /> : null}
+			{tags && tags.length > 0 ? <TagList tags={tags} /> : null}
 			{searchTag && <h2 className="block mt-8 sm:mt-16 text-[24px] underline">{`#${searchTag}`}</h2>}
 			{searchPosts && searchPosts.length > 0 ? (
 				<PostList posts={searchPosts} />
