@@ -11,10 +11,10 @@ const equalCheck = (
 
 const TagList = memo(({ tags, customStyle }: { tags: string[]; customStyle?: string }) => {
 	return (
-		<ul className={customStyle ? `flex ${customStyle}` : 'flex'}>
+		<ul className={`${customStyle ? `flex ${customStyle}` : 'flex'} flex-wrap`}>
 			{tags.map((tag) => {
 				return (
-					<li key={tag} className="mr-2 z-tag">
+					<li key={tag} className="mr-2 mb-2 z-tag">
 						<TagItem tag={tag} />
 					</li>
 				);
