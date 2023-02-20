@@ -23,12 +23,7 @@ const PageTransition = ({ children, className }: { children: ReactNode; classNam
 			initial={animate.initial}
 			animate={animate.animate}
 			exit={animate.exit}
-			transition={{
-				type: 'spring',
-				stiffness: 360,
-				damping: 20,
-				duration: 1,
-			}}
+			transition={{ duration: 0.3, type: 'tween' }}
 			className={className}
 		>
 			{children}
