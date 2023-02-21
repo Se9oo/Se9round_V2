@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import useControlTheme from '~/hooks/useControlTheme';
 
 const LIGHT_THEME = 'github-light';
-const DARK_THEME = 'github-dark';
+const DARK_THEME = 'photon-dark';
 
 const Utterances = () => {
 	const { theme, systemTheme } = useControlTheme();
