@@ -31,7 +31,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 				/>
 			</Head>
 			<ToastContainer />
-			<AnimatePresence initial={false} mode="wait">
+			<AnimatePresence>
 				<Component {...pageProps} />
 			</AnimatePresence>
 		</ThemeProvider>
