@@ -40,7 +40,7 @@ const Toc = () => {
 
 	const handleTocItem = (e: MouseEvent, id: string) => {
 		e.preventDefault();
-		const selectedHeading = document.querySelector(`#${id}`);
+		const selectedHeading = document.getElementById(`${id}`);
 
 		if (selectedHeading) {
 			setCurrentTargetId(id);
