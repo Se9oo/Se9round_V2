@@ -43,7 +43,12 @@ const MarkdownDarkComponent: object = {
 	a: (anchor: { href: string; children: Array<any> }) => {
 		if (anchor.href.match('http')) {
 			return (
-				<a href={anchor.href} target="_blank" rel="noopener noreferrer" style={{ color: '#439A97', fontWeight: 700 }}>
+				<a
+					href={anchor.href}
+					target="_blank"
+					rel="noopener noreferrer"
+					style={{ color: '#439A97', fontWeight: 700, wordBreak: 'break-word' }}
+				>
 					{anchor.children}
 				</a>
 			);
