@@ -5,7 +5,7 @@ import PostList from '~/components/posts/PostList';
 import { PostFileType } from '~/types/post';
 import { getPostDataFromMarkdownFiles } from '~/utils/file';
 
-const Selog = (props: { posts: PostFileType[] }) => {
+const Se9round = (props: { posts: PostFileType[] }) => {
 	const { posts } = props;
 
 	return (
@@ -18,7 +18,7 @@ const Selog = (props: { posts: PostFileType[] }) => {
 	);
 };
 
-export default Selog;
+export default Se9round;
 
 export const getStaticProps = async () => {
 	const posts = getPostDataFromMarkdownFiles().sort((a, b) => b.data.timestamp - a.data.timestamp);
