@@ -92,6 +92,10 @@ const MarkdownDarkComponent: object = {
 
 		return <h4 id={slug} {...props}></h4>;
 	},
+	img: (props: any) => {
+		const { src, alt } = props;
+		return <img src={src} alt={alt} style={{ margin: '0 auto', maxHeight: '300px' }} />;
+	},
 };
 
 const MarkdownLightComponent: object = {
