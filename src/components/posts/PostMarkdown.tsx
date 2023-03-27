@@ -94,7 +94,7 @@ const MarkdownDarkComponent: object = {
 	},
 	img: (props: any) => {
 		const { src, alt } = props;
-		return <img src={src} alt={alt} style={{ margin: '0 auto', maxHeight: '300px' }} />;
+		return <img src={src} alt={alt} style={{ margin: '0 auto' }} />;
 	},
 };
 
