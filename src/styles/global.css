@@ -46,14 +46,15 @@ code {
 #markdown-wrapper > h2 {
 	font-size: 30px;
 	line-height: 36px;
-	font-weight: 500;
-	margin: 1rem 0 1.5rem;
+	font-weight: 700;
+	margin: 3rem 0 1rem;
 }
 
 #markdown-wrapper > h3 {
 	font-size: 24px;
 	line-height: 32px;
-	margin: 0.5rem 0 1rem;
+	font-weight: 500;
+	margin: 1rem 0 1rem;
 }
 
 #markdown-wrapper > h4 {
