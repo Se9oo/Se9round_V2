@@ -96,6 +96,19 @@ const MarkdownDarkComponent: object = {
 		const { src, alt } = props;
 		return <img src={src} alt={alt} style={{ margin: '0 auto' }} />;
 	},
+	strong: (props: any) => {
+		return (
+			<strong
+				style={{
+					fontFamily: `Monaco, Spoqa Han Sans Neo, Noto Sans KR, sans-serif`,
+					fontWeight: 600,
+					verticalAlign: '0.5px',
+					fontSize: '1rem',
+				}}
+				{...props}
+			></strong>
+		);
+	},
 };
 
 const MarkdownLightComponent: object = {
