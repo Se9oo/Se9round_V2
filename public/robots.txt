@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /src/pages/404
+Disallow: /src/pages/tags
+Disallow: /src/pages/_app
+Disallow: /src/pages/_document
