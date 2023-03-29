@@ -8,6 +8,8 @@ import ReactMarkdown from 'react-markdown';
 import { generateSlug } from '~/utils/format';
 import CodeBlock from './CodeBlock';
 
+const openImage = (src: string) => () => window.open(src);
+
 const MarkdownDarkComponent: object = {
 	code({ inline, className, children, ...props }: { inline: boolean; className: string; children: string | string[] }) {
 		const match = /language-(\w+)/.exec(className || '');
@@ -94,7 +96,15 @@ const MarkdownDarkComponent: object = {
 	},
 	img: (props: any) => {
 		const { src, alt } = props;
-		return <img src={src} alt={alt} style={{ margin: '0 auto' }} />;
+		return (
+			<img
+				src={src}
+				alt={alt}
+				style={{ margin: '0 auto', cursor: 'pointer' }}
+				onClick={openImage(src)}
+				onKeyDown={openImage(src)}
+			/>
+		);
 	},
 	strong: (props: any) => {
 		return (
@@ -108,6 +118,9 @@ const MarkdownDarkComponent: object = {
 				{...props}
 			></strong>
 		);
+	},
+	ul: (props: any) => {
+		return <ul {...props} style={{ listStyle: 'disc', marginLeft: '1rem' }}></ul>;
 	},
 };
 
