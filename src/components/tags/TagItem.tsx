@@ -1,17 +1,22 @@
 import React from 'react';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { PAGE_URLS } from '~/constants/url';
 
 const TagItem = ({ tag }: { tag: string }) => {
+	const router = useRouter();
+
+	const handleButton = () => {
+		router.push({ pathname: PAGE_URLS.TAGS, query: { tagName: tag } });
+	};
+
 	return (
-		<Link
-			className="block rounded-[4px] bg-main px-2 py-[0.5px]"
-			href={{ pathname: PAGE_URLS.TAGS, query: { tagName: tag } }}
-			as={PAGE_URLS.TAGS}
-			prefetch={false}
+		<button
+			type="button"
+			className="block rounded-[4px] bg-main px-2 py-[1px] text-xs sm:text-sm font-bold text-white dark:text-darkText"
+			onClick={handleButton}
 		>
-			<span className="text-xs sm:text-sm font-bold text-white dark:text-darkText">{tag}</span>
-		</Link>
+			{tag}
+		</button>
 	);
 };
 
