@@ -10,7 +10,7 @@ const SlideMenuList = () => {
 			{menus.map((menu) => {
 				return (
 					<li key={menu}>
-						<Link className="block w-full text-left py-2 font-bold" href={PAGE_URLS[menu]}>
+						<Link className="block w-full text-left py-2 font-bold text-white" href={PAGE_URLS[menu]}>
 							{menu}
 						</Link>
 					</li>
