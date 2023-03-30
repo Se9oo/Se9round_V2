@@ -10,16 +10,21 @@ const PostCard = ({ metaData }: { metaData: PostMetaDataType }) => {
 	const { title, description, date, tags, socialImage } = metaData;
 
 	return (
-		<Link href={`${PAGE_URLS.POST}/${convertSpaceToDash(title)}`}>
-			<article className="w-full sm:h-[172px] flex sm:justify-between flex-col sm:flex-row cursor-pointer z-content">
+		<article>
+			<Link
+				href={`${PAGE_URLS.POST}/${convertSpaceToDash(title)}`}
+				className="w-full sm:h-[172px] flex sm:justify-between flex-col sm:flex-row cursor-pointer z-content"
+			>
 				<div className="relative w-full h-[132px] sm:h-auto sm:w-[36%] mb-6 sm:mb-0 mr-2 sm:mr-12">
 					<Image
 						src={socialImage}
 						alt="post-thumbnail"
 						fill
-						priority
 						className="rounded-md object-cover"
-						sizes="100vw"
+						sizes="
+						(min-width: 768px) 245px,
+						100vw"
+						priority
 					/>
 				</div>
 				<div className="relative sm:w-[65%] h-full flex flex-col">
@@ -28,12 +33,12 @@ const PostCard = ({ metaData }: { metaData: PostMetaDataType }) => {
 					</h3>
 					<p className="block mb-6 sm:mb-0 break-all sm:break-normal tracking-[-0.5px]">{description}</p>
 					{tags && tags.length > 0 ? <TagList tags={tags} customStyle="sm:absolute sm:bottom-0 sm:left-0" /> : null}
-					<span className="text-[15px] font-medium absolute bottom-0 right-0 dark:text-darkText">
+					<span className="text-[15px] leading-3 font-medium absolute bottom-0 right-0 dark:text-darkText">
 						{getFormattedDate(date, 'hyphen')}
 					</span>
 				</div>
-			</article>
-		</Link>
+			</Link>
+		</article>
 	);
 };
 
