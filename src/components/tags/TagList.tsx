@@ -14,7 +14,7 @@ const TagList = memo(({ tags, customStyle }: { tags: string[]; customStyle?: str
 		<ul className={`${customStyle ? `flex ${customStyle}` : 'flex'} flex-wrap`}>
 			{tags.map((tag) => {
 				return (
-					<li key={tag} className="mr-2 z-tag">
+					<li key={tag} className="mt-2 mr-2 z-tag">
 						<TagItem tag={tag} />
 					</li>
 				);
