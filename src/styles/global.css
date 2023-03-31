@@ -14,12 +14,12 @@
 }
 
 html {
-	font-family: 'Spoqa Han Sans Neo', 'Noto Sans KR', 'Monaco', sans-serif;
+	font-family: 'Pretendard', 'Noto Sans KR', 'Monaco', sans-serif;
 	letter-spacing: -0.5px;
 }
 
 body {
-	font-family: 'Spoqa Han Sans Neo', 'Noto Sans KR', 'Monaco', sans-serif;
+	font-family: 'Pretendard', 'Noto Sans KR', 'Monaco', sans-serif;
 	letter-spacing: -0.5px;
 }
 
@@ -28,7 +28,7 @@ body {
 }
 
 code {
-	font-family: 'Monaco', 'Spoqa Han Sans Neo', 'Noto Sans KR', sans-serif !important;
+	font-family: 'Monaco', 'Pretendard', 'Noto Sans KR', sans-serif !important;
 	word-wrap: break-word;
 	border-radius: 4;
 	font-size: 16px;
