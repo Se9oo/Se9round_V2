@@ -30,7 +30,7 @@ const KakaoShare = ({ post }: { post: PostDataType }) => {
 					},
 					buttons: [
 						{
-							title: '웹으로 보기',
+							title: '게시글 확인하기',
 							link: {
 								mobileWebUrl: url,
 								webUrl: url,
