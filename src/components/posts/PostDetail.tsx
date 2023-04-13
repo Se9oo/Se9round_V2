@@ -29,7 +29,7 @@ const PostDetail = ({ postData }: { postData: PostDataType }) => {
 							{title}
 						</h1>
 						{tags && tags.length > 0 ? <TagList tags={tags} customStyle="justify-start mb-4" /> : null}
-						<span className="block mb-10 sm:mb-14 text-sm">{getFormattedDate(date, 'kor')}</span>
+						<span className="block mb-10 text-sm sm:mb-14">{getFormattedDate(date, 'kor')}</span>
 						<div id="markdown-wrapper" className="text-lg">
 							<PostMarkdown content={content} />
 						</div>

@@ -13,7 +13,7 @@ const TagsPage = (props: { tags: string[]; posts: PostFileType[] }) => {
 		<>
 			<PageHead title="se9round.dev | tags" url="https://se9round.dev/tags" />
 			<MainLayout>
-				<h1 className="text-4xl mb-10 sm:mb-20">TAGS</h1>
+				<h1 className="mb-10 text-4xl sm:mb-20">TAGS</h1>
 				<Tags tags={tags} posts={posts} />
 			</MainLayout>
 		</>

@@ -8,10 +8,10 @@ const Page404 = () => {
 		<MainLayout>
 			<div className="w-full h-[calc(100vh-104px-144px)] flex justify-center items-center">
 				<div className="flex flex-col">
-					<strong className="text-3xl mb-8">페이지를 찾을 수 없습니다</strong>
+					<strong className="mb-8 text-3xl">페이지를 찾을 수 없습니다</strong>
 					<Link
 						href={PAGE_URLS.HOME}
-						className="flex justify-center items-center bg-main rounded h-12 font-bold text-white dark:text-darkText text-center"
+						className="flex items-center justify-center h-12 font-bold text-center text-white rounded bg-main dark:text-darkText"
 					>
 						홈으로
 					</Link>

@@ -29,7 +29,7 @@ const Tags = ({ tags, posts }: { tags: string[]; posts: PostFileType[] }) => {
 			{searchPosts && searchPosts.length > 0 ? (
 				<PostList posts={searchPosts} />
 			) : (
-				<span className="block w-full text-center mt-24">태그를 선택해 주세요</span>
+				<span className="block w-full mt-24 text-center">태그를 선택해 주세요</span>
 			)}
 		</>
 	);

@@ -20,7 +20,7 @@ const PostCard = ({ metaData }: { metaData: PostMetaDataType }) => {
 						src={socialImage}
 						alt="post-thumbnail"
 						fill
-						className="rounded-md object-cover"
+						className="object-cover rounded-md"
 						sizes="
 						(min-width: 768px) 245px,
 						100vw"

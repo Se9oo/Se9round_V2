@@ -48,7 +48,7 @@ const KakaoShare = ({ post }: { post: PostDataType }) => {
 		<button
 			id="kakao-link-btn"
 			type="button"
-			className="w-9 h-9 flex justify-center items-center bg-yellowKakao hover:bg-yellowKakaoHover rounded-md transition-all"
+			className="flex items-center justify-center transition-all rounded-md w-9 h-9 bg-yellowKakao hover:bg-yellowKakaoHover"
 		>
 			<KakaoIcon />
 		</button>

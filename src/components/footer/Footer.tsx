@@ -3,17 +3,17 @@ import GithubIcon from '../icons/GithubIcon';
 
 const Footer = () => {
 	return (
-		<footer className="w-full flex flex-col justify-center items-center mt-4 pt-4 pb-8 font-medium">
+		<footer className="flex flex-col items-center justify-center w-full pt-4 pb-8 mt-4 font-medium">
 			<a
 				href="https://github.com/Se9oo"
 				target="_blank"
 				rel="noreferrer"
-				className="mb-2 hover:bg-darkText dark:hover:bg-greyCopy rounded-full"
+				className="mb-2 rounded-full hover:bg-darkText dark:hover:bg-greyCopy"
 				data-id="github-link"
 			>
 				<GithubIcon />
 			</a>
-			<span className="block text-sm mb-2">Copyright &copy; 2023 se9oo</span>
+			<span className="block mb-2 text-sm">Copyright &copy; 2023 se9oo</span>
 			<a
 				href="https://github.com/Se9oo/Se9round_V2"
 				target="_blank"

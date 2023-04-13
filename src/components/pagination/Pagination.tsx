@@ -19,13 +19,13 @@ const Pagination = ({
 	};
 
 	return (
-		<div className="w-full flex justify-center items-center py-4">
+		<div className="flex items-center justify-center w-full py-4">
 			{currentPage === 1 ? null : (
 				<button type="button" onClick={() => handleActions('prev')}>
 					<ChevronLeftIcon className="mt-1" />
 				</button>
 			)}
-			<ul className="flex justify-center items-center">
+			<ul className="flex items-center justify-center">
 				{pages.map((item) => {
 					return (
 						<li key={item} className="mx-3">

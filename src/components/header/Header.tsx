@@ -29,8 +29,8 @@ const Header = () => {
 						<strong className="text-[24px] tracking-[-0.5px] font-bold italic underline mr-2">se9round.dev</strong>
 					</Link>
 				</h1>
-				<ul className="flex justify-start items-center">
-					<li className="flex justify-center items-center">
+				<ul className="flex items-center justify-start">
+					<li className="flex items-center justify-center">
 						<button type="button" onClick={handleTheme}>
 							{(theme === 'system' && systemTheme && systemTheme === 'light') || theme === 'light' ? (
 								<LightModeIcon className="stroke-red" />
@@ -40,7 +40,7 @@ const Header = () => {
 						</button>
 					</li>
 					<li>
-						<button type="button" className="block sm:hidden ml-2" onClick={() => setIsOpen(true)}>
+						<button type="button" className="block ml-2 sm:hidden" onClick={() => setIsOpen(true)}>
 							<MobileMenuIcon />
 						</button>
 					</li>
@@ -48,7 +48,7 @@ const Header = () => {
 						return (
 							<li
 								key={`${menu}`}
-								className="hidden sm:block text-sm ml-4 hover:text-main cursor-pointer font-bold transition-all"
+								className="hidden ml-4 text-sm font-bold transition-all cursor-pointer sm:block hover:text-main"
 							>
 								<Link href={PAGE_URLS[menu]}>{menu}</Link>
 							</li>
