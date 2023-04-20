@@ -2,7 +2,7 @@
 title: 'Lighthouse로 서비스 성능 개선하기'
 metaTitle: 'Lighthouse로 서비스 성능 개선하기'
 description: 'Lighthouse로 서비스 성능 개선하기'
-socialImage: 20230327_01/20230327_01_01.webp
+socialImage: 20230327_01_01.webp
 date: '2023-03-27'
 timestamp: 202303271000
 tags:
@@ -13,9 +13,9 @@ tags:
 ## 계기
 사내 서비스 중, 무엇을 개선하면 사용자 경험을 향상 시킬 수 있을 지 고민하다가 **Lighthouse**로 서비스 메인 페이지 성능을 개선하면 좋을 것 같아서 시도해봤다.
 
-![20230327_02](https://hfjaydlcifnsisqntesa.supabase.co/storage/v1/object/public/se9round-images/20230327_01/20230327_01_02.webp)
+![20230327_02](https://pub-85c0bb17a41e4bd2b0f173e53fdcf568.r2.dev/20230327_01_02.webp)
 
-![20230327_03](https://hfjaydlcifnsisqntesa.supabase.co/storage/v1/object/public/se9round-images/20230327_01/20230327_01_03.webp)
+![20230327_03](https://pub-85c0bb17a41e4bd2b0f173e53fdcf568.r2.dev/20230327_01_03.webp)
 
 ## image 최적화
 ### Image elements do not have explicit width and height
@@ -46,7 +46,7 @@ webp, AVIF 같은 새로운 이미지 파일 형식을 사용하라는 의미이
 렌더링 차단 처리 방식에는 **FOIT**, **FOUT**이 있다.  
 (Internet Explorer 계열 브라우저에서는 FOUT 방식, 그 외 브라우저는 FOIT 방식으로 동작한다.)
 
-![20230327_04](https://hfjaydlcifnsisqntesa.supabase.co/storage/v1/object/public/se9round-images/20230327_01/20230327_01_04.gif)
+![20230327_04](https://pub-85c0bb17a41e4bd2b0f173e53fdcf568.r2.dev/20230327_01_04.gif)
 
 **FOIT** 방식은 텍스트가 화면에 표시되지 않다가 폰트가 다운로드되면 화면에 나타나기 때문에, 위에서 언급한 **CLS** 점수에 좋지 않은 영향을 끼친다.
 
@@ -58,7 +58,7 @@ webp, AVIF 같은 새로운 이미지 파일 형식을 사용하라는 의미이
 
 서비스에서 제공하는 이미지와 폰트 모두 AWS S3 버킷에 저장되어 있어서, AWS에서 각 이미지에 캐시 관련 메타 데이터(cache-control)를 설정했다.
 
-![20230327_04](https://hfjaydlcifnsisqntesa.supabase.co/storage/v1/object/public/se9round-images/20230327_01/20230327_01_04.webp)
+![20230327_04](https://pub-85c0bb17a41e4bd2b0f173e53fdcf568.r2.dev/20230327_01_04.webp)
 
 개발자 도구 > network 탭에서, 캐싱된 컨텐츠들을 사용하는 것을 확인할 수 있다.
 

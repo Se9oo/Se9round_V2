@@ -2,7 +2,7 @@
 title: 'FormData 값 console.log로 출력하기'
 metaTitle: 'FormData 값 console.log로 출력하기'
 description: 'FormData 값 console.log로 출력하는 방법'
-socialImage: 20230216_01/20230216_01_01.png
+socialImage: 20230216_01_01.png
 date: '2023-02-16'
 timestamp: 202302160000
 tags:
@@ -31,7 +31,7 @@ FormData는 key/value의 형태로 XMLHttpRequest나 fetch 메소드를 통해 �
 ## 출력하는 방법
 FormData는 Iterable 이므로 for...of 로 FormData 안의 데이터를 확인할 수 있다.
 
-![FormData interface](https://hfjaydlcifnsisqntesa.supabase.co/storage/v1/object/public/se9round-images/20230216_01/20230216_01_01.png)
+![FormData interface](https://pub-85c0bb17a41e4bd2b0f173e53fdcf568.r2.dev/20230216_01_01.png)
 
 
 ### init

@@ -2,7 +2,7 @@
 title: 'context API로 코드 개선하기'
 metaTitle: 'context API로 코드 개선하기'
 description: 'context API를 활용한 코드 개선'
-socialImage: 20230228_01/20230228_01_01.png
+socialImage: 20230228_01_01.png
 date: '2023-02-28'
 timestamp: 202302281700
 tags:
@@ -106,10 +106,10 @@ export const useAuthActions = () => {
 
 개선한 코드에서는 하위 컴포넌트에서 직접 context에 접근해 state를 제어할 수 있어서 state 제어 목적의 props를 제거함으로써 복잡한 코드를 간결하게 나타낼 수 있었다.
 
-![20230228_01](https://hfjaydlcifnsisqntesa.supabase.co/storage/v1/object/public/se9round-images/20230228_01/20230228_01_01.png)
+![20230228_01](https://pub-85c0bb17a41e4bd2b0f173e53fdcf568.r2.dev/20230228_01_01.png)
 
 
-![20230228_02](https://hfjaydlcifnsisqntesa.supabase.co/storage/v1/object/public/se9round-images/20230228_01/20230228_01_02.png)
+![20230228_02](https://pub-85c0bb17a41e4bd2b0f173e53fdcf568.r2.dev/20230228_01_02.png)
 
 ## 느낀점
 context API로 코드를 개선하면서 제일 먼저 든 생각은 애초에 context API에 대해 깊게 알고 있었다면 컴포넌트 설계부터 더 좋은 방향으로 할 수 있었을 것 같은 아쉬움이였다. (평소에 공부하는 습관이 역시 중요하다.)

@@ -2,7 +2,7 @@
 title: '모바일 브라우저에서 localhost 접속하기'
 metaTitle: '모바일 브라우저에서 localhost 접속하기'
 description: 'localhost를 모바일 브라우저에서 접속하는 방법'
-socialImage: 20230201_01/20230201_01_01.webp
+socialImage: 20230201_01_01.webp
 date: '2023-02-01'
 timestamp: 202302010000
 tags:
