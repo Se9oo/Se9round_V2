@@ -34,7 +34,7 @@ const MarkdownDarkComponent: object = {
 				style={{
 					background: '#282C34',
 					padding: '1rem',
-					borderLeft: '4px solid #439A97',
+					borderLeft: '4px solid #8491D9',
 				}}
 				{...props}
 			>
@@ -49,7 +49,7 @@ const MarkdownDarkComponent: object = {
 					href={anchor.href}
 					target="_blank"
 					rel="noopener noreferrer"
-					style={{ color: '#439A97', fontWeight: 700, wordBreak: 'break-word' }}
+					style={{ color: '#8491D9', fontWeight: 700, wordBreak: 'break-word', textDecoration: 'underline' }}
 				>
 					{anchor.children}
 				</a>
@@ -133,7 +133,7 @@ const MarkdownLightComponent: object = {
 					background: '#F8F9FA',
 					padding: '1rem',
 					margin: '1rem 0',
-					borderLeft: '4px solid #439A97',
+					borderLeft: '4px solid #8491D9',
 				}}
 				{...props}
 			>
