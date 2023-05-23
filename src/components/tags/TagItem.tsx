@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import { useRouter } from 'next/router';
 import { PAGE_URLS } from '~/constants/url';
 
 const TagItem = ({ tag }: { tag: string }) => {
 	const router = useRouter();
 
-	const handleButton = () => {
+	const handleButton = (e: MouseEvent<HTMLButtonElement>) => {
+		e.preventDefault();
 		router.push({ pathname: PAGE_URLS.TAGS, query: { tagName: tag } });
 	};
 
