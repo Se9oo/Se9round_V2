@@ -22,7 +22,7 @@ const Pagination = ({
 		<div className="flex items-center justify-center w-full py-4">
 			{currentPage === 1 ? null : (
 				<button type="button" onClick={() => handleActions('prev')}>
-					<ChevronLeftIcon className="mt-1" />
+					<ChevronLeftIcon />
 				</button>
 			)}
 			<ul className="flex items-center justify-center">
@@ -43,7 +43,7 @@ const Pagination = ({
 			</ul>
 			{currentPage === Math.ceil(totalCount / PAGINATION_LIMIT_COUNT) ? null : (
 				<button type="button" onClick={() => handleActions('next')}>
-					<ChevronRightIcon className="mt-1" />
+					<ChevronRightIcon />
 				</button>
 			)}
 		</div>
