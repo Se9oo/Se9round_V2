@@ -1,7 +1,8 @@
 import fs from 'fs';
 import matter from 'gray-matter';
+import supabase from '~/supabaseClient';
 import { MARKDOWN_FILE_PATH } from '~/constants/url';
-import { CLOUDFLARE_BUCKET_URL } from '~/constants/common';
+import { SUPABASE_BUCKET_NAME } from '~/constants/common';
 
 const getMarkdownFileList = () => {
 	return fs.readdirSync(MARKDOWN_FILE_PATH);
@@ -13,12 +14,20 @@ export const getPostDataAtFile = (fileName: string) => {
 	return { data, content };
 };
 
+const getThumbNailPath = (socialImageName: string | null) => {
+	const {
+		data: { publicUrl },
+	} = supabase.storage.from(SUPABASE_BUCKET_NAME).getPublicUrl(socialImageName || 'default.png');
+
+	return publicUrl;
+};
+
 export const getPostDataFromMarkdownFiles = () => {
 	const files = getMarkdownFileList();
 
 	const posts = files.map((fileName) => {
 		const { data: postData, content } = getPostDataAtFile(fileName);
-		const thumbnailPath = `${CLOUDFLARE_BUCKET_URL}/${postData.socialImage}`;
+		const thumbnailPath = getThumbNailPath(postData.socialImage);
 
 		const newData = {
 			...postData,

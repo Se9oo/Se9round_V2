@@ -13,7 +13,7 @@ const nextConfig = {
 	},
 	images: {
 		deviceSizes: [768, 1370],
-		domains: ['pub-85c0bb17a41e4bd2b0f173e53fdcf568.r2.dev'],
+		domains: ['hfjaydlcifnsisqntesa.supabase.co'],
 	},
 };
 

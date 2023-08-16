@@ -2,7 +2,7 @@
 title: 'React Query 도입하기'
 metaTitle: 'React Query 도입하기'
 description: 'React Query 도입으로 코드 개선 해보기'
-socialImage: '20230518_01_01.webp'
+socialImage: '20230518_01/20230518_01_01.webp'
 date: '2023-05-18'
 timestamp: 202305180000
 tags:

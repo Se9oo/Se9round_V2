@@ -2,7 +2,7 @@
 title: 'FormData 값 console.log로 출력하기'
 metaTitle: 'FormData 값 console.log로 출력하기'
 description: 'FormData 값 console.log로 출력하는 방법'
-socialImage: 20230216_01_01.png
+socialImage: 20230216_01/20230216_01_01.png
 date: '2023-02-16'
 timestamp: 202302160000
 tags:
