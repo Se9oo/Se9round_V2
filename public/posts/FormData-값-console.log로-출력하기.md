@@ -31,7 +31,7 @@ FormData는 key/value의 형태로 XMLHttpRequest나 fetch 메소드를 통해 �
 ## 출력하는 방법
 FormData는 Iterable 이므로 for...of 로 FormData 안의 데이터를 확인할 수 있다.
 
-![FormData interface](https://pub-85c0bb17a41e4bd2b0f173e53fdcf568.r2.dev/20230216_01_01.png)
+![FormData interface](https://hfjaydlcifnsisqntesa.supabase.co/storage/v1/object/public/se9round-images/20230216_01/20230216_01_01.png)
 
 
 ### init
@@ -50,13 +50,13 @@ formData.append('c', '3');
 // [key, value] 출력
 for (const x of formData.entries()) {
   console.log(x);
-}
+};
 
 
 // 혹은
 for (const x of formData) {
   console.log(x);
-}
+};
 
 
 // result
@@ -68,7 +68,7 @@ for (const x of formData) {
 // 구조분해를 활용하면 key와 value를 동시에 출력하는 것도 가능하다
 for (const [key, value] of formData.entries()) {
   console.log(key, value);
-}
+};
 
 
 // result
@@ -80,8 +80,8 @@ for (const [key, value] of formData.entries()) {
 ### keys()
 ```typescript
 for (const key of formData.keys()) {
-  console.log(key);
-}
+   console.log(key);
+};
 
 
 // result
@@ -93,8 +93,8 @@ for (const key of formData.keys()) {
 ### values()
 ```typescript
 for (const value of formData.values()) {
-  console.log(value);
-}
+   console.log(value);
+};
 
 
 // result
