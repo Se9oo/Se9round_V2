@@ -19,7 +19,7 @@ const Post = (props: PostDataType) => {
 				title={title}
 				description={description}
 				keywords={tags}
-				thumbnail={socialImage}
+				thumbnail={`${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_PATH}/${socialImage}`}
 				url={router.query?.title ? `${process.env.NEXT_PUBLIC_HOME_URL}/post/${router.query.title}` : ''}
 			/>
 			<MainLayout>
