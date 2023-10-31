@@ -22,17 +22,18 @@ const Pagination = ({
 		<div className="flex items-center justify-center w-full py-4">
 			{currentPage === 1 ? null : (
 				<button type="button" onClick={() => handleActions('prev')}>
-					<ChevronLeftIcon />
+					<ChevronLeftIcon className="hover:text-main" />
 				</button>
 			)}
 			<ul className="flex items-center justify-center">
 				{pages.map((item) => {
 					return (
-						<li key={item} className="mx-3">
+						<li key={item}>
 							<button
 								type="button"
-								className={`text-lg
-              ${currentPage === item ? 'text-main font-bold' : 'text-dark dark:text-darkText'}`}
+								className={`text-lg w-8 h-8 hover:text-main ${
+									currentPage === item ? 'text-main font-bold' : 'text-dark dark:text-darkText'
+								}`}
 								onClick={() => handlePage(item)}
 							>
 								{item}
@@ -43,7 +44,7 @@ const Pagination = ({
 			</ul>
 			{currentPage === Math.ceil(totalCount / PAGINATION_LIMIT_COUNT) ? null : (
 				<button type="button" onClick={() => handleActions('next')}>
-					<ChevronRightIcon />
+					<ChevronRightIcon className="hover:text-main" />
 				</button>
 			)}
 		</div>
