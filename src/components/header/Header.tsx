@@ -31,7 +31,7 @@ const Header = () => {
 				</h1>
 				<ul className="flex items-center justify-start">
 					<li className="flex items-center justify-center">
-						<button type="button" onClick={handleTheme}>
+						<button type="button" onClick={handleTheme} aria-label="color mode change button">
 							{(theme === 'system' && systemTheme && systemTheme === 'light') || theme === 'light' ? (
 								<LightModeIcon className="stroke-red" />
 							) : (

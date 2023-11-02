@@ -21,7 +21,7 @@ const Pagination = ({
 	return (
 		<div className="flex items-center justify-center w-full py-4">
 			{currentPage === 1 ? null : (
-				<button type="button" onClick={() => handleActions('prev')}>
+				<button type="button" onClick={() => handleActions('prev')} aria-label="previous pagination button">
 					<ChevronLeftIcon className="hover:text-main" />
 				</button>
 			)}
@@ -43,7 +43,7 @@ const Pagination = ({
 				})}
 			</ul>
 			{currentPage === Math.ceil(totalCount / PAGINATION_LIMIT_COUNT) ? null : (
-				<button type="button" onClick={() => handleActions('next')}>
+				<button type="button" onClick={() => handleActions('next')} aria-label="next pagination button">
 					<ChevronRightIcon className="hover:text-main" />
 				</button>
 			)}

@@ -10,6 +10,7 @@ const Footer = () => {
 				rel="noreferrer"
 				className="mb-2 rounded-full hover:bg-darkText dark:hover:bg-greyCopy"
 				data-id="github-link"
+				aria-label="move to github"
 			>
 				<GithubIcon />
 			</a>
