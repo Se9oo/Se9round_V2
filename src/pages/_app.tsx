@@ -34,15 +34,11 @@ const App = ({ Component, pageProps }: AppProps) => {
 					integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx"
 					crossOrigin="anonymous"
 				/>
-				<Script
-					strategy="afterInteractive"
-					src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
-				/>
-				<Script
-					id="gtag-init"
-					strategy="afterInteractive"
-					dangerouslySetInnerHTML={{
-						__html: `
+				{process.env.NODE_ENV !== 'development' && (
+					<script
+						id="gtag-init"
+						dangerouslySetInnerHTML={{
+							__html: `
 						window.dataLayer = window.dataLayer || [];
 						function gtag(){dataLayer.push(arguments);}
 						gtag('js', new Date());
@@ -50,9 +46,16 @@ const App = ({ Component, pageProps }: AppProps) => {
 							page_path: window.location.pathname,
 						});
 					`,
-					}}
-				/>
+						}}
+					/>
+				)}
 			</Head>
+			{process.env.NODE_ENV !== 'development' && (
+				<Script
+					strategy="afterInteractive"
+					src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+				/>
+			)}
 			<ToastContainer />
 			<AnimatePresence>
 				<Component {...pageProps} />
