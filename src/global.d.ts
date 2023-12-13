@@ -14,3 +14,5 @@ declare module 'react-syntax-highlighter/dist/cjs/styles/prism' {
 interface Window {
 	Kakao: any;
 }
+
+declare module 'gtag.js';
