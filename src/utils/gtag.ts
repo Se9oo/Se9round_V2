@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
-export const GA_TRACKING_ID = 'GTM-W8KH4MWG';
+export const GA_TRACKING_ID = 'G-ZE5CPKYB9Q';
 
 export const pageview = (url: URL) => {
 	window.gtag('config', GA_TRACKING_ID, {
