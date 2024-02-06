@@ -2,6 +2,8 @@ import React from 'react';
 import GithubIcon from '../icons/GithubIcon';
 
 const Footer = () => {
+	const year = new Date().getFullYear();
+
 	return (
 		<footer className="flex flex-col items-center justify-center w-full pt-4 pb-8 mt-4 font-medium">
 			<a
@@ -14,7 +16,7 @@ const Footer = () => {
 			>
 				<GithubIcon />
 			</a>
-			<span className="block mb-2 text-sm">Copyright &copy; 2023 se9oo</span>
+			<span className="block mb-2 text-sm">Copyright &copy; {year} se9oo</span>
 			<a
 				href="https://github.com/Se9oo/Se9round_V2"
 				target="_blank"
