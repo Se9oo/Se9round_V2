@@ -2,7 +2,7 @@
 title: 'footer 하단 고정하기 with flex'
 metaTitle: ''
 description: '표시할 컨텐츠가 적을 때 footer를 하단 고정하는 방법'
-socialImage: '20231030_01/20231030_01_01.webp'
+socialImage: '20240206_01/20240206_01_01.webp'
 date: '2024-02-06'
 timestamp: 202402060000
 tags:
@@ -63,10 +63,10 @@ flex: 1에 대한 자세한 설명은 [이 링크](https://www.heropy.dev/p/Ha29
 
 ### 실행 화면
 #### flex: 1 적용 전
-![20240206_01](https://hfjaydlcifnsisqntesa.supabase.co/storage/v1/object/public/se9round-images/20240206_01/20240206_01_01.webp)
+![20240206_01](https://hfjaydlcifnsisqntesa.supabase.co/storage/v1/object/public/se9round-images/20240206_01/20240206_01_02.webp)
 
 #### flex: 1 적용 후
-![20240206_02](https://hfjaydlcifnsisqntesa.supabase.co/storage/v1/object/public/se9round-images/20240206_01/20240206_01_02.webp)
+![20240206_02](https://hfjaydlcifnsisqntesa.supabase.co/storage/v1/object/public/se9round-images/20240206_01/20240206_01_03.webp)
 
 
 ## 참고자료
