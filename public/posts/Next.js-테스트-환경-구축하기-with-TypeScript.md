@@ -4,7 +4,7 @@ metaTitle: ''
 description: 'Next.js + TypeScript + Jest + React Testing Library 설정'
 socialImage: '20231030_01/20231030_01_01.webp'
 date: '2023-10-30'
-timestamp: 2023010300000
+timestamp: 202310300000
 tags:
   - nextjs
   - typescript
