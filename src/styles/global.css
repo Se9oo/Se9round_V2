@@ -13,14 +13,9 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-html {
-	font-family: 'Pretendard', 'Noto Sans KR', 'Monaco', sans-serif;
-	letter-spacing: -0.5px;
-}
-
+html,
 body {
 	font-family: 'Pretendard', 'Noto Sans KR', 'Monaco', sans-serif;
-	letter-spacing: -0.5px;
 }
 
 #__next {
