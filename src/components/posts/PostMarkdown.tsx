@@ -120,7 +120,7 @@ const MarkdownDarkComponent: object = {
 		);
 	},
 	ul: (props: any) => {
-		return <ul {...props} style={{ listStyle: 'disc', marginLeft: '1rem' }}></ul>;
+		return <ul {...props} style={{ listStyle: 'disc', marginLeft: '2rem', paddingBottom: '0.5rem' }}></ul>;
 	},
 };
 
