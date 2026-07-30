@@ -15,10 +15,10 @@
 		"alwaysStrict": true, //자바스크립트 "use strict" 모드 켜기
 		"esModuleInterop": true,
 		"module": "esnext",
-		"moduleResolution": "node",
+		"moduleResolution": "bundler",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
-		"jsx": "preserve",
+		"jsx": "react-jsx",
 		"incremental": true,
 		"baseUrl": "./src",
 		"paths": {

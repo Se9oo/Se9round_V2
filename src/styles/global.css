@@ -1,7 +1,7 @@
+@import url(fonts.css);
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url(fonts.css);
 
 :root {
 	--toastify-color-success: #8491d9;
