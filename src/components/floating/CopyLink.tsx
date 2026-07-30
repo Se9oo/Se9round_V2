@@ -1,15 +1,17 @@
+'use client';
+
 import React from 'react';
 import { useTheme } from 'next-themes';
-import { useRouter } from 'next/router';
+import { useParams } from 'next/navigation';
 import { toast } from 'react-toastify';
 import LinkIcon from '../icons/LinkIcon';
 
 const CopyLink = () => {
-	const router = useRouter();
+	const params = useParams<{ title: string }>();
 	const { theme } = useTheme();
 
 	const handleCopyLink = () => {
-		const copyLink = `${process.env.NEXT_PUBLIC_HOME_URL}/post/${router.query.title}`;
+		const copyLink = `${process.env.NEXT_PUBLIC_HOME_URL}/post/${params.title}`;
 		navigator.clipboard.writeText(copyLink);
 
 		toast.success('링크 복사 완료', {

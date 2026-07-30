@@ -1,6 +1,8 @@
+'use client';
+
 import React, { ReactNode } from 'react';
 import { motion } from 'motion/react';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 
 const animate = {
 	initial: {
@@ -15,11 +17,11 @@ const animate = {
 };
 
 const PageTransition = ({ children, className }: { children: ReactNode; className?: string }) => {
-	const router = useRouter();
+	const pathname = usePathname();
 
 	return (
 		<motion.main
-			key={router.route}
+			key={pathname}
 			initial={animate.initial}
 			animate={animate.animate}
 			exit={animate.exit}

@@ -1,10 +1,12 @@
+'use client';
+
 import React, { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useParams } from 'next/navigation';
 import { PostDataType } from '~/types/post';
 import KakaoIcon from '../icons/KakaoIcon';
 
 const KakaoShare = ({ post }: { post: PostDataType }) => {
-	const router = useRouter();
+	const params = useParams<{ title: string }>();
 	const {
 		metaData: { title, socialImage, tags },
 	} = post;
@@ -13,7 +15,7 @@ const KakaoShare = ({ post }: { post: PostDataType }) => {
 		const createKakaoButton = () => {
 			if (window.Kakao) {
 				const kakao = window.Kakao;
-				const url = `${process.env.NEXT_PUBLIC_HOME_URL}/post/${router.query.title}`;
+				const url = `${process.env.NEXT_PUBLIC_HOME_URL}/post/${params.title}`;
 				const tagStr = tags.map((tag) => `#${tag}`).join(' ');
 
 				kakao.Share.createDefaultButton({
@@ -42,7 +44,7 @@ const KakaoShare = ({ post }: { post: PostDataType }) => {
 		};
 
 		createKakaoButton();
-	}, [title, socialImage, router.query.title, tags]);
+	}, [title, socialImage, params.title, tags]);
 
 	return (
 		<button

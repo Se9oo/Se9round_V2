@@ -3,7 +3,7 @@ import Link from 'next/link';
 import MainLayout from '~/components/layout/MainLayout';
 import { PAGE_URLS } from '~/constants/url';
 
-const Page404 = () => {
+const NotFound = () => {
 	return (
 		<MainLayout>
 			<div className="w-full h-[calc(100vh-104px-144px)] flex justify-center items-center">
@@ -21,4 +21,4 @@ const Page404 = () => {
 	);
 };
 
-export default Page404;
+export default NotFound;

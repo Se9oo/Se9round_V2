@@ -3,15 +3,16 @@ import matter from 'gray-matter';
 import supabase from '~/supabaseClient';
 import { MARKDOWN_FILE_PATH } from '~/constants/url';
 import { SUPABASE_BUCKET_NAME } from '~/constants/common';
+import { PostMetaDataType } from '~/types/post';
 
 const getMarkdownFileList = () => {
 	return fs.readdirSync(MARKDOWN_FILE_PATH);
 };
 
-export const getPostDataAtFile = (fileName: string) => {
+export const getPostDataAtFile = (fileName: string): { data: PostMetaDataType; content: string } => {
 	const { data, content } = matter(fs.readFileSync(`${MARKDOWN_FILE_PATH}/${fileName}`, 'utf-8'));
 
-	return { data, content };
+	return { data: data as PostMetaDataType, content };
 };
 
 const getThumbNailPath = (socialImageName: string | null) => {

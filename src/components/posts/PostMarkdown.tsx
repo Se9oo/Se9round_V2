@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable react/self-closing-comp */
+'use client';
 
 import React, { ReactNode } from 'react';
 import { useTheme } from 'next-themes';

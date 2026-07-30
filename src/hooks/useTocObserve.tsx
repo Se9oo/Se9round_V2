@@ -1,4 +1,6 @@
 /* eslint-disable consistent-return */
+'use client';
+
 import React, { Dispatch, SetStateAction, useEffect, useRef } from 'react';
 
 type TargetRefType = {

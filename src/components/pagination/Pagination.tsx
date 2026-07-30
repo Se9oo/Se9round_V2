@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { PAGINATION_LIMIT_COUNT } from '~/constants/common';
 import ChevronLeftIcon from '../icons/ChevronLeftIcon';

@@ -1,11 +1,14 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation';
 import TagList from './TagList';
 import PostList from '../posts/PostList';
 import { PostFileType } from '~/types/post';
 
 const Tags = ({ tags, posts }: { tags: string[]; posts: PostFileType[] }) => {
-	const router = useRouter();
+	const searchParams = useSearchParams();
+	const tagName = searchParams.get('tagName');
 
 	const [searchPosts, setSearchPosts] = useState<PostFileType[]>([]);
 	const [searchTag, setSearchTag] = useState('');
@@ -17,10 +20,10 @@ const Tags = ({ tags, posts }: { tags: string[]; posts: PostFileType[] }) => {
 	}, [searchTag, posts]);
 
 	useEffect(() => {
-		if (router.query.tagName) {
-			setSearchTag(router.query.tagName as string);
+		if (tagName) {
+			setSearchTag(tagName);
 		}
-	}, [router.query.tagName]);
+	}, [tagName]);
 
 	return (
 		<>

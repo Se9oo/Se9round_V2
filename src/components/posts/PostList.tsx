@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import PostCard from './PostCard';
 import Pagination from '../pagination/Pagination';

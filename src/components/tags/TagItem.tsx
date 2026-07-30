@@ -1,5 +1,7 @@
+'use client';
+
 import React, { MouseEvent } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { PAGE_URLS } from '~/constants/url';
 
 const TagItem = ({ tag }: { tag: string }) => {
@@ -7,7 +9,7 @@ const TagItem = ({ tag }: { tag: string }) => {
 
 	const handleButton = (e: MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
-		router.push({ pathname: PAGE_URLS.TAGS, query: { tagName: tag } });
+		router.push(`${PAGE_URLS.TAGS}?tagName=${encodeURIComponent(tag)}`);
 	};
 
 	return (
