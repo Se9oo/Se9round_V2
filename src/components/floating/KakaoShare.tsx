@@ -15,6 +15,11 @@ const KakaoShare = ({ post }: { post: PostDataType }) => {
 		const createKakaoButton = () => {
 			if (window.Kakao) {
 				const kakao = window.Kakao;
+
+				if (!kakao.isInitialized()) {
+					kakao.init(process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY);
+				}
+
 				const url = `${process.env.NEXT_PUBLIC_HOME_URL}/post/${params.title}`;
 				const tagStr = tags.map((tag) => `#${tag}`).join(' ');
 

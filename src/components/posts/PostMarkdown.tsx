@@ -1,13 +1,12 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable react/self-closing-comp */
-'use client';
 
 import React, { ReactNode } from 'react';
-import { useTheme } from 'next-themes';
 import ReactMarkdown from 'react-markdown';
 
 import { generateSlug } from '~/utils/format';
 import CodeBlock from './CodeBlock';
+import MarkdownImage from './MarkdownImage';
 
 const extractHeadingText = (node: ReactNode): string => {
 	if (typeof node === 'string' || typeof node === 'number') return String(node);
@@ -16,9 +15,7 @@ const extractHeadingText = (node: ReactNode): string => {
 	return '';
 };
 
-const openImage = (src: string) => () => window.open(src);
-
-const MarkdownDarkComponent: object = {
+const MarkdownComponents: object = {
 	code({
 		inline,
 		className,
@@ -49,14 +46,7 @@ const MarkdownDarkComponent: object = {
 	},
 	blockquote({ children, node, ...props }: { children: ReactNode; node?: unknown }) {
 		return (
-			<blockquote
-				style={{
-					background: '#282C34',
-					padding: '1rem',
-					borderLeft: '4px solid #8491D9',
-				}}
-				{...props}
-			>
+			<blockquote className="my-4 border-l-4 border-l-[#8491D9] bg-[#F8F9FA] p-4 dark:bg-[#282C34]" {...props}>
 				{children}
 			</blockquote>
 		);
@@ -90,7 +80,7 @@ const MarkdownDarkComponent: object = {
 		);
 	},
 	hr: ({ node, ...props }: { node?: unknown }) => {
-		return <hr style={{ color: '#EAEAEA' }} {...props} />;
+		return <hr className="text-[rgba(41,69,105,0.1)] dark:text-[#EAEAEA]" {...props} />;
 	},
 	h2: ({ node, ...props }: any) => {
 		const heading = extractHeadingText(props?.children);
@@ -113,18 +103,7 @@ const MarkdownDarkComponent: object = {
 
 		return <h4 id={slug} {...props}></h4>;
 	},
-	img: (props: any) => {
-		const { src, alt } = props;
-		return (
-			<img
-				src={src}
-				alt={alt}
-				style={{ margin: '0 auto', cursor: 'pointer' }}
-				onClick={openImage(src)}
-				onKeyDown={openImage(src)}
-			/>
-		);
-	},
+	img: MarkdownImage,
 	strong: ({ node, ...props }: any) => {
 		return (
 			<strong
@@ -143,37 +122,8 @@ const MarkdownDarkComponent: object = {
 	},
 };
 
-const MarkdownLightComponent: object = {
-	...MarkdownDarkComponent,
-	blockquote({ children, node, ...props }: { children: ReactNode; node?: unknown }) {
-		return (
-			<blockquote
-				style={{
-					background: '#F8F9FA',
-					padding: '1rem',
-					margin: '1rem 0',
-					borderLeft: '4px solid #8491D9',
-				}}
-				{...props}
-			>
-				{children}
-			</blockquote>
-		);
-	},
-	hr: ({ node, ...props }: { node?: unknown }) => {
-		return <hr style={{ color: 'rgba(41, 69, 105, 0.1)' }} {...props} />;
-	},
-};
-
 const PostMarkdown = ({ content }: { content: string }) => {
-	const { theme } = useTheme();
-
-	return (
-		<ReactMarkdown
-			children={content.replace(/\n\s/gi, '\n\n&nbsp;\n\n')}
-			components={theme === 'light' ? MarkdownLightComponent : MarkdownDarkComponent}
-		/>
-	);
+	return <ReactMarkdown children={content.replace(/\n\s/gi, '\n\n&nbsp;\n\n')} components={MarkdownComponents} />;
 };
 
 export default PostMarkdown;

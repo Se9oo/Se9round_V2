@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 
 const usePagination = (length: number) => {
-	const [totalCount, setTotalCount] = useState(0);
+	const [totalCount, setTotalCount] = useState(length);
 	const [page, setPage] = useState(1);
 
 	const handlePage = (pageNumber: number) => {
