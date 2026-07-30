@@ -8,10 +8,28 @@ import ReactMarkdown from 'react-markdown';
 import { generateSlug } from '~/utils/format';
 import CodeBlock from './CodeBlock';
 
+const extractHeadingText = (node: ReactNode): string => {
+	if (typeof node === 'string' || typeof node === 'number') return String(node);
+	if (Array.isArray(node)) return node.map(extractHeadingText).join('');
+	if (React.isValidElement(node)) return extractHeadingText((node.props as { children?: ReactNode }).children);
+	return '';
+};
+
 const openImage = (src: string) => () => window.open(src);
 
 const MarkdownDarkComponent: object = {
-	code({ inline, className, children, ...props }: { inline: boolean; className: string; children: string | string[] }) {
+	code({
+		inline,
+		className,
+		children,
+		node,
+		...props
+	}: {
+		inline: boolean;
+		className: string;
+		children: string | string[];
+		node?: unknown;
+	}) {
 		const match = /language-(\w+)/.exec(className || '');
 
 		const formattedChildren = Array.isArray(children)
@@ -28,7 +46,7 @@ const MarkdownDarkComponent: object = {
 			</code>
 		);
 	},
-	blockquote({ children, ...props }: { children: ReactNode }) {
+	blockquote({ children, node, ...props }: { children: ReactNode; node?: unknown }) {
 		return (
 			<blockquote
 				style={{
@@ -57,7 +75,7 @@ const MarkdownDarkComponent: object = {
 		}
 		return <a href={anchor.href}>{anchor.children}</a>;
 	},
-	ol: ({ children, ...props }: { children: ReactNode }) => {
+	ol: ({ children, node, ...props }: { children: ReactNode; node?: unknown }) => {
 		return (
 			<ol
 				style={{
@@ -70,25 +88,25 @@ const MarkdownDarkComponent: object = {
 			</ol>
 		);
 	},
-	hr: ({ ...props }) => {
+	hr: ({ node, ...props }: { node?: unknown }) => {
 		return <hr style={{ color: '#EAEAEA' }} {...props} />;
 	},
-	h2: (props: any) => {
-		const heading = props?.children.reduce((a: string, b: string) => a + b);
+	h2: ({ node, ...props }: any) => {
+		const heading = extractHeadingText(props?.children);
 
 		const slug = generateSlug(heading ?? '');
 
 		return <h2 id={slug} {...props}></h2>;
 	},
-	h3: (props: any) => {
-		const heading = props?.children.reduce((a: string, b: string) => a + b);
+	h3: ({ node, ...props }: any) => {
+		const heading = extractHeadingText(props?.children);
 
 		const slug = generateSlug(heading ?? '');
 
 		return <h3 id={slug} {...props}></h3>;
 	},
-	h4: (props: any) => {
-		const heading = props?.children.reduce((a: string, b: string) => a + b);
+	h4: ({ node, ...props }: any) => {
+		const heading = extractHeadingText(props?.children);
 
 		const slug = generateSlug(heading ?? '');
 
@@ -106,7 +124,7 @@ const MarkdownDarkComponent: object = {
 			/>
 		);
 	},
-	strong: (props: any) => {
+	strong: ({ node, ...props }: any) => {
 		return (
 			<strong
 				style={{
@@ -119,14 +137,14 @@ const MarkdownDarkComponent: object = {
 			></strong>
 		);
 	},
-	ul: (props: any) => {
+	ul: ({ node, ...props }: any) => {
 		return <ul {...props} style={{ listStyle: 'disc', marginLeft: '2rem', paddingBottom: '0.5rem' }}></ul>;
 	},
 };
 
 const MarkdownLightComponent: object = {
 	...MarkdownDarkComponent,
-	blockquote({ children, ...props }: { children: ReactNode }) {
+	blockquote({ children, node, ...props }: { children: ReactNode; node?: unknown }) {
 		return (
 			<blockquote
 				style={{
@@ -141,7 +159,7 @@ const MarkdownLightComponent: object = {
 			</blockquote>
 		);
 	},
-	hr: ({ ...props }) => {
+	hr: ({ node, ...props }: { node?: unknown }) => {
 		return <hr style={{ color: 'rgba(41, 69, 105, 0.1)' }} {...props} />;
 	},
 };
