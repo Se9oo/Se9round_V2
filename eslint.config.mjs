@@ -27,6 +27,7 @@ export default tseslint.config(
 				},
 			],
 			'react-hooks/exhaustive-deps': 'off',
+			'react/display-name': 'off',
 		},
 	},
 );

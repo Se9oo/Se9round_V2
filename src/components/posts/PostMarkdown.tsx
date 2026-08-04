@@ -34,7 +34,7 @@ const MarkdownComponents: object = {
 			: children.replace(/\n\n&nbsp;\n\n/g, '\n');
 
 		return !inline && match ? (
-			<CodeBlock children={formattedChildren} match={match} />
+			<CodeBlock match={match}>{formattedChildren}</CodeBlock>
 		) : (
 			<code className={className} {...props}>
 				{children}
@@ -120,7 +120,7 @@ const MarkdownComponents: object = {
 };
 
 const PostMarkdown = ({ content }: { content: string }) => {
-	return <ReactMarkdown children={content.replace(/\n\s/gi, '\n\n&nbsp;\n\n')} components={MarkdownComponents} />;
+	return <ReactMarkdown components={MarkdownComponents}>{content.replace(/\n\s/gi, '\n\n&nbsp;\n\n')}</ReactMarkdown>;
 };
 
 export default PostMarkdown;

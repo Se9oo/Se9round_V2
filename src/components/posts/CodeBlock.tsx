@@ -54,7 +54,6 @@ const CodeBlock = ({ children, match }: { children: string | string[]; match: Re
 			onBlur={() => handleMouseOnCode(false)}
 		>
 			<SyntaxHighlighter
-				children={String(children).replace(/\n$/, '')}
 				style={oneDark}
 				language={match[1]}
 				PreTag="div"
@@ -63,7 +62,9 @@ const CodeBlock = ({ children, match }: { children: string | string[]; match: Re
 					padding: '2.5rem 1.5rem',
 					borderRadius: 4,
 				}}
-			/>
+			>
+				{String(children).replace(/\n$/, '')}
+			</SyntaxHighlighter>
 			<button
 				type="button"
 				onClick={handleCopy}
