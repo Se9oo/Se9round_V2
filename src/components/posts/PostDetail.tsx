@@ -20,11 +20,14 @@ const PostDetail = ({ postData }: { postData: PostDataType }) => {
 				<FloatingActions post={postData} />
 			</div>
 			<div className="sm:mt-20 sm:text-start">
-				<h1 className="font-bold text-[36px] sm:text-[40px] leading-[44px] sm:leading-[48px] tracking-[-0.5px] mb-10 sm:mb-12">
+				<h1
+					className="mb-10 text-[36px] leading-[44px] font-bold tracking-[-0.5px] sm:mb-12 sm:text-[40px]
+						sm:leading-[48px]"
+				>
 					{title}
 				</h1>
 				{tags && tags.length > 0 ? <TagList tags={tags} customStyle="justify-start mb-4" /> : null}
-				<span className="block mb-10 text-sm sm:mb-14">{getFormattedDate(date, 'kor')}</span>
+				<span className="mb-10 block text-sm sm:mb-14">{getFormattedDate(date, 'kor')}</span>
 				<div id="markdown-wrapper" className="text-lg">
 					<PostMarkdown content={content} />
 				</div>

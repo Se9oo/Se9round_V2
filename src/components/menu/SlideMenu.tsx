@@ -11,11 +11,9 @@ const SlideMenu = ({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: Dispatch
 	useScrollLock(isOpen);
 
 	return (
-		<div className="block sm:hidden z-header">
+		<div className="z-header block sm:hidden">
 			<div
-				className={`fixed sm:hidden top-0 right-0  h-screen ${
-					isOpen ? 'w-full opacity-[0.5]' : 'w-0 opacity-0'
-				} bg-dark `}
+				className={`fixed top-0 right-0 h-screen sm:hidden ${isOpen ? 'w-full opacity-[0.5]' : 'w-0 opacity-0'} bg-dark`}
 			/>
 			<aside
 				className={`fixed top-0 right-0 h-full transition-all ${isOpen ? 'w-[40%]' : 'w-0'} ${

@@ -24,11 +24,13 @@ const Header = () => {
 	}
 
 	return (
-		<header className="fixed top-0 left-0 w-full h-14 sm:h-[72px] shadow-xs z-header bg-white dark:bg-dark">
-			<div className="w-full max-w-[768px] h-full mx-auto my-0 flex justify-between items-center px-6 sm:px-4 py-3 sm:py-6">
+		<header className="fixed top-0 left-0 z-header h-14 w-full bg-white shadow-xs sm:h-[72px] dark:bg-dark">
+			<div
+				className="mx-auto my-0 flex h-full w-full max-w-[768px] items-center justify-between px-6 py-3 sm:px-4 sm:py-6"
+			>
 				<h1>
 					<Link href={PAGE_URLS.HOME}>
-						<strong className="text-[24px] tracking-[-0.5px] font-bold italic underline mr-2">se9round.dev</strong>
+						<strong className="mr-2 text-[24px] font-bold tracking-[-0.5px] italic underline">se9round.dev</strong>
 					</Link>
 				</h1>
 				<ul className="flex items-center justify-start">
@@ -42,7 +44,7 @@ const Header = () => {
 						</button>
 					</li>
 					<li>
-						<button type="button" className="block ml-2 sm:hidden" onClick={() => setIsOpen(true)}>
+						<button type="button" className="ml-2 block sm:hidden" onClick={() => setIsOpen(true)}>
 							<MobileMenuIcon />
 						</button>
 					</li>
@@ -50,7 +52,7 @@ const Header = () => {
 						return (
 							<li
 								key={`${menu}`}
-								className="hidden ml-4 text-sm font-bold transition-all cursor-pointer sm:block hover:text-main"
+								className="ml-4 hidden cursor-pointer text-sm font-bold transition-all hover:text-main sm:block"
 							>
 								<Link href={PAGE_URLS[menu]}>{menu}</Link>
 							</li>

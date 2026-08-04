@@ -14,11 +14,11 @@ const Tags = ({ tags, posts }: { tags: string[]; posts: PostFileType[] }) => {
 	return (
 		<>
 			{tags && tags.length > 0 ? <TagList tags={tags} /> : null}
-			{searchTag && <h2 className="block mt-8 sm:mt-16 text-[24px] underline">{`#${searchTag}`}</h2>}
+			{searchTag && <h2 className="mt-8 block text-[24px] underline sm:mt-16">{`#${searchTag}`}</h2>}
 			{searchPosts && searchPosts.length > 0 ? (
 				<PostList posts={searchPosts} />
 			) : (
-				<span className="block w-full mt-24 text-center">태그를 선택해 주세요</span>
+				<span className="mt-24 block w-full text-center">태그를 선택해 주세요</span>
 			)}
 		</>
 	);

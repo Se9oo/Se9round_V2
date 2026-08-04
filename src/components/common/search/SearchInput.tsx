@@ -12,7 +12,8 @@ const SearchInput = ({
 	return (
 		<input
 			type="text"
-			className="w-full h-12 p-4 leading-4 tracking-[-0.5px] rounded-sm mb-4 border-[1.5px] border-grey dark:border-none focus:outline-main"
+			className="mb-4 h-12 w-full rounded-sm border-[1.5px] border-grey p-4 leading-4 tracking-[-0.5px]
+				focus:outline-main dark:border-none"
 			placeholder={placeholder || ''}
 			onChange={handleChangeValue}
 		/>

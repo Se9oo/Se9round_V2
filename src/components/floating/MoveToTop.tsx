@@ -12,7 +12,8 @@ const MoveToTop = () => {
 		<button
 			type="button"
 			onClick={handleMoveToTop}
-			className="flex items-center justify-center transition-all rounded-md w-9 h-9 bg-darkText hover:bg-greyLight text-dark"
+			className="flex h-9 w-9 items-center justify-center rounded-md bg-darkText text-dark transition-all
+				hover:bg-greyLight"
 		>
 			<MoveToTopIcon />
 		</button>

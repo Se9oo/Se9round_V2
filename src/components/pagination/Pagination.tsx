@@ -21,7 +21,7 @@ const Pagination = ({
 	};
 
 	return (
-		<div className="flex items-center justify-center w-full py-4">
+		<div className="flex w-full items-center justify-center py-4">
 			{currentPage === 1 ? null : (
 				<button type="button" onClick={() => handleActions('prev')} aria-label="previous pagination button">
 					<ChevronLeftIcon className="hover:text-main" />
@@ -33,8 +33,8 @@ const Pagination = ({
 						<li key={item}>
 							<button
 								type="button"
-								className={`text-lg w-8 h-8 hover:text-main ${
-									currentPage === item ? 'text-main font-bold' : 'text-dark dark:text-darkText'
+								className={`h-8 w-8 text-lg hover:text-main ${
+									currentPage === item ? 'font-bold text-main' : 'text-dark dark:text-darkText'
 								}`}
 								onClick={() => handlePage(item)}
 							>

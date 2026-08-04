@@ -68,9 +68,8 @@ const CodeBlock = ({ children, match }: { children: string | string[]; match: Re
 			<button
 				type="button"
 				onClick={handleCopy}
-				className={`${
-					showCopy ? 'block' : 'hidden'
-				} absolute top-3 right-3 border border-greyCopy p-1 rounded hover:bg-greyCopy`}
+				className={`${showCopy ? 'block' : 'hidden'} absolute top-3 right-3 rounded border border-greyCopy p-1
+					hover:bg-greyCopy`}
 			>
 				{isCopy ? <CheckIcon className="text-darkText" /> : <CopyIcon className="text-darkText" />}
 			</button>

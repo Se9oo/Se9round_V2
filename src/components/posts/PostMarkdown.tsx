@@ -30,7 +30,7 @@ const MarkdownComponents: object = {
 		const formattedChildren = Array.isArray(children)
 			? children.map((item) => {
 					return item.replace(/\n\n&nbsp;\n\n/g, '\n');
-			  })
+				})
 			: children.replace(/\n\n&nbsp;\n\n/g, '\n');
 
 		return !inline && match ? (

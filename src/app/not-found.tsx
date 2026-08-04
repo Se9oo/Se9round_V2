@@ -6,12 +6,13 @@ import { PAGE_URLS } from '@/constants/url';
 const NotFound = () => {
 	return (
 		<MainLayout>
-			<div className="w-full h-[calc(100vh-104px-144px)] flex justify-center items-center">
+			<div className="flex h-[calc(100vh-104px-144px)] w-full items-center justify-center">
 				<div className="flex flex-col">
 					<strong className="mb-8 text-3xl">페이지를 찾을 수 없습니다</strong>
 					<Link
 						href={PAGE_URLS.HOME}
-						className="flex items-center justify-center h-12 font-bold text-center text-white rounded-sm bg-main dark:text-darkText"
+						className="flex h-12 items-center justify-center rounded-sm bg-main text-center font-bold text-white
+							dark:text-darkText"
 					>
 						홈으로
 					</Link>

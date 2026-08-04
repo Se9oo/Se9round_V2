@@ -29,7 +29,7 @@ const CopyLink = () => {
 	return (
 		<button
 			type="button"
-			className="flex items-center justify-center transition-all rounded-md w-9 h-9 text-dark bg-darkText hover:bg-greyLight"
+			className="flex items-center justify-center transition-all rounded-md h-9 w-9 bg-darkText text-dark hover:bg-greyLight"
 			onClick={handleCopyLink}
 		>
 			<LinkIcon />

@@ -2,14 +2,18 @@
 	font-family: 'Monaco';
 	font-style: normal;
 	font-weight: normal;
-	src: local('Monaco'), url('/fonts/Monaco.woff') format('woff');
+	src:
+		local('Monaco'),
+		url('/fonts/Monaco.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'Pretendard';
 	font-weight: 700;
 	font-display: swap;
-	src: local('Pretendard Bold'), url('/fonts/pretendard/woff2/Pretendard-Bold.subset.woff2') format('woff2'),
+	src:
+		local('Pretendard Bold'),
+		url('/fonts/pretendard/woff2/Pretendard-Bold.subset.woff2') format('woff2'),
 		url('/fonts/pretendard/woff/Pretendard-Bold.subset.woff') format('woff');
 }
 
@@ -17,7 +21,9 @@
 	font-family: 'Pretendard';
 	font-weight: 600;
 	font-display: swap;
-	src: local('Pretendard SemiBold'), url('/fonts/pretendard/woff2/Pretendard-SemiBold.subset.woff2') format('woff2'),
+	src:
+		local('Pretendard SemiBold'),
+		url('/fonts/pretendard/woff2/Pretendard-SemiBold.subset.woff2') format('woff2'),
 		url('/fonts/pretendard/woff/Pretendard-SemiBold.subset.woff') format('woff');
 }
 
@@ -25,7 +31,9 @@
 	font-family: 'Pretendard';
 	font-weight: 500;
 	font-display: swap;
-	src: local('Pretendard Medium'), url('/fonts/pretendard/woff2/Pretendard-Medium.subset.woff2') format('woff2'),
+	src:
+		local('Pretendard Medium'),
+		url('/fonts/pretendard/woff2/Pretendard-Medium.subset.woff2') format('woff2'),
 		url('/fonts/pretendard/woff/Pretendard-Medium.subset.woff') format('woff');
 }
 
@@ -33,7 +41,9 @@
 	font-family: 'Pretendard';
 	font-weight: 400;
 	font-display: swap;
-	src: local('Pretendard Regular'), url('/fonts/pretendard/woff2/Pretendard-Regular.subset.woff2') format('woff2'),
+	src:
+		local('Pretendard Regular'),
+		url('/fonts/pretendard/woff2/Pretendard-Regular.subset.woff2') format('woff2'),
 		url('/fonts/pretendard/woff/Pretendard-Regular.subset.woff') format('woff');
 }
 
@@ -41,6 +51,8 @@
 	font-family: 'Pretendard';
 	font-weight: 300;
 	font-display: swap;
-	src: local('Pretendard Light'), url('/fonts/pretendard/woff2/Pretendard-Light.subset.woff2') format('woff2'),
+	src:
+		local('Pretendard Light'),
+		url('/fonts/pretendard/woff2/Pretendard-Light.subset.woff2') format('woff2'),
 		url('/fonts/pretendard/woff/Pretendard-Light.subset.woff') format('woff');
 }
