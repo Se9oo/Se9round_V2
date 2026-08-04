@@ -1,9 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const usePagination = (length: number) => {
-	const [totalCount, setTotalCount] = useState(length);
 	const [page, setPage] = useState(1);
 
 	const handlePage = (pageNumber: number) => {
@@ -11,11 +10,7 @@ const usePagination = (length: number) => {
 		window.scrollTo(0, 0);
 	};
 
-	useEffect(() => {
-		setTotalCount(length);
-	}, [length]);
-
-	return { page, totalCount, handlePage };
+	return { page, totalCount: length, handlePage };
 };
 
 export default usePagination;

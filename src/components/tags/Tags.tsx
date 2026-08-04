@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSearchParams } from 'next/navigation';
 import TagList from './TagList';
 import PostList from '../posts/PostList';
@@ -8,22 +8,8 @@ import { PostFileType } from '~/types/post';
 
 const Tags = ({ tags, posts }: { tags: string[]; posts: PostFileType[] }) => {
 	const searchParams = useSearchParams();
-	const tagName = searchParams.get('tagName');
-
-	const [searchPosts, setSearchPosts] = useState<PostFileType[]>([]);
-	const [searchTag, setSearchTag] = useState('');
-
-	useEffect(() => {
-		if (posts && searchTag) {
-			setSearchPosts(posts.filter((post) => post.data.tags.includes(searchTag)));
-		}
-	}, [searchTag, posts]);
-
-	useEffect(() => {
-		if (tagName) {
-			setSearchTag(tagName);
-		}
-	}, [tagName]);
+	const searchTag = searchParams.get('tagName') ?? '';
+	const searchPosts = searchTag ? posts.filter((post) => post.data.tags.includes(searchTag)) : [];
 
 	return (
 		<>

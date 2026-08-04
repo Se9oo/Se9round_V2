@@ -31,6 +31,7 @@ const Toc = () => {
 	useEffect(() => {
 		const headingArray = Array.from(document.querySelectorAll('h2, h3, h4'));
 
+		// eslint-disable-next-line react-hooks/set-state-in-effect
 		setTocHeadings(
 			headingArray.map((heading) => ({
 				id: heading.id,
