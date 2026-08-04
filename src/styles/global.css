@@ -3,8 +3,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* react-toastify auto-injects its own default :root CSS on ToastContainer mount,
+   always landing after this stylesheet — !important is required to win (fkhadra/react-toastify#672). */
 :root {
-	--toastify-color-success: #8491d9;
+	/* --toastify-color-success: #8491d9 !important; */
+	--toastify-color-success: var(--color-primary);
+}
+
+@theme {
+	--color-primary: #8491d9;
 }
 
 * {

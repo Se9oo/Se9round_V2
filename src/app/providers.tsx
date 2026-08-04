@@ -4,7 +4,6 @@ import React, { useEffect } from 'react';
 import { ThemeProvider } from 'next-themes';
 import { AnimatePresence } from 'motion/react';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
 	useEffect(() => {
