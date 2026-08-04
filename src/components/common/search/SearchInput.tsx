@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ChangeEvent } from 'react';
+import { ChangeEvent } from 'react';
 
 const SearchInput = ({
 	handleChangeValue,

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { PostDataType } from '@/types/post';
 import KakaoIcon from '../icons/KakaoIcon';

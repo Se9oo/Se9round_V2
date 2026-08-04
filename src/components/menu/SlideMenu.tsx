@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import { useTheme } from 'next-themes';
 import useScrollLock from '@/hooks/useScrollLock';
 import SlideMenuList from './SlideMenuList';

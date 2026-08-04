@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import useControlTheme from '@/hooks/useControlTheme';
 
 const LIGHT_THEME = 'github-light';

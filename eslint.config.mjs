@@ -28,6 +28,8 @@ export default tseslint.config(
 			],
 			'react-hooks/exhaustive-deps': 'off',
 			'react/display-name': 'off',
+			'react/jsx-uses-react': 'off',
+			'react/react-in-jsx-scope': 'off',
 		},
 	},
 );

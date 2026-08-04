@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import PageTransition from '../common/transition/PageTransition';

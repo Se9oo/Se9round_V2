@@ -1,6 +1,6 @@
 'use client';
 
-import React, { MouseEvent } from 'react';
+import { MouseEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { PAGE_URLS } from '@/constants/url';
 

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import MoveToTop from './MoveToTop';
 import CopyLink from './CopyLink';
 import KakaoShare from './KakaoShare';
