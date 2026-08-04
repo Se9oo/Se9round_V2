@@ -4,8 +4,9 @@ import userEvent from '@testing-library/user-event';
 
 import CopyLink from '../CopyLink';
 
-// eslint-disable-next-line global-require
-jest.mock('next/router', () => require('next-router-mock'));
+jest.mock('next/navigation', () => ({
+	useParams: () => ({ title: 'title' }),
+}));
 
 test('게시글 링크 복사 후 알림메시지 출력', async () => {
 	const user = userEvent.setup();

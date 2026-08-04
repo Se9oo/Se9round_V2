@@ -15,8 +15,9 @@ const post: PostDataType = {
 	},
 };
 
-// eslint-disable-next-line global-require
-jest.mock('next/router', () => require('next-router-mock'));
+jest.mock('next/navigation', () => ({
+	useParams: () => ({ title: 'title' }),
+}));
 
 test('카카오 공유하기', async () => {
 	render(<KakaoShare post={post} />);
