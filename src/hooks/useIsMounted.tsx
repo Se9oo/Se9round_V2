@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-// eslint-disable-next-line consistent-return
 const useIsMounted = () => {
 	const [mounted, setMounted] = useState(false);
 

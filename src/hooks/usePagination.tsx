@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const usePagination = (length: number) => {
 	const [totalCount, setTotalCount] = useState(length);

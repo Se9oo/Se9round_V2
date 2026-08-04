@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 const useScrollLock = (isOpen?: boolean) => {
 	useEffect(() => {
