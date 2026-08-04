@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import MainLayout from '~/components/layout/MainLayout';
-import PostList from '~/components/posts/PostList';
-import { getPostDataFromMarkdownFiles } from '~/utils/file';
+import MainLayout from '@/components/layout/MainLayout';
+import PostList from '@/components/posts/PostList';
+import { getPostDataFromMarkdownFiles } from '@/utils/file';
 
 export const metadata: Metadata = {
 	title: 'se9round.dev',

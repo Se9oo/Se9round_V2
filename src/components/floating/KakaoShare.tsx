@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { useParams } from 'next/navigation';
-import { PostDataType } from '~/types/post';
+import { PostDataType } from '@/types/post';
 import KakaoIcon from '../icons/KakaoIcon';
 
 const KakaoShare = ({ post }: { post: PostDataType }) => {

@@ -1,10 +1,10 @@
 import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
 import NextScript from 'next/script';
-import '~/styles/global.css';
+import '@/styles/global.css';
 import Providers from './providers';
-import GtagListener from '~/components/common/Analytics/GtagListener';
-import { GA_TRACKING_ID } from '~/utils/gtag';
+import GtagListener from '@/components/common/Analytics/GtagListener';
+import { GA_TRACKING_ID } from '@/utils/gtag';
 
 export const metadata: Metadata = {
 	title: 'se9round.dev',

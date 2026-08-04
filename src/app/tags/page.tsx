@@ -1,8 +1,8 @@
 import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
-import MainLayout from '~/components/layout/MainLayout';
-import Tags from '~/components/tags/Tags';
-import { getPostDataFromMarkdownFiles } from '~/utils/file';
+import MainLayout from '@/components/layout/MainLayout';
+import Tags from '@/components/tags/Tags';
+import { getPostDataFromMarkdownFiles } from '@/utils/file';
 
 export const metadata: Metadata = {
 	title: 'se9round.dev | tags',

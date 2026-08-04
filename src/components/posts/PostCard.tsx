@@ -2,9 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import TagList from '../tags/TagList';
-import { PAGE_URLS } from '~/constants/url';
-import { convertSpaceToDash, getFormattedDate } from '~/utils/format';
-import { PostMetaDataType } from '~/types/post';
+import { PAGE_URLS } from '@/constants/url';
+import { convertSpaceToDash, getFormattedDate } from '@/utils/format';
+import { PostMetaDataType } from '@/types/post';
 
 const PostCard = ({ metaData }: { metaData: PostMetaDataType }) => {
 	const { title, description, date, tags, socialImage } = metaData;

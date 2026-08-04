@@ -1,9 +1,9 @@
 import fs from 'fs';
 import matter from 'gray-matter';
-import supabase from '~/supabaseClient';
-import { MARKDOWN_FILE_PATH } from '~/constants/url';
-import { SUPABASE_BUCKET_NAME } from '~/constants/common';
-import { PostMetaDataType } from '~/types/post';
+import supabase from '@/supabaseClient';
+import { MARKDOWN_FILE_PATH } from '@/constants/url';
+import { SUPABASE_BUCKET_NAME } from '@/constants/common';
+import { PostMetaDataType } from '@/types/post';
 
 const getMarkdownFileList = () => {
 	return fs.readdirSync(MARKDOWN_FILE_PATH);

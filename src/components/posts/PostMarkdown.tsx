@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import ReactMarkdown from 'react-markdown';
 
-import { generateSlug } from '~/utils/format';
+import { generateSlug } from '@/utils/format';
 import CodeBlock from './CodeBlock';
 import MarkdownImage from './MarkdownImage';
 

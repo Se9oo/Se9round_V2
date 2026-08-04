@@ -3,9 +3,9 @@
 import React from 'react';
 import PostCard from './PostCard';
 import Pagination from '../pagination/Pagination';
-import { PostFileType } from '~/types/post';
-import { PAGINATION_LIMIT_COUNT } from '~/constants/common';
-import usePagination from '~/hooks/usePagination';
+import { PostFileType } from '@/types/post';
+import { PAGINATION_LIMIT_COUNT } from '@/constants/common';
+import usePagination from '@/hooks/usePagination';
 
 const PostList = ({ posts }: { posts: PostFileType[] }) => {
 	const { page, totalCount, handlePage } = usePagination(posts.length);

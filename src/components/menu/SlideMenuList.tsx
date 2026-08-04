@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { PAGE_URLS } from '~/constants/url';
+import { PAGE_URLS } from '@/constants/url';
 
 const menus: Array<keyof typeof PAGE_URLS> = ['HOME', 'TAGS'];
 

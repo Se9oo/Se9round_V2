@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import KakaoShare from '../KakaoShare';
-import { PostDataType } from '~/types/post';
+import { PostDataType } from '@/types/post';
 
 const post: PostDataType = {
 	content: '',

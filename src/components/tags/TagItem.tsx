@@ -2,7 +2,7 @@
 
 import React, { MouseEvent } from 'react';
 import { useRouter } from 'next/navigation';
-import { PAGE_URLS } from '~/constants/url';
+import { PAGE_URLS } from '@/constants/url';
 
 const TagItem = ({ tag }: { tag: string }) => {
 	const router = useRouter();

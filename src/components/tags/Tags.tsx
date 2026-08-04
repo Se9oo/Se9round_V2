@@ -4,7 +4,7 @@ import React from 'react';
 import { useSearchParams } from 'next/navigation';
 import TagList from './TagList';
 import PostList from '../posts/PostList';
-import { PostFileType } from '~/types/post';
+import { PostFileType } from '@/types/post';
 
 const Tags = ({ tags, posts }: { tags: string[]; posts: PostFileType[] }) => {
 	const searchParams = useSearchParams();

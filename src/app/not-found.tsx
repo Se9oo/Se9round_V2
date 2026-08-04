@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import MainLayout from '~/components/layout/MainLayout';
-import { PAGE_URLS } from '~/constants/url';
+import MainLayout from '@/components/layout/MainLayout';
+import { PAGE_URLS } from '@/constants/url';
 
 const NotFound = () => {
 	return (

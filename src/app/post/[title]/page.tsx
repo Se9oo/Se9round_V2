@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import MainLayout from '~/components/layout/MainLayout';
-import PostDetail from '~/components/posts/PostDetail';
-import { PostDataType } from '~/types/post';
-import { convertSpaceToDash } from '~/utils/format';
-import { getPostDataAtFile, getPostDataFromMarkdownFiles } from '~/utils/file';
+import MainLayout from '@/components/layout/MainLayout';
+import PostDetail from '@/components/posts/PostDetail';
+import { PostDataType } from '@/types/post';
+import { convertSpaceToDash } from '@/utils/format';
+import { getPostDataAtFile, getPostDataFromMarkdownFiles } from '@/utils/file';
 
 export const dynamicParams = false;
 

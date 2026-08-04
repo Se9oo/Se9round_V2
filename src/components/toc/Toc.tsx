@@ -1,8 +1,8 @@
 'use client';
 
 import React, { MouseEvent, useEffect, useState } from 'react';
-import { HEADER_HEIGHT } from '~/constants/common';
-import useTocObserve from '~/hooks/useTocObserve';
+import { HEADER_HEIGHT } from '@/constants/common';
+import useTocObserve from '@/hooks/useTocObserve';
 
 type TocHeadingType = {
 	id: string;

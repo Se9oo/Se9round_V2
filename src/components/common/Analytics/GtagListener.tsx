@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
-import { pageview } from '~/utils/gtag';
+import { pageview } from '@/utils/gtag';
 
 const GtagListener = () => {
 	const pathname = usePathname();

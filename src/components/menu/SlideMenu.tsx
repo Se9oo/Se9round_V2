@@ -2,7 +2,7 @@
 
 import React, { Dispatch, SetStateAction } from 'react';
 import { useTheme } from 'next-themes';
-import useScrollLock from '~/hooks/useScrollLock';
+import useScrollLock from '@/hooks/useScrollLock';
 import SlideMenuList from './SlideMenuList';
 import CloseIcon from '../icons/CloseIcon';
 

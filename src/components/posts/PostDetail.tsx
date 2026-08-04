@@ -1,11 +1,11 @@
 import React from 'react';
 import TagList from '../tags/TagList';
 import PostMarkdown from './PostMarkdown';
-import { PostDataType } from '~/types/post';
+import { PostDataType } from '@/types/post';
 import Utterances from '../utterances/Utterances';
 import Toc from '../toc/Toc';
 import FloatingActions from '../floating/FloatingActions';
-import { getFormattedDate } from '~/utils/format';
+import { getFormattedDate } from '@/utils/format';
 
 const PostDetail = ({ postData }: { postData: PostDataType }) => {
 	const {

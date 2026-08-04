@@ -5,11 +5,11 @@ import Link from 'next/link';
 import DarkModeIcon from '../icons/DarkModeIcon';
 import LightModeIcon from '../icons/LightModeIcon';
 import MobileMenuIcon from '../icons/MobileMenuIcon';
-import useIsMounted from '~/hooks/useIsMounted';
-import { PAGE_URLS } from '~/constants/url';
-import { MenusData } from '~/types/common';
+import useIsMounted from '@/hooks/useIsMounted';
+import { PAGE_URLS } from '@/constants/url';
+import { MenusData } from '@/types/common';
 import SlideMenu from '../menu/SlideMenu';
-import useControlTheme from '~/hooks/useControlTheme';
+import useControlTheme from '@/hooks/useControlTheme';
 
 const menus: MenusData[] = ['TAGS'];
 

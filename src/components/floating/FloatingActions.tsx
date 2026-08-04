@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import MoveToTop from './MoveToTop';
 import CopyLink from './CopyLink';
 import KakaoShare from './KakaoShare';
-import { PostDataType } from '~/types/post';
+import { PostDataType } from '@/types/post';
 
 type FloatingAction = {
 	id: string;
