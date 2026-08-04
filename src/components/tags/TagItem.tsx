@@ -15,7 +15,7 @@ const TagItem = ({ tag }: { tag: string }) => {
 	return (
 		<button
 			type="button"
-			className="block rounded-[4px] bg-main px-2 py-[1px] text-xs sm:text-sm font-bold text-white dark:text-darkText"
+			className="block rounded-[4px] bg-main px-2 py-px text-xs sm:text-sm font-bold text-white dark:text-darkText"
 			onClick={handleButton}
 		>
 			{tag}

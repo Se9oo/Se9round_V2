@@ -80,7 +80,7 @@ const MarkdownComponents: object = {
 		);
 	},
 	hr: ({ node, ...props }: { node?: unknown }) => {
-		return <hr className="text-[rgba(41,69,105,0.1)] dark:text-[#EAEAEA]" {...props} />;
+		return <hr className="text-grey dark:text-greyLight" {...props} />;
 	},
 	h2: ({ node, ...props }: any) => {
 		const heading = extractHeadingText(props?.children);

@@ -27,7 +27,7 @@ const FloatingActions = ({ post }: { post: PostDataType }) => {
 
 	return (
 		<div className="md:absolute md:left-full">
-			<ul className="fixed bottom-[40px] right-5 sm:right-[5%] md:right-auto md:ml-[5rem] flex flex-col items-center z-floating">
+			<ul className="fixed bottom-[40px] right-5 sm:right-[5%] md:right-auto md:ml-20 flex flex-col items-center z-floating">
 				{actions.map((action) => {
 					const { id, element } = action;
 

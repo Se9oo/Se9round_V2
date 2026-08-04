@@ -11,7 +11,7 @@ const NotFound = () => {
 					<strong className="mb-8 text-3xl">페이지를 찾을 수 없습니다</strong>
 					<Link
 						href={PAGE_URLS.HOME}
-						className="flex items-center justify-center h-12 font-bold text-center text-white rounded bg-main dark:text-darkText"
+						className="flex items-center justify-center h-12 font-bold text-center text-white rounded-sm bg-main dark:text-darkText"
 					>
 						홈으로
 					</Link>

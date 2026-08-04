@@ -54,7 +54,7 @@ const Toc = () => {
 
 	return (
 		<aside className="absolute hidden md:block left-full">
-			<ul className="fixed top-[240px] ml-[5rem] border-l-2 border-main pl-[1rem]">
+			<ul className="fixed top-[240px] ml-20 border-l-2 border-main pl-4">
 				{tocHeadings.map((heading) => {
 					const { id, text, level } = heading;
 					return (

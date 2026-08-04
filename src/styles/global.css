@@ -1,17 +1,44 @@
-@import url(fonts.css);
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url(fonts.css) layer(base);
+@import 'tailwindcss';
 
-/* react-toastify auto-injects its own default :root CSS on ToastContainer mount,
-   always landing after this stylesheet — !important is required to win (fkhadra/react-toastify#672). */
-:root {
-	/* --toastify-color-success: #8491d9 !important; */
-	--toastify-color-success: var(--color-primary);
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme {
-	--color-primary: #8491d9;
+	--color-*: initial;
+	--color-main: #8491d9;
+	--color-dark: #1b1d25;
+	--color-darkText: #d8dbe7;
+	--color-red: #eb455f;
+	--color-yellow: #ffe15d;
+	--color-yellowKakao: #ffde00;
+	--color-yellowKakaoHover: #d8c543;
+	--color-white: #ffffff;
+	--color-grey: rgba(41, 69, 105, 0.1);
+	--color-greyLight: #eaeaea;
+	--color-greyCopy: #6b728e;
+
+	--breakpoint-*: initial;
+	--breakpoint-sm: 768px;
+	--breakpoint-md: 1370px;
+
+	--z-index-content: 1;
+	--z-index-tag: 2;
+	--z-index-floating: 9;
+	--z-index-header: 10;
+}
+
+@layer base {
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: var(--color-gray-200, currentcolor);
+	}
+}
+
+:root {
+	--toastify-color-success: var(--color-main) !important;
 }
 
 * {
