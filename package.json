@@ -10,6 +10,8 @@
 		"test": "jest --watch --passWithNoTests"
 	},
 	"dependencies": {
+		"@mdx-js/react": "^3.1.1",
+		"@next/mdx": "^16.3.0",
 		"@supabase/supabase-js": "^2.32.0",
 		"@types/node": "18.11.15",
 		"@types/react": "^19",
@@ -25,6 +27,9 @@
 		"react-markdown": "10.1.0",
 		"react-syntax-highlighter": "^15.5.0",
 		"react-toastify": "11.1.0",
+		"rehype-pretty-code": "^0.14.5",
+		"rehype-slug": "^6.0.0",
+		"shiki": "^4.4.2",
 		"ts-jest": "^29.0.5",
 		"typescript": "5.9.3"
 	},
@@ -38,6 +43,7 @@
 		"@types/gtag.js": "^0.0.18",
 		"@types/jest": "^29.4.0",
 		"@types/lodash": "^4.14.191",
+		"@types/mdx": "^2.0.14",
 		"@types/react-syntax-highlighter": "15.5.13",
 		"eslint": "9",
 		"eslint-config-next": "^16.3.0",
