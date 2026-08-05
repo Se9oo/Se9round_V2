@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
 import CopyIcon from '../icons/CopyIcon';
 import CheckIcon from '../icons/CheckIcon';
 
-const CodePre = ({ children, ...props }: React.ComponentPropsWithoutRef<'pre'>) => {
+const CodePre = ({ children, style, className, ...props }: React.ComponentPropsWithoutRef<'pre'>) => {
 	const [showCopy, setShowCopy] = useState(false);
 	const [isCopy, setIsCopy] = useState(false);
 	const preRef = useRef<HTMLPreElement>(null);
@@ -27,7 +27,18 @@ const CodePre = ({ children, ...props }: React.ComponentPropsWithoutRef<'pre'>) 
 			onFocus={() => setShowCopy(true)}
 			onBlur={handleMouseLeave}
 		>
-			<pre ref={preRef} {...props}>
+			<pre
+				ref={preRef}
+				{...props}
+				className={className}
+				style={{
+					...style,
+					padding: '2.5rem 1.5rem',
+					borderRadius: '4px',
+					overflowX: 'auto',
+					whiteSpace: 'pre',
+				}}
+			>
 				{children}
 			</pre>
 			<button

@@ -64,8 +64,7 @@ code {
 	font-family: 'Monaco', 'Pretendard', 'Noto Sans KR', sans-serif !important;
 	word-wrap: break-word;
 	border-radius: 4;
-	font-size: 16px;
-	font-weight: 600;
+	font-size: 14px;
 }
 
 @media screen and (max-width: 767px) {
