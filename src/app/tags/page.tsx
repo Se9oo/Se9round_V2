@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import MainLayout from '@/components/layout/MainLayout';
 import Tags from '@/components/tags/Tags';
-import { getPostDataFromMarkdownFiles } from '@/utils/file';
+import { getAllPostMetadataList } from '@/utils/content';
 
 export const metadata: Metadata = {
 	title: 'se9round.dev | tags',
@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 	},
 };
 
-const TagsPage = () => {
-	const posts = getPostDataFromMarkdownFiles();
+const TagsPage = async () => {
+	const posts = await getAllPostMetadataList();
 
 	const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 
