@@ -8,11 +8,6 @@ export interface PostMetaDataType {
 	categories?: string[];
 }
 
-export interface PostDataType {
-	metaData: PostMetaDataType;
-	content: string;
-}
-
 export interface PostFileType {
 	fileName: string;
 	data: PostMetaDataType;
