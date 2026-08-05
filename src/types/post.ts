@@ -3,16 +3,17 @@ export interface PostMetaDataType {
 	description: string;
 	date: string;
 	tags: string[];
-	socialImage: string;
+	socialImage: string | null;
 	timestamp: number;
-}
-
-export interface PostFileType {
-	fileName: string;
-	data: PostMetaDataType;
+	categories?: string[];
 }
 
 export interface PostDataType {
 	metaData: PostMetaDataType;
 	content: string;
+}
+
+export interface PostFileType {
+	fileName: string;
+	data: PostMetaDataType;
 }

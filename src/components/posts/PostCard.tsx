@@ -15,18 +15,20 @@ const PostCard = ({ metaData }: { metaData: PostMetaDataType }) => {
 				href={`${PAGE_URLS.POST}/${convertSpaceToDash(title)}`}
 				className="z-content flex w-full cursor-pointer flex-col sm:h-[172px] sm:flex-row sm:justify-between"
 			>
-				<div className="relative mr-2 mb-6 h-[132px] w-full sm:mr-12 sm:mb-0 sm:h-auto sm:w-[36%]">
-					<Image
-						src={socialImage}
-						alt="post-thumbnail"
-						fill
-						className="rounded-md object-cover"
-						sizes="
-						(min-width: 768px) 245px,
-						100vw"
-						priority
-					/>
-				</div>
+				{socialImage && (
+					<div className="relative mr-2 mb-6 h-[132px] w-full sm:mr-12 sm:mb-0 sm:h-auto sm:w-[36%]">
+						<Image
+							src={socialImage}
+							alt="post-thumbnail"
+							fill
+							className="rounded-md object-cover"
+							sizes="
+							(min-width: 768px) 245px,
+							100vw"
+							priority
+						/>
+					</div>
+				)}
 				<div className="relative flex h-full flex-col sm:w-[65%]">
 					<h3 className="mb-4 text-[22px] leading-[28px] font-bold tracking-[-0.5px] break-all sm:break-normal">
 						{title}
