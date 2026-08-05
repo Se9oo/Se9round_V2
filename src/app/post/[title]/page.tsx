@@ -1,23 +1,26 @@
 import React from 'react';
+import fs from 'fs';
+import path from 'path';
 import type { Metadata } from 'next';
 import MainLayout from '@/components/layout/MainLayout';
 import PostDetail from '@/components/posts/PostDetail';
-import { PostDataType } from '@/types/post';
-import { convertSpaceToDash } from '@/utils/format';
-import { getPostDataAtFile, getPostDataFromMarkdownFiles } from '@/utils/file';
+import { PostMetaDataType } from '@/types/post';
+
+const TECH_DIR = path.join(process.cwd(), 'src/content/posts/tech');
 
 export const dynamicParams = false;
 
 export const generateStaticParams = () => {
-	return getPostDataFromMarkdownFiles().map((post) => ({
-		title: convertSpaceToDash(post.data.title),
-	}));
+	return fs
+		.readdirSync(TECH_DIR)
+		.filter((f) => f.endsWith('.mdx'))
+		.map((f) => ({ title: f.replace('.mdx', '') }));
 };
 
 export const generateMetadata = async ({ params }: { params: Promise<{ title: string }> }): Promise<Metadata> => {
-	const { title: rawTitle } = await params;
-	const title = decodeURIComponent(rawTitle);
-	const { data: metaData } = getPostDataAtFile(`${title}.md`);
+	const { title } = await params;
+	const mod = await import(`@/content/posts/tech/${title}.mdx`);
+	const metaData: PostMetaDataType = mod.metadata;
 
 	return {
 		title: metaData.title,
@@ -31,14 +34,16 @@ export const generateMetadata = async ({ params }: { params: Promise<{ title: st
 };
 
 const Post = async ({ params }: { params: Promise<{ title: string }> }) => {
-	const { title: rawTitle } = await params;
-	const title = decodeURIComponent(rawTitle);
-	const { data: metaData, content } = getPostDataAtFile(`${title}.md`);
-	const postData: PostDataType = { metaData, content };
+	const { title } = await params;
+	const mod = await import(`@/content/posts/tech/${title}.mdx`);
+	const Content = mod.default;
+	const metaData: PostMetaDataType = mod.metadata;
 
 	return (
 		<MainLayout>
-			<PostDetail postData={postData} />
+			<PostDetail metaData={metaData}>
+				<Content />
+			</PostDetail>
 		</MainLayout>
 	);
 };

@@ -2,14 +2,14 @@ import { ReactElement } from 'react';
 import MoveToTop from './MoveToTop';
 import CopyLink from './CopyLink';
 import KakaoShare from './KakaoShare';
-import { PostDataType } from '@/types/post';
+import { PostMetaDataType } from '@/types/post';
 
 type FloatingAction = {
 	id: string;
 	element: ReactElement;
 };
 
-const FloatingActions = ({ post }: { post: PostDataType }) => {
+const FloatingActions = ({ post }: { post: PostMetaDataType }) => {
 	const actions: FloatingAction[] = [
 		{
 			id: 'moveToTop',

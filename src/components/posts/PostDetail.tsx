@@ -1,23 +1,19 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import TagList from '../tags/TagList';
-import PostMarkdown from './PostMarkdown';
-import { PostDataType } from '@/types/post';
+import { PostMetaDataType } from '@/types/post';
 import Utterances from '../utterances/Utterances';
 import Toc from '../toc/Toc';
 import FloatingActions from '../floating/FloatingActions';
 import { getFormattedDate } from '@/utils/format';
 
-const PostDetail = ({ postData }: { postData: PostDataType }) => {
-	const {
-		metaData: { title, date, tags },
-		content,
-	} = postData;
+const PostDetail = ({ metaData, children }: { metaData: PostMetaDataType; children: ReactNode }) => {
+	const { title, date, tags } = metaData;
 
 	return (
 		<>
 			<div className="relative">
 				<Toc />
-				<FloatingActions post={postData} />
+				<FloatingActions post={metaData} />
 			</div>
 			<div className="sm:mt-20 sm:text-start">
 				<h1
@@ -29,7 +25,7 @@ const PostDetail = ({ postData }: { postData: PostDataType }) => {
 				{tags && tags.length > 0 ? <TagList tags={tags} customStyle="justify-start mb-4" /> : null}
 				<span className="mb-10 block text-sm sm:mb-14">{getFormattedDate(date, 'kor')}</span>
 				<div id="markdown-wrapper" className="text-lg">
-					<PostMarkdown content={content} />
+					{children}
 				</div>
 				<div className="mt-[60px] sm:mt-[120px]">
 					<Utterances />

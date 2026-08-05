@@ -2,14 +2,12 @@
 
 import { useEffect } from 'react';
 import { useParams } from 'next/navigation';
-import { PostDataType } from '@/types/post';
+import { PostMetaDataType } from '@/types/post';
 import KakaoIcon from '../icons/KakaoIcon';
 
-const KakaoShare = ({ post }: { post: PostDataType }) => {
+const KakaoShare = ({ post }: { post: PostMetaDataType }) => {
 	const params = useParams<{ title: string }>();
-	const {
-		metaData: { title, socialImage, tags },
-	} = post;
+	const { title, socialImage, tags } = post;
 
 	useEffect(() => {
 		const createKakaoButton = () => {
