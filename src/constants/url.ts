@@ -4,4 +4,5 @@ export const PAGE_URLS = {
 	POSTS: '/',
 	POST: '/post',
 	TAGS: '/tags',
+	DOCS: '/docs',
 };

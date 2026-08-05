@@ -11,7 +11,7 @@ import { MenusData } from '@/types/common';
 import SlideMenu from '../menu/SlideMenu';
 import useControlTheme from '@/hooks/useControlTheme';
 
-const menus: MenusData[] = ['TAGS'];
+const menus: MenusData[] = ['TAGS', 'DOCS'];
 
 const Header = () => {
 	const mounted = useIsMounted();
