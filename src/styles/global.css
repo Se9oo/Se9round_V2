@@ -47,6 +47,10 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+button {
+	cursor: pointer;
+}
+
 html,
 body {
 	font-family: 'Pretendard', 'Noto Sans KR', 'Monaco', sans-serif;
