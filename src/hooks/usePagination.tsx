@@ -1,13 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 const usePagination = (length: number) => {
-	const [page, setPage] = useState(1);
+	const router = useRouter();
+	const searchParams = useSearchParams();
+	const page = Number(searchParams.get('page')) || 1;
 
 	const handlePage = (pageNumber: number) => {
-		setPage(pageNumber);
-		window.scrollTo(0, 0);
+		const params = new URLSearchParams(searchParams.toString());
+		params.set('page', String(pageNumber));
+		router.push(`?${params.toString()}`);
 	};
 
 	return { page, totalCount: length, handlePage };

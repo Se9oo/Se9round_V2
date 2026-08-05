@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
 import MainLayout from '@/components/layout/MainLayout';
 import PostList from '@/components/posts/PostList';
@@ -14,7 +14,9 @@ const Se9round = () => {
 
 	return (
 		<MainLayout>
-			<PostList posts={posts} />
+			<Suspense>
+				<PostList posts={posts} />
+			</Suspense>
 		</MainLayout>
 	);
 };
