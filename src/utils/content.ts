@@ -3,6 +3,7 @@ import path from 'path';
 import supabase from '@/supabaseClient';
 import { SUPABASE_BUCKET_NAME } from '@/constants/common';
 import { PostFileType, PostMetaDataType } from '@/types/post';
+import { convertSpaceToDash } from '@/utils/format';
 
 const TECH_DIR = path.join(process.cwd(), 'src/content/posts/tech');
 const CONCEPTS_DIR = path.join(process.cwd(), 'src/content/posts/concepts');
@@ -17,7 +18,7 @@ const resolveThumbnail = (socialImageName: string | null): string => {
 const loadFromDir = async (dir: string, section: 'tech' | 'concepts'): Promise<PostFileType[]> => {
 	if (!fs.existsSync(dir)) return [];
 
-	const files = fs.readdirSync(dir).filter((f) => f.endsWith('.mdx'));
+	const files = fs.readdirSync(dir).filter((f) => f.endsWith('.mdx') && !f.startsWith('_') && !f.startsWith('.'));
 
 	return Promise.all(
 		files.map(async (file) => {
@@ -48,4 +49,14 @@ export const getConceptsPostMetadataList = (): Promise<PostFileType[]> =>
 export const getAllPostMetadataList = async (): Promise<PostFileType[]> => {
 	const [tech, concepts] = await Promise.all([getTechPostMetadataList(), getConceptsPostMetadataList()]);
 	return [...tech, ...concepts];
+};
+
+export const getFileNameBySlug = async (slug: string): Promise<string | undefined> => {
+	const files = fs.readdirSync(TECH_DIR).filter((f) => f.endsWith('.mdx'));
+	for (const file of files) {
+		const name = file.replace('.mdx', '');
+		const mod = await import(`@/content/posts/tech/${name}.mdx`);
+		if (convertSpaceToDash(mod.metadata?.title) === slug) return name;
+	}
+	return undefined;
 };
