@@ -36,6 +36,10 @@
 	::file-selector-button {
 		border-color: var(--color-gray-200, currentcolor);
 	}
+
+	button {
+		cursor: pointer;
+	}
 }
 
 :root {
@@ -46,10 +50,6 @@
 	box-sizing: border-box;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-}
-
-button {
-	cursor: pointer;
 }
 
 html,

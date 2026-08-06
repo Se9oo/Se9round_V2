@@ -21,20 +21,27 @@ const Pagination = ({
 	};
 
 	return (
-		<div className="flex w-full items-center justify-center py-4">
-			{currentPage === 1 ? null : (
-				<button type="button" onClick={() => handleActions('prev')} aria-label="previous pagination button">
-					<ChevronLeftIcon className="hover:text-main" />
-				</button>
-			)}
-			<ul className="flex items-center justify-center">
+		<div className="flex w-full items-center justify-center gap-1 py-4">
+			<button
+				type="button"
+				className="flex h-8 w-8 items-center justify-center rounded-md hover:bg-main/10 disabled:cursor-not-allowed
+					disabled:opacity-30 disabled:hover:bg-transparent dark:hover:bg-main/20"
+				onClick={() => handleActions('prev')}
+				aria-label="previous pagination button"
+				disabled={currentPage === 1}
+			>
+				<ChevronLeftIcon className="w-6" />
+			</button>
+			<ul className="flex items-center justify-center gap-1">
 				{pages.map((item) => {
 					return (
 						<li key={item}>
 							<button
 								type="button"
-								className={`h-8 w-8 text-lg hover:text-main ${
-									currentPage === item ? 'font-bold text-main' : 'text-dark dark:text-darkText'
+								className={`h-8 w-8 rounded-md text-lg hover:bg-main/10 hover:text-main dark:hover:bg-main/20 ${
+									currentPage === item
+										? 'bg-main/10 font-bold text-main dark:bg-main/20'
+										: 'text-dark dark:text-darkText'
 								}`}
 								onClick={() => handlePage(item)}
 							>
@@ -44,11 +51,16 @@ const Pagination = ({
 					);
 				})}
 			</ul>
-			{currentPage === Math.ceil(totalCount / PAGINATION_LIMIT_COUNT) ? null : (
-				<button type="button" onClick={() => handleActions('next')} aria-label="next pagination button">
-					<ChevronRightIcon className="hover:text-main" />
-				</button>
-			)}
+			<button
+				type="button"
+				className="flex h-8 w-8 items-center justify-center rounded-md hover:bg-main/10 disabled:cursor-not-allowed
+					disabled:opacity-30 disabled:hover:bg-transparent dark:hover:bg-main/20"
+				onClick={() => handleActions('next')}
+				aria-label="next pagination button"
+				disabled={currentPage === Math.ceil(totalCount / PAGINATION_LIMIT_COUNT)}
+			>
+				<ChevronRightIcon className="w-6" />
+			</button>
 		</div>
 	);
 };

@@ -16,7 +16,7 @@ const PostCard = ({ metaData }: { metaData: PostMetaDataType }) => {
 				className="z-content flex w-full cursor-pointer flex-col sm:h-[172px] sm:flex-row sm:justify-between"
 			>
 				{socialImage && (
-					<div className="relative mr-2 mb-6 h-[132px] w-full sm:mr-12 sm:mb-0 sm:h-auto sm:w-[36%]">
+					<div className="relative mr-2 mb-6 aspect-video w-full sm:mr-12 sm:mb-0 sm:h-auto sm:w-[36%]">
 						<Image
 							src={socialImage}
 							alt="post-thumbnail"

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ChevronLeftIcon = ({ className }: { className?: string }) => {
+const ChevronLeftIcon = ({ className = '' }: { className?: string }) => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -8,7 +8,7 @@ const ChevronLeftIcon = ({ className }: { className?: string }) => {
 			width={32}
 			height={32}
 			viewBox="0 0 24 24"
-			strokeWidth={2}
+			strokeWidth={1.2}
 			stroke="currentColor"
 			fill="none"
 			strokeLinecap="round"
