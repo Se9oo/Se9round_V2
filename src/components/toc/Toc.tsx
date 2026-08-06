@@ -10,6 +10,8 @@ type TocHeadingType = {
 	level: string | null;
 };
 
+const TOC_EXCLUDED_HEADINGS = ['참조', 'Reference', 'References'];
+
 const levelToPadding = (level: string | null) => {
 	switch (level) {
 		case '4':
@@ -29,7 +31,9 @@ const Toc = () => {
 	useTocObserve(setCurrentTargetId);
 
 	useEffect(() => {
-		const headingArray = Array.from(document.querySelectorAll('h2, h3, h4'));
+		const headingArray = Array.from(document.querySelectorAll('h2, h3, h4')).filter(
+			(heading) => !TOC_EXCLUDED_HEADINGS.includes(heading.textContent?.trim() ?? ''),
+		);
 
 		// eslint-disable-next-line react-hooks/set-state-in-effect
 		setTocHeadings(
