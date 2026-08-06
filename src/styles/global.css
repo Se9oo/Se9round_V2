@@ -62,7 +62,6 @@ body {
 }
 
 code {
-	font-family: 'Comic Mono', 'Pretendard', 'Noto Sans KR', sans-serif !important;
 	word-wrap: break-word;
 	border-radius: 4;
 	font-size: 14px;
@@ -76,16 +75,18 @@ code {
 	}
 }
 
-.prose pre > code {
-	display: grid;
-}
-
 .prose pre::-webkit-scrollbar {
 	display: none;
 }
 /* Fenced Code block - hide horizontal scrollbar: mozila */
 .prose pre {
 	scrollbar-width: none;
+}
+
+.prose pre > code {
+	display: grid;
+	tab-size: 2;
+	-moz-tab-size: 2;
 }
 
 .prose pre span[data-line] {
@@ -111,6 +112,23 @@ code {
 }
 .prose code[data-line-numbers-max-digits='3'] > span[data-line]::before {
 	width: 1.75rem;
+}
+
+/* Inline code block backtick display: none */
+.prose :not(pre) > code::before,
+.prose :not(pre) > code::after {
+	display: none;
+}
+
+.prose p {
+	@apply break-keep;
+}
+
+/* inline code block style */
+.prose :not(pre) > code {
+	@apply relative rounded bg-main/10 px-1 py-0.5 align-middle text-sm font-semibold text-main dark:bg-main/20;
+	top: -2px;
+	font-family: inherit !important;
 }
 
 /* #markdown-wrapper > h2 {

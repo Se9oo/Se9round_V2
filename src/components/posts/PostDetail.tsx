@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import TagList from '../tags/TagList';
 import { PostMetaDataType } from '@/types/post';
 import Utterances from '../utterances/Utterances';
@@ -17,8 +17,8 @@ const PostDetail = ({ metaData, children }: { metaData: PostMetaDataType; childr
 			</div>
 			<div className="sm:mt-20 sm:text-start">
 				<h1
-					className="mb-4 text-[32px] leading-12 font-bold tracking-[-0.5px] wrap-break-word break-keep sm:text-[48px]
-						sm:leading-16"
+					className="mb-4 text-[30px] leading-11 font-bold tracking-[-0.5px] wrap-break-word break-keep sm:text-[40px]
+						sm:leading-13"
 				>
 					{title}
 				</h1>
