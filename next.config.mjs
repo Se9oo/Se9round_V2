@@ -12,7 +12,15 @@ const nextConfig = {
 
 const withMDX = createMDX({
 	options: {
-		rehypePlugins: [['rehype-pretty-code', { theme: 'material-theme-palenight' }], ['rehype-slug']],
+		rehypePlugins: [
+			[
+				'rehype-pretty-code',
+				{
+					theme: 'material-theme-palenight',
+				},
+			],
+			['rehype-slug'],
+		],
 	},
 });
 

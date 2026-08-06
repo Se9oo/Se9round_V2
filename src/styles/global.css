@@ -1,5 +1,6 @@
 @import url(fonts.css) layer(base);
 @import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -61,7 +62,7 @@ body {
 }
 
 code {
-	font-family: 'Monaco', 'Pretendard', 'Noto Sans KR', sans-serif !important;
+	font-family: 'Comic Mono', 'Pretendard', 'Noto Sans KR', sans-serif !important;
 	word-wrap: break-word;
 	border-radius: 4;
 	font-size: 14px;
@@ -75,7 +76,44 @@ code {
 	}
 }
 
-#markdown-wrapper > h2 {
+.prose pre > code {
+	display: grid;
+}
+
+.prose pre::-webkit-scrollbar {
+	display: none;
+}
+/* Fenced Code block - hide horizontal scrollbar: mozila */
+.prose pre {
+	scrollbar-width: none;
+}
+
+.prose pre span[data-line] {
+	@apply inline-block py-0.5 leading-snug;
+}
+
+.prose code[data-line-numbers] {
+	counter-reset: line;
+}
+
+.prose code[data-line-numbers] > span[data-line]::before {
+	counter-increment: line;
+	content: counter(line);
+
+	display: inline-block;
+	width: 0.75rem;
+	margin-right: 1.25rem;
+	text-align: right;
+}
+
+.prose code[data-line-numbers-max-digits='2'] > span[data-line]::before {
+	width: 1.25rem;
+}
+.prose code[data-line-numbers-max-digits='3'] > span[data-line]::before {
+	width: 1.75rem;
+}
+
+/* #markdown-wrapper > h2 {
 	font-size: 30px;
 	line-height: 36px;
 	font-weight: 700;
@@ -100,4 +138,4 @@ code {
 
 #markdown-wrapper > blockquote > p {
 	margin-bottom: 0;
-}
+} */

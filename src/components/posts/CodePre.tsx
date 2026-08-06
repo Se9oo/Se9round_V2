@@ -21,7 +21,7 @@ const CodePre = ({ children, style, className, ...props }: React.ComponentPropsW
 
 	return (
 		<div
-			className="relative my-4 mb-8"
+			className="relative"
 			onMouseEnter={() => setShowCopy(true)}
 			onMouseLeave={handleMouseLeave}
 			onFocus={() => setShowCopy(true)}
@@ -33,10 +33,7 @@ const CodePre = ({ children, style, className, ...props }: React.ComponentPropsW
 				className={className}
 				style={{
 					...style,
-					padding: '2.5rem 1.5rem',
-					borderRadius: '4px',
 					overflowX: 'auto',
-					whiteSpace: 'pre',
 				}}
 			>
 				{children}

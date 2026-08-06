@@ -17,17 +17,21 @@ const PostDetail = ({ metaData, children }: { metaData: PostMetaDataType; childr
 			</div>
 			<div className="sm:mt-20 sm:text-start">
 				<h1
-					className="mb-10 text-[36px] leading-[44px] font-bold tracking-[-0.5px] sm:mb-12 sm:text-[40px]
-						sm:leading-[48px]"
+					className="mb-4 text-[32px] leading-12 font-bold tracking-[-0.5px] wrap-break-word break-keep sm:text-[48px]
+						sm:leading-16"
 				>
 					{title}
 				</h1>
 				{tags && tags.length > 0 ? <TagList tags={tags} customStyle="justify-start mb-4" /> : null}
 				<span className="mb-10 block text-sm sm:mb-14">{getFormattedDate(date, 'kor')}</span>
-				<div id="markdown-wrapper" className="text-lg">
+				<div
+					id="markdown-wrapper"
+					className="prose-p:text-black prose max-w-none dark:prose-invert prose-p:text-[#333D4B]
+						dark:prose-p:text-darkText"
+				>
 					{children}
 				</div>
-				<div className="mt-[60px] sm:mt-[120px]">
+				<div className="mt-15 sm:mt-30">
 					<Utterances />
 				</div>
 			</div>
