@@ -34,9 +34,7 @@ const PostCard = ({ metaData }: { metaData: PostMetaDataType }) => {
 					</span>
 				</div>
 				{socialImage && (
-					<div
-						className="relative order-1 mb-6 ml-2 aspect-video w-full sm:order-2 sm:mb-0 sm:ml-12 sm:h-auto sm:w-[36%]"
-					>
+					<div className="relative order-1 mb-6 aspect-video w-full sm:order-2 sm:mb-0 sm:ml-12 sm:h-auto sm:w-[36%]">
 						<Image
 							src={socialImage}
 							alt="post-thumbnail"
