@@ -8,7 +8,7 @@ const MobileMenuIcon = () => {
 			width={32}
 			height={32}
 			viewBox="0 0 24 24"
-			strokeWidth="2"
+			strokeWidth="1.2"
 			stroke="currentColor"
 			fill="none"
 			strokeLinecap="round"

@@ -15,7 +15,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 						href={href}
 						target="_blank"
 						rel="noopener noreferrer"
-						style={{ color: '#8491D9', fontWeight: 700, wordBreak: 'break-word', textDecoration: 'underline' }}
+						className="font-bold wrap-break-word text-main underline"
 					>
 						{children}
 					</a>
