@@ -49,14 +49,14 @@ import '@testing-library/jest-dom';
 const nextJest = require('next/jest');
 
 const createJestConfig = nextJest({
-  dir: './',
+	dir: './',
 });
 
 
 const customJestConfig = {
-  setupFilesAfterEnv: ['./jest.setup.js'],
-  testEnvironment: 'jest-environment-jsdom',
-  preset: 'ts-jest',
+	setupFilesAfterEnv: ['./jest.setup.js'],
+	testEnvironment: 'jest-environment-jsdom',
+	preset: 'ts-jest',
 };
 
 
@@ -74,8 +74,8 @@ yarn add -D eslint-plugin-testing-library eslint-plugin-jest-dom
 ```typescript
 "plugins": ["testing-library", "jest-dom"],
 "extends": {
-  "plugin:testing-library/react",
-  "plugin:jest-dom/recommended"
+	"plugin:testing-library/react",
+	"plugin:jest-dom/recommended"
 }
 ```
 

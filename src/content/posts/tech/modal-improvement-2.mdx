@@ -57,78 +57,75 @@ const FOCUSABLE_ELEMENT_TAGS =
 
 
 const Modal = () => {
-  const modalRef = useRef<HTMLDivElement | null>(null);
+	const modalRef = useRef<HTMLDivElement | null>(null);
 
 
-  const handleTabKey = (event: WindowEventMap['keydown']) => {
-    // modal 컴포넌트 안에 focus할 요소 탐색
-    const focusableElements = modalRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE_ELEMENT_TAGS);
+	const handleTabKey = (event: WindowEventMap['keydown']) => {
+		// modal 컴포넌트 안에 focus할 요소 탐색
+		const focusableElements = modalRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE_ELEMENT_TAGS);
+
+		if (!focusableElements) return;
+
+		const firstElement = focusableElements[0];
+		const lastElement = focusableElements[focusableElements.length - 1];
+
+		// focus된 요소가 현재 마지막 요소이고 tab 키로 요소를 선택한 경우
+		// 첫 번째 요소 focus
+		if (document.activeElement === lastElement && !event.shiftKey) {
+			firstElement.focus();
+			event.preventDefault();
+			// focus된 요소가 첫 번째 요소이고 shift + tab으로 요소를 선택한 경우
+			// 마지막 요소 focus
+		} else if (document.activeElement === firstElement && event.shiftKey) {
+			lastElement.focus();
+			event.preventDefault();
+		}
+	}
 
 
-    if (!focusableElements) return;
+	const handleKeyDown = (event: WindowEventMap['keydown']) => {
+		// event의 key가 'tab'이라면
+		if (event.key === 'Tab') {
+			handleTabKey(event);
+		} else if (event.key === 'Escape') {
+			closeModal();
+		}
+	};
 
 
-    const firstElement = focusableElements[0];
-    const lastElement = focusableElements[focusableElements.length - 1];
+	useEffect(() => {
+		// keydown 이벤트가 발생하면 handleKeyDown 함수를 실행
+		window.addEventListener('keydown', handleKeyDown);
+
+		return () => {
+		// 컴포넌트 언마운트시 keydown event 제거
+		window.removeEventListener('keydown', handleKeyDown);
+		}
+	}, []);
 
 
-    // focus된 요소가 현재 마지막 요소이고 tab 키로 요소를 선택한 경우
-    // 첫 번째 요소 focus
-    if (document.activeElement === lastElement && !event.shiftKey) {
-      firstElement.focus();
-      event.preventDefault();
-      // focus된 요소가 첫 번째 요소이고 shift + tab으로 요소를 선택한 경우
-      // 마지막 요소 focus
-    } else if (document.activeElement === firstElement && event.shiftKey) {
-      lastElement.focus();
-      event.preventDefault();
-    }
-  }
-
-
-  const handleKeyDown = (event: WindowEventMap['keydown']) => {
-    // event의 key가 'tab'이라면
-    if (event.key === 'Tab') {
-      handleTabKey(event);
-    } else if (event.key === 'Escape') {
-      closeModal();
-    }
-  };
-
-
-  useEffect(() => {
-    // keydown 이벤트가 발생하면 handleKeyDown 함수를 실행
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-    // 컴포넌트 언마운트시 keydown event 제거
-    window.removeEventListener('keydown', handleKeyDown);
-    }
-  }, []);
-
-
-  return ReactDOM.createPortal(
-    // modal background
-    <div className="bg-modalBg z-wrapper fixed left-0 top-0 h-screen w-screen">
-      {/* modal */}
-      {openedModalList.map((modal) => (
-        <div
-          key={modal.id}
-          {/* focus 시작점을 Modal로 설정하기 위해 tabIndex를 0으로 설정 */}
-          tabIndex={0}
-          ref={(el) => (modalRef.current = el)}>
-            {modal.component}
-        </div>
-      ))}
-    </div>,
-    document.body,
-  );
+	return ReactDOM.createPortal(
+		// modal background
+		<div className="bg-modalBg z-wrapper fixed left-0 top-0 h-screen w-screen">
+		{/* modal */}
+		{openedModalList.map((modal) => (
+			<div
+				key={modal.id}
+				{/* focus 시작점을 Modal로 설정하기 위해 tabIndex를 0으로 설정 */}
+				tabIndex={0}
+				ref={(el) => (modalRef.current = el)}>
+					{modal.component}
+			</div>
+			))}
+		</div>,
+		document.body,
+	);
 }
 ```
 
 위 코드에서 callback ref를 사용했는데, 중첩이 가능한 Modal 구조이기 때문에 새로운 Modal이 렌더링될 때 마다 그 Modal을 ref에 연결하기 위해서(focus할 수 있는 영역으로 설정하기 위해서) 사용했다.
 
-## 참고자료 및 출처
+## 참조
 
 [callback ref](https://tkdodo.eu/blog/avoiding-use-effect-with-callback-refs)  
 [tabIndex](https://naradesign.github.io/tabindex.html)  

@@ -32,25 +32,25 @@ import { create } from 'zustand';
 
 // Modal이 추가될 때 마다 type 추가
 export type ModalType =
-  | 'typeA'
-  | 'typeB'
-  | 'typeC'
-  | 'typeD'
-  |...
+	| 'typeA'
+	| 'typeB'
+	| 'typeC'
+	| 'typeD'
+	|...
 
 
 interface ModalState {
-  isModalOpen: boolean; // Modal 노출 여부
-  modalType: ModalType; // Modal의 종류
-  actions: {
-    setIsModalOpen: () => void; // Modal 노출 여부 변경
-    setModalType: (formType: ModalType) => void; // 현재 노출되는 Modal 종류 변경
-  };
+	isModalOpen: boolean; // Modal 노출 여부
+	modalType: ModalType; // Modal의 종류
+	actions: {
+		setIsModalOpen: () => void; // Modal 노출 여부 변경
+		setModalType: (formType: ModalType) => void; // 현재 노출되는 Modal 종류 변경
+	};
 }
 
 
 const useModalStore = create<ModalState>((set) => ({
-  ...
+	...
 }));
 
 
@@ -165,18 +165,18 @@ export const useModalActions = () => useModalStore((state) => state.actions);
 ```tsx
 // Modal.tsx
 const Modal = () => {
-  const openedModalList = useOpenedModalList();
-  ...
-  if (openedModalList.length === 0) return null;
+	const openedModalList = useOpenedModalList();
+	...
+	if (openedModalList.length === 0) return null;
 
-  return ReactDOM.createPortal(
-    <div className="bg-modalBg z-wrapper fixed left-0 top-0 h-screen w-screen">
-      {openedModalList.map((modal) => (
-        <div key={modal.id}>{modal.component}</div>
-      ))}
-    </div>,
-    document.body,
-  );
+	return ReactDOM.createPortal(
+		<div className="bg-modalBg z-wrapper fixed left-0 top-0 h-screen w-screen">
+			{openedModalList.map((modal) => (
+				<div key={modal.id}>{modal.component}</div>
+			))}
+		</div>,
+		document.body,
+	);
 };
 
 export default Modal;

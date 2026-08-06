@@ -31,13 +31,13 @@ interface는 사용 불가하고 type alias만 사용 가능하다.
 type CountryList = 'korea' | 'switzerland' | 'england';
 
 type CountryCodeInfo = {
-    [key in CountryList]: number;
+	[key in CountryList]: number;
 };
 
 const countryCodes: CountryCodeInfo = {
-    korea: 1,
-    switzerland: 2,
-    england: 3,
+	korea: 1,
+	switzerland: 2,
+	england: 3,
 };
 ```
 
@@ -47,22 +47,22 @@ interface는 extends 키워드를, type alias는 &(interaction)을 통해 타입
 ```typescript
 // interface
 interface Person {
-   name: string;
-   age: number;
+	name: string;
+	age: number;
 };
 
 interface Developer extends Person {
-   position: 'frontend'
+	position: 'frontend'
 };
 
 // type
 type Person2 = {
-   name: string;
-   age: number;
+	name: string;
+	age: number;
 };
 
 type Developer2 = Person & {
-   position: 'frontend'
+	position: 'frontend'
 };
 ```
 
@@ -71,25 +71,25 @@ type alias는 새로운 속성을 추가하기 위해 type alias을 직접 수�
 
 ```typescript
 interface Person {
-   name: string;
-   age: number;
+	name: string;
+	age: number;
 };
 
 interface Person {
-   height: number;
+	height: number;
 };
 
 // 위에 코드는 결과적으로 아래와 같다.
 interface Person {
-   name: string;
-   age: number;
-   height: number;
+	name: string;
+	age: number;
+	height: number;
 };
 
 const chulsoo: Person = {
-   name: '철수',
-   age: 20,
-   height: 180,
+	name: '철수',
+	age: 20,
+	height: 180,
 };
 ```
 
@@ -98,13 +98,13 @@ type alias는 선언 병합이 불가능하다.
 ```typescript
 // error - Duplicate identifier 'Person'
 type Person = {
-   name: string;
-   age: number;
+	name: string;
+	age: number;
 };
 
 // error - Duplicate identifier 'Person'
 type Person = {
-   height: number;
+	height: number;
 };
 ```
 

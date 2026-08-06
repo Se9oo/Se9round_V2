@@ -22,45 +22,45 @@ export const metadata = {
 // component
 // API 요청 성공시 실행 코드
 const successGetList = (data) => {
-  ...
+	...
 }
 // API 요청 실패시 실행 코드
 const errorGetList = (error) => {
-  ...
+	...
 }
 // 리스트 조회 API 요청
 const getList = async () => {
-  await ListApiService.getList({
-    params,
-    successCallback: successCallbackGetList,
-    errorCallback: errorCallbackGetList,
-  });
+	await ListApiService.getList({
+		params,
+		successCallback: successCallbackGetList,
+		errorCallback: errorCallbackGetList,
+	});
 }
 ```
 ```javascript
 // service
 // 로직 처리 함수
 async getList({ params, successCallback, errorCallback}) {
-  try {
-    const response = await ListApi.getList({ params });
-    // 성공
-    ...
-    successCallback(data);
-    // 실패
-    ...
-    errorCallback();
-  } catch (error) {
-    errorCallback();
-  }
+	try {
+		const response = await ListApi.getList({ params });
+		// 성공
+		...
+		successCallback(data);
+		// 실패
+		...
+		errorCallback();
+	} catch (error) {
+		errorCallback();
+	}
 }
 ```
 ```javascript
 // API
 //API 요청 axios 코드
 const ListApi = {
-  getList: async ({ params }) {
-    return await axios.get(...);
-  }
+	getList: async ({ params }) {
+		return await axios.get(...);
+	}
 }
 ```
 
@@ -73,7 +73,7 @@ const [list, setList] = useState([]);
 
 // API 성공시 받아온 데이터 set
 const successGetList = (data) => {
-  setList(data)
+	setList(data)
 };
 ```
 
@@ -85,14 +85,14 @@ React Query를 도입해보기로 했다.
 아래 코드는 위에 작성한 예시 코드와 동일한 동작을 하는 React Query 코드이다.
 ```javascript
 const { data: listData } = useQuery(['getList'], () => ListApi.getList(), {
-  onSuccess: () => {
-    // API 요청 성공시 실행 코드
-    ...
-  },
-  onError: () => {
-    // API 요청 실패시 실행 코드
-    ...
-  }
+	onSuccess: () => {
+		// API 요청 성공시 실행 코드
+		...
+	},
+	onError: () => {
+		// API 요청 실패시 실행 코드
+		...
+	}
 });
 ```
 기존 service 함수에서 처리했던 로직을 **useQuery** 안에서 처리하게 되면서, 더 이상 service 함수를 별도 파일에 작성하지 않게 됐다.
@@ -102,15 +102,15 @@ const { data: listData } = useQuery(['getList'], () => ListApi.getList(), {
 ### client state와 server state의 분리
 ```tsx
 const List = () => {
-  const { data: listData } = useQuery(...);
+	const { data: listData } = useQuery(...);
 
 
-  return (
-    <>
-      <span>{listData.name}</span>
-      <span>{listData.age}</span>
-    </>
-  )
+	return (
+		<>
+			<span>{listData.name}</span>
+			<span>{listData.age}</span>
+		</>
+	)
 };
 ```
 기존에는 컴포넌트에서 useState로 서버 데이터를 client state처럼 사용하는 형태였는데, 위에 예시 코드처럼 서버 데이터를 React Query로 제어하게 되면서, 컴포넌트에서는 관리가 필요한 state에만 집중할 수 있었다.
@@ -130,9 +130,9 @@ ex)
 // staleTime을 5분으로 설정해서 
 // 동일한 쿼리가 5분 안에 재실행되면 별도 API 호출 없이 캐싱된 데이터를 사용한다.
 const { data } = usQuery(..., {
-  onSuccess: () => { ... },
-  onError: () => { ... },
-  staleTime: 5 * 60 * 1000, // 5분,
+	onSuccess: () => { ... },
+	onError: () => { ... },
+	staleTime: 5 * 60 * 1000, // 5분,
 });
 ```
 
