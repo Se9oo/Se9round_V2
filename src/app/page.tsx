@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
 import MainLayout from '@/components/layout/MainLayout';
 import PostList from '@/components/posts/PostList';
-import { getAllPostMetadataList } from '@/utils/content';
+import { getTechPostMetadataList } from '@/utils/content';
 
 export const metadata: Metadata = {
 	title: 'se9round.dev',
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 const Se9round = async () => {
-	const posts = (await getAllPostMetadataList()).sort((a, b) => b.data.timestamp - a.data.timestamp);
+	const posts = (await getTechPostMetadataList()).sort((a, b) => b.data.timestamp - a.data.timestamp);
 
 	return (
 		<MainLayout>
