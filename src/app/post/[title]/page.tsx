@@ -4,13 +4,13 @@ import type { Metadata } from 'next';
 import MainLayout from '@/components/layout/MainLayout';
 import PostDetail from '@/components/posts/PostDetail';
 import { PostMetaDataType } from '@/types/post';
-import { getTechPostMetadataList, getFileNameBySlug } from '@/utils/content';
+import { getAllPostMetadataList, getFileNameBySlug, importPostModule } from '@/utils/content';
 import { convertSpaceToDash } from '@/utils/format';
 
 export const dynamicParams = false;
 
 export const generateStaticParams = async () => {
-	const posts = await getTechPostMetadataList();
+	const posts = await getAllPostMetadataList();
 	return posts.map((post) => ({
 		title: convertSpaceToDash(post.data.title),
 	}));
@@ -19,10 +19,10 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({ params }: { params: Promise<{ title: string }> }): Promise<Metadata> => {
 	const { title } = await params;
 	const slug = decodeURIComponent(title);
-	const fileName = await getFileNameBySlug(slug);
-	if (!fileName) return {};
+	const found = await getFileNameBySlug(slug);
+	if (!found) return {};
 
-	const mod = await import(`@/content/posts/tech/${fileName}.mdx`);
+	const mod = await importPostModule(found.section, found.fileName);
 	const metaData: PostMetaDataType = mod.metadata;
 
 	return {
@@ -39,10 +39,10 @@ export const generateMetadata = async ({ params }: { params: Promise<{ title: st
 const Post = async ({ params }: { params: Promise<{ title: string }> }) => {
 	const { title } = await params;
 	const slug = decodeURIComponent(title);
-	const fileName = await getFileNameBySlug(slug);
-	if (!fileName) notFound();
+	const found = await getFileNameBySlug(slug);
+	if (!found) notFound();
 
-	const mod = await import(`@/content/posts/tech/${fileName}.mdx`);
+	const mod = await importPostModule(found.section, found.fileName);
 	const Content = mod.default;
 	const metaData: PostMetaDataType = mod.metadata;
 
