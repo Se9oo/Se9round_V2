@@ -1,13 +1,14 @@
 'use client';
 
 import { Dispatch, SetStateAction } from 'react';
-import { useTheme } from 'next-themes';
+import useControlTheme from '@/hooks/useControlTheme';
 import useScrollLock from '@/hooks/useScrollLock';
 import SlideMenuList from './SlideMenuList';
 import CloseIcon from '../icons/CloseIcon';
 
 const SlideMenu = ({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: Dispatch<SetStateAction<boolean>> }) => {
-	const { theme } = useTheme();
+	const { theme, systemTheme } = useControlTheme();
+	const isLight = (theme === 'system' && systemTheme === 'light') || theme === 'light';
 	useScrollLock(isOpen);
 
 	return (
@@ -17,7 +18,7 @@ const SlideMenu = ({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: Dispatch
 			/>
 			<aside
 				className={`fixed top-0 right-0 h-full transition-all ${isOpen ? 'w-[40%]' : 'w-0'} ${
-					theme === 'light' ? 'bg-white' : 'bg-main'
+					isLight ? 'bg-white' : 'bg-main'
 				}`}
 			>
 				{isOpen ? (

@@ -1,14 +1,15 @@
 'use client';
 
 import React from 'react';
-import { useTheme } from 'next-themes';
 import { useParams } from 'next/navigation';
 import { toast } from 'react-toastify';
+import useControlTheme from '@/hooks/useControlTheme';
 import LinkIcon from '../icons/LinkIcon';
 
 const CopyLink = () => {
 	const params = useParams<{ title: string }>();
-	const { theme } = useTheme();
+	const { theme, systemTheme } = useControlTheme();
+	const isLight = (theme === 'system' && systemTheme === 'light') || theme === 'light';
 
 	const handleCopyLink = () => {
 		const copyLink = `${process.env.NEXT_PUBLIC_HOME_URL}/post/${params.title}`;
@@ -22,7 +23,7 @@ const CopyLink = () => {
 			pauseOnHover: false,
 			draggable: true,
 			progress: undefined,
-			theme: theme === 'light' ? 'light' : 'dark',
+			theme: isLight ? 'light' : 'dark',
 		});
 	};
 
