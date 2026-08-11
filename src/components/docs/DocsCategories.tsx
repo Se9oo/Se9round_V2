@@ -66,11 +66,10 @@ const DocsCategories = ({ posts }: { posts: PostFileType[] }) => {
 						<button
 							type="button"
 							onClick={() => navigateTo(seg)}
-							className="group flex w-full items-center justify-between border-l-4 border-transparent
-								px-4 py-4 transition-all hover:border-main hover:text-main"
+							className="group flex w-full items-center justify-between py-4 transition-all hover:border-main
+								hover:text-main"
 						>
 							<span className="flex items-center gap-3">
-								<span className="text-greyCopy group-hover:text-main">📁</span>
 								<span className="text-base font-bold">{seg}</span>
 								<span className="rounded-full bg-greyLight px-2 py-0.5 text-xs text-greyCopy dark:bg-dark">
 									{count}
@@ -85,13 +84,10 @@ const DocsCategories = ({ posts }: { posts: PostFileType[] }) => {
 					<li key={post.fileName}>
 						<Link
 							href={`${PAGE_URLS.POST}/${convertSpaceToDash(post.data.title)}`}
-							className="group flex w-full items-center justify-between border-l-4 border-transparent
-								px-4 py-4 transition-all hover:border-main"
+							className="group flex w-full items-center justify-between py-4 transition-all"
 						>
 							<span className="text-base group-hover:text-main">{post.data.title}</span>
-							<span className="ml-4 shrink-0 text-sm text-greyCopy">
-								{getFormattedDate(post.data.date, 'hyphen')}
-							</span>
+							<span className="ml-4 shrink-0 text-sm text-greyCopy">{getFormattedDate(post.data.date, 'hyphen')}</span>
 						</Link>
 					</li>
 				))}
