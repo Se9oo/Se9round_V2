@@ -7,7 +7,7 @@ import { ToastContainer } from 'react-toastify';
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
 	useEffect(() => {
-		if (!window.Kakao.isInitialized()) {
+		if (window.Kakao && !window.Kakao.isInitialized()) {
 			window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY);
 		}
 	}, []);
