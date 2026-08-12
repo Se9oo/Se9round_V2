@@ -24,7 +24,7 @@ const Utterances = () => {
 			script.setAttribute('issue-term', 'pathname');
 			script.setAttribute('theme', themeMode);
 			script.setAttribute('label', 'blog-comment');
-			script.setAttribute('crossorigin', 'annonymous');
+			script.setAttribute('crossorigin', 'anonymous');
 
 			ref.current?.appendChild(script);
 		}
