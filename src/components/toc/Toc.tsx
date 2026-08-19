@@ -40,7 +40,7 @@ const Toc = () => {
 			headingArray.map((heading) => ({
 				id: heading.id,
 				text: heading.innerHTML,
-				level: heading.getAttribute('level'),
+				level: heading.tagName[1],
 			})),
 		);
 	}, []);
