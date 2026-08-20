@@ -9,7 +9,7 @@ describe('footer', () => {
 		const githubLink = container.querySelector('[data-id="github-link"]');
 		expect(githubLink).toBeInTheDocument();
 
-		const copyright = screen.getByText(new RegExp(`Copyright © ${new Date().getFullYear()} se9oo`));
+		const copyright = screen.getByText(/Copyright © 2022 se9oo/);
 		expect(copyright).toBeInTheDocument();
 
 		const githubProjectLink = screen.getByText('se9round.dev');
