@@ -130,6 +130,24 @@ code {
 	font-family: inherit !important;
 }
 
+/* table style */
+.prose table {
+	@apply block overflow-x-auto border-collapse text-sm;
+}
+
+.prose th,
+.prose td {
+	@apply border border-greyLight px-3 py-2 dark:border-[#3a3f4b];
+}
+
+.prose thead th {
+	@apply bg-[#F8F9FA] font-semibold whitespace-nowrap dark:bg-[#282C34] dark:text-darkText;
+}
+
+.prose td {
+	@apply break-keep;
+}
+
 /* #markdown-wrapper > h2 {
 	font-size: 30px;
 	line-height: 36px;
